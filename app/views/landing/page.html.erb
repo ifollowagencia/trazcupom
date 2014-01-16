@@ -1,0 +1,293 @@
+
+		<!-- ==============================================
+		Header
+		=============================================== -->
+		<section class="header">
+			<div class="container">
+				<div class="row">
+					<div class="span12">
+
+						<!-- ==============================================
+						Logo
+						=============================================== -->
+						<div class="logo float-left">
+							<a href="#top">
+								<%= link_to image_tag('/landing/images/logo01.png'), root_path %>
+							</a>
+						</div>
+						<!-- End Logo 
+						=============================================== -->
+
+						<!-- ==============================================
+						Navigation
+						=============================================== -->
+						<ul class="nav hidden-phone hidden-tablet">
+							<li><a href="#top">Inicio</a></li>
+							<li><a href="#features">Recomendamos</a></li>
+							<li><a href="#plans">Tops</a></li>
+							<li><a href="#testimonials">Quem ja usou</a></li>
+							<li><%= link_to "Anúncie", {:controller => 'landing', :action => 'anuncie'} %></li>
+							<li><%= link_to "Entrar", {:controller => "home", :action => "nearme"}, :style => 'background:#3097be; color:white;' %></li>
+						</ul>
+						<!-- End Navigation 
+						=============================================== -->
+
+						<!-- ==============================================
+						Mobile Navigation
+						=============================================== 
+						<form name="nav" class="float-right">
+				         	<select class="mobile-nav hidden-desktop" data-autogenerate="true"></select>
+				        </form>
+				        End Mobile Navigation 
+						=============================================== -->
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Header 
+		=============================================== -->
+
+		<!-- ==============================================
+		Teaser
+		=============================================== -->
+		<section class="teaser">
+			<div class="container">
+				<div class="row">
+
+					<!-- ==============================================
+					Slider
+					=============================================== -->
+					<div class="span7 offset5">
+						<div class="flexslider">
+						 	<ul class="slides">
+						  	</ul>
+						</div>
+					</div>
+					<!-- End Slider
+					=============================================== -->
+
+				</div>
+			</div>
+		</section>
+		<!-- End Teaser 
+		============================================== -->
+ <div style="width:100%; height:20px; background:#333333;"></div>
+		<!-- ==============================================
+		Intro
+		=============================================== -->
+		<section class="intro white-background">
+			<div class="container">
+				<div class="row">
+
+					<!-- ==============================================
+					Featured Box
+					=============================================== 
+					<div class="span4 featured">	
+						<h2 class="feature-title">Atraia Clientes</h2>
+						<form action="send-mail.php" method="post" id="contact-form">
+							<p>Não perca esta chance de atrair mais clientes para seu estabelecimento!</p>
+							<input type="text" value="Proprietário" name="name" class="required">
+							<input type="text" value="Email" name="email" class="required email">
+							<input type="text" value="Telefone de contato" name="phone">
+							<input type="text" value="Endereço" name="address">
+
+							<input type="submit" name="subscribe" value="Enviar">
+						</form>
+					</div>
+
+					End Featured Box
+					=============================================== -->
+
+					<div class="span7 offset1" style="margin-left:-15px; padding-left:13px;">
+						<h2 class="padding-top">Encontre inúmeros cupons de descontos dos melhores estabelecimentos de sua <span>cidade </span> gratuitamente!</h2>
+						<p>Agora você pode baixar gratuitamente inúmeros cupons de descontos. Pode navegar pelos estabelecimentos, conferir o que seus amigos estão baixando e consumindo!</p>
+						<p>Não perca mais tempo, comece agora mesmo a economizar e consumir produtos e serviços por toda a cidade.
+						Cadastre-se, rápido e facilmente. Convide seus amigos e inicie esta grande jornada de descontos....</p>
+
+					</div>
+						<div style="float:left; padding-top:100px; width:40%; height:250px; padding-left:30px;">
+						<img src="/landing/images/economy.png">
+						</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Intro 
+		============================================== -->
+
+		<!-- ==============================================
+		Features
+		=============================================== -->
+		<section class="features light-gray-background" id="features">
+			<div class="container">
+				<div class="row">
+					<div class="span12">
+						<h2 class="no-margin-bottom">Recomendamos</h2>
+						<hr>
+					</div>
+				</div>
+			<div class="row" id="results">
+
+					<% @rec.each do |establishment_rec| %>
+					<!-- ==============================================
+					First Rec
+					=============================================== -->
+					<div class="span6" style="">
+						<div class="icon-container float-left">
+							<%= image_tag establishment_rec.imageprofile_url(:banner_thumb) %>
+						</div>
+						<p><strong><%= establishment_rec.reason %></strong></p>
+						<p><%= establishment_rec.city.name %></p>
+						<p><u><a href="">Ver perfil do estabelecimento</a></u></p>
+					</div>
+					<!-- End First rec 
+					============================================== -->
+                    <% end %>
+                    <%= paginate @rec %>
+				</div>
+
+			</div>
+		</section>
+		<!-- End Features 
+		============================================== -->
+
+		<!-- ==============================================
+		Hero Section
+		=============================================== -->
+		<section class="color-background hero-section">
+			<div class="container">
+				<div class="row">
+					<div class="span9">
+						<h2 class="no-margin-bottom">Comece a usar agora mesmo o Traz Cupom e aproveite inúmeros cupons de descontos!</h2>
+					</div>
+					<div class="span3">
+
+						<%= link_to "Começar", {:controller => "home", :action => "nearme"}, :class => "button-dark" %>
+						
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Hero Section 
+		============================================== -->
+
+		
+
+		<!-- ==============================================
+		Plans
+		=============================================== -->
+		<section class="white-background plans" id="plans">
+			<div class="container">
+				<div class="row">
+					<div class="span12">
+						<h2 class="no-margin-bottom">Cupons mais baixados</h2>
+						<h4>Reunimos os cupons mais baixados para você.</h4>
+					</div>
+				</div>
+				<div class="row">
+				</div>	
+			</div>
+		</section>
+		<!-- End Plans
+		============================================== -->
+
+		<!-- ==============================================
+		Testimonials
+		=============================================== -->
+		<section class="testimonials gray-background" id="testimonials">
+			<div class="container">
+				<div class="row">
+					<div class="span12">
+						<h2 class="no-margin-bottom">Quem ja usou?</h2>
+						<h4>Veja os depoimentos de quem já está usando o app de cupons gratuitos.</h4>
+					</div>
+
+					<!-- ==============================================
+					First Testimonial
+					=============================================== -->
+					<div class="span4">
+						<div class="bubble">
+							Acho muito bacana a idéia de reunir e disponibilizar inúmeros cupons de descontos. Uso e recomendo o app!
+							
+						</div>
+						<div class="person">
+							<img src="/landing/images/lequeiroz.jpg" width="100" height="100" alt="" class="float-left">
+							<h3 class="no-margin-bottom">Leandro Queiroz</h3>
+							<h4>Estudante de engenharia</h4>
+						</div>
+					</div>
+					<!-- End First Testimonial
+					============================================== -->
+
+					<!-- ==============================================
+					Second Testimonial
+					=============================================== -->
+					<div class="span4">
+						<div class="bubble">
+							Acho muito bacana a idéia de reunir e disponibilizar inúmeros cupons de descontos. Uso e recomendo o app!
+							
+						</div>
+						<div class="person">
+							<img src="/landing/images/lequeiroz.jpg" width="100" height="100" alt="" class="float-left">
+							<h3 class="no-margin-bottom">Leandro Queiroz</h3>
+							<h4>Estudante de engenharia</h4>
+						</div>
+					</div>
+					<!-- End Second Testimonial
+					============================================== -->
+
+					<!-- ==============================================
+					Third Testimonial
+					=============================================== -->
+				<div class="span4">
+						<div class="bubble">
+							Acho muito bacana a idéia de reunir e disponibilizar inúmeros cupons de descontos. Uso e recomendo o app!
+							
+						</div>
+						<div class="person">
+							<img src="/landing/images/lequeiroz.jpg" width="100" height="100" alt="" class="float-left">
+							<h3 class="no-margin-bottom">Leandro Queiroz</h3>
+							<h4>Estudante de engenharia</h4>
+						</div>
+					</div>
+					<!-- End Third Testimonial
+					============================================== -->
+
+				</div>
+			</div>
+		</section>
+		<!-- End Testimonials
+		============================================== -->
+
+		<!-- ==============================================
+		Footer
+		=============================================== -->
+		<section class="footer dark-gray-background">
+			<div class="container">
+				<div class="row">
+					<div class="span6">
+						<p class="no-margin-bottom">iFollow Agência Digital.<br>
+						Rua Dom Aquino, 2045 - sala 03<br>
+						(67) 3025-3547<br>
+						<a href="#">contato@trazcupom.com</a></p>
+						<p><strong><%= link_to 'Área do parceiro', :controller => 'partner', :action => 'login'
+ %></strong></p>			
+					</div>
+					<!-- ==============================================
+					Social
+					=============================================== -->
+					<div class="span6">
+						<ul class="social float-right">
+							<li><a href="#"><i class="icon-google-plus"></i></a></li>
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+						</ul>
+						<p class="no-margin-bottom float-right copyright">Copyright &copy; 2013 <a href="#">Traz Cupom </a>. Todos os direitos reservados</p>
+					</div>
+					<!-- End Social
+					============================================== -->
+				</div>
+			</div>
+		</section>
+		<!-- End Footer
+		============================================== -->

@@ -1,0 +1,49 @@
+<h1>Listing offers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Establishment</th>
+      <th>Product</th>
+      <th>Amount</th>
+      <th>Validity</th>
+      <th>Date</th>
+      <th>Image1</th>
+      <th>Image2</th>
+      <th>Image3</th>
+      <th>Image4</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @offers.each do |offer| %>
+      <tr>
+        <td><%= offer.name %></td>
+        <td><%= offer.description %></td>
+        <td><%= offer.establishment %></td>
+        <td><%= offer.product %></td>
+        <td><%= offer.amount %></td>
+        <td><%= offer.validity %></td>
+        <td><%= offer.date %></td>
+        <td><%= offer.image1 %></td>
+        <td><%= offer.image2 %></td>
+        <td><%= offer.image3 %></td>
+        <td><%= offer.image4 %></td>
+        <td><%= offer.status %></td>
+        <td><%= link_to 'Show', offer %></td>
+        <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
+        <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Offer', new_offer_path %>

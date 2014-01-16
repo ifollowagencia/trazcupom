@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+  <meta charset="utf-8" />
+  <title>Login Parceiro - Traz Cupom</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="" name="description" />
+  <meta content="" name="author" />
+  <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/assets/css/metro.css" rel="stylesheet" />
+  <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <link href="/assets/css/style.css" rel="stylesheet" />
+  <link href="/assets/css/style_responsive.css" rel="stylesheet" />
+  <link href="/assets/css/style_default.css" rel="stylesheet" id="style_color" />
+  <link rel="stylesheet" type="text/css" href="/assets/uniform/css/uniform.default.css" />
+  <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="login">
+  <!-- BEGIN LOGO -->
+  <div class="logo">
+    <%= link_to image_tag('/landing/images/logo01.png'), root_path %>
+  </div>
+  <!-- END LOGO -->
+  <!-- BEGIN LOGIN -->
+  <div class="content">
+  <p style="color:red;"><%= flash[:notice] %></p>
+    <!-- BEGIN LOGIN FORM -->
+    <%= form_tag(login_partner_path) do %>
+      <h3 class="form-title">Acesse sua conta</h3>
+     
+      <div class="control-group">
+        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+        <label class="control-label visible-ie8 visible-ie9">Login(Email)</label>
+        <div class="controls">
+          <div class="input-icon left">
+            <i class="icon-user"></i>
+            <%= text_field_tag(:email) %>
+          
+          </div>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label visible-ie8 visible-ie9">Senha</label>
+        <div class="controls">
+          <div class="input-icon left">
+            <i class="icon-lock"></i>
+            <%= password_field_tag(:password) %>
+            
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+
+        <%= submit_tag 'Login', :class => 'btn green pull-right', :html => '<i class="m-icon-swapright m-icon-white"></i>' %>
+           
+      </div>
+      <div class="forget-password">
+        <h4>Esqueceu sua senha?</h4>
+        <p>
+          Entre em contato com nossa equipe <a href="javascript:;" class="" id="forget-password">aqui</a>
+          e resete sua senha.
+        </p>
+      </div>
+
+    <% end %>
+    <!-- END LOGIN FORM -->        
+   
+  </div>
+  <!-- END LOGIN -->
+  <!-- BEGIN COPYRIGHT -->
+  <div class="copyright" style="color:#000;">
+    2013 &copy; Traz Cupom. Todos os direitos reservados.
+  </div>
+  <!-- END COPYRIGHT -->
+  <!-- BEGIN JAVASCRIPTS -->
+  <script src="/assets/js/jquery-1.8.3.min.js"></script>
+  <script src="/assets/bootstrap/js/bootstrap.min.js"></script>  
+  <script src="/assets/uniform/jquery.uniform.min.js"></script> 
+  <script src="/assets/js/jquery.blockui.js"></script>
+  <script type="text/javascript" src="assets/jquery-validation/dist/jquery.validate.min.js"></script>
+  <script src="/assets/js/app.js"></script>
+  <script>
+    jQuery(document).ready(function() {     
+      App.initLogin();
+    });
+  </script>
+  <!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

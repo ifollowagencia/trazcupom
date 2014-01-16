@@ -1,0 +1,28 @@
+<section id="events" style="background:#f8f8f8;">
+<div class="container" style="background:#333;">
+<!-- section header -->		
+		<div class="header">
+			<h2>Perfil</h2>
+			<p>Aqui voce poderá alterar todos os seus dados de perfil</p>
+		</div>
+
+		<div class="profile">
+			<%= form_for(@user, :url => { :action => "update_password" } ) do |f| %>
+  <div class="field">
+    <%= f.label :password, "Password" , :placeholder => current_user.password %><br />
+    <%= f.password_field :password, :autocomplete => "off"  %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="action_container">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+		</div>
+
+</div>
+
+</section>

@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @establishment.name %>
+</p>
+
+<p>
+  <strong>Surname:</strong>
+  <%= @establishment.surname %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @establishment.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @establishment.email %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @establishment.password %>
+</p>
+
+<p>
+  <strong>Cnpj:</strong>
+  <%= @establishment.cnpj %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @establishment.reason %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @establishment.city.name %>
+</p>
+
+<p>
+  <strong>Plan:</strong>
+  <%= @establishment.plan %>
+</p>
+
+<p>
+  <strong>Imageprofile:</strong>
+  <%= @establishment.imageprofile %>
+</p>
+
+<%= link_to 'Edit', edit_establishment_path(@establishment) %> |
+<%= link_to 'Back', establishments_path %>

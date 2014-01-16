@@ -1,0 +1,31 @@
+<h1>Listing catches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dateinit</th>
+      <th>Dateend</th>
+      <th>Offer</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @catches.each do |catch| %>
+      <tr>
+        <td><%= catch.dateinit %></td>
+        <td><%= catch.dateend %></td>
+        <td><%= catch.offer %></td>
+        <td><%= link_to 'Show', catch %></td>
+        <td><%= link_to 'Edit', edit_catch_path(catch) %></td>
+        <td><%= link_to 'Destroy', catch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Catch', new_catch_path %>

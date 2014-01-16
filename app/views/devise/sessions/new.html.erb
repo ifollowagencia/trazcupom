@@ -1,0 +1,57 @@
+	<div class="logo" style="position:relative;	left:40%; top:10px;">
+		<%= link_to image_tag('/landing/images/logo01.png'), root_path %>
+	</div>
+
+<!-- Box Start-->
+<div id="box_bg">
+
+
+<div id="content">
+	<h1>Conecte-se rapidamente ou crie sua conta</h1>
+	
+	<!-- Social Buttons -->
+	<div class="social">
+	Conecte-se usando as mídias sociais:	<br/>
+	<div class="twitter"><%= link_to "Login com Twitter", user_omniauth_authorize_path(:twitter), :class => 'btn_1' %></div>
+	<div class="fb"><%= link_to "Login com Facebook", user_omniauth_authorize_path(:facebook), :class => 'btn_2' %></div>
+	</div>
+	
+	<!-- Login Fields -->
+	<div id="login">Entrar com sua conta:<br/>
+	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>	
+
+	<%= f.email_field :email, :autofocus => true, :class => "login user", :placeholder => "Seu email" %>
+
+	<%= f.password_field :password, :class => "login password", :placeholder => "Sua senha" %>
+	
+	</div>
+	
+	<!-- Green Button -->
+	<div class="button green"><%= f.submit "Entrar" %></div>
+
+	<!-- Checkbox -->
+	<div class="checkbox">
+	<li>
+	<fieldset>
+	<![if !IE | (gte IE 8)]><legend id="title2" class="desc"></legend><![endif]>
+	<!--[if lt IE 8]><label id="title2" class="desc"></label><![endif]-->
+	<div>
+		<span>
+		
+		<%= f.check_box :remember_me, :class => "field checkbox" %>
+		<label class="choice" for="Field">Manter conectado</label>
+		</span>
+	</div>
+	</fieldset>
+	</li>
+	</div>
+	<% end %>
+</div>
+</div>
+
+<!-- Text Under Box -->
+<div id="bottom_text">
+	<%= link_to "Cadastre-se", new_registration_path(resource_name), :style => "color:white;" %><br/>
+	<%= link_to "Esqueceu sua senha?", new_password_path(resource_name), :style => "color:white;" %>
+</div>
+

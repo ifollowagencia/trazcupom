@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  establishment_id: 
+  product_id: 
+  amount: 1
+  validity: 2014-01-15
+  date: 2014-01-15
+  image1: MyString
+  image2: MyString
+  image3: MyString
+  image4: MyString
+  status: false
+
+two:
+  name: MyString
+  description: MyText
+  establishment_id: 
+  product_id: 
+  amount: 1
+  validity: 2014-01-15
+  date: 2014-01-15
+  image1: MyString
+  image2: MyString
+  image3: MyString
+  image4: MyString
+  status: false

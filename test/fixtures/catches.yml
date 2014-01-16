@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  dateinit: 2014-01-15
+  dateend: 2014-01-15
+  offer_id: 
+
+two:
+  dateinit: 2014-01-15
+  dateend: 2014-01-15
+  offer_id: 
