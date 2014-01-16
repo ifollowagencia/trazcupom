@@ -71,3 +71,8 @@ gem 'will_paginate', '~> 3.0'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'kaminari'
+
+group :production do
+   gem 'rails_12factor'
+   gem 'pgsql'
+ end
