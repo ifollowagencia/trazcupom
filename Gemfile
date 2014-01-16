@@ -73,7 +73,7 @@ gem 'will_paginate', '~> 3.0'
 
 gem 'rails_12factor'
 
-gem 'pg', '~> 0.17.1'
+gem 'pg'
 
 gem 'kaminari'
 
