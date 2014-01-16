@@ -73,11 +73,11 @@ gem 'will_paginate', '~> 3.0'
 
 gem 'rails_12factor'
 
-gem "pg", "~> 0.17.1"
+gem 'pg', '~> 0.17.1'
 
 gem 'kaminari'
 
 group :production do
-   gem 'rails_12factor'
+   
    gem 'pgsql'
  end
