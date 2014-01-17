@@ -54,7 +54,8 @@
 	<div class="main-nav">
 	<ul  class="perfil">
 	<li>
-	<%= link_to(current_user.name, :controller => 'user', :action => 'profile') %>
+	<% name = current_user.name %>
+	<%= link_to name, :controller => 'user', :action => 'profile' %>
 	<ul>
 			<li><%= link_to('Perfil', :controller => 'user', :action => 'profile') %></li>
             <li><a href="#">Meus Cupons</a></li>
