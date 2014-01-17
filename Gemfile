@@ -74,3 +74,6 @@ gem 'will_paginate', '~> 3.0'
 
 gem 'kaminari'
 
+gem 'rails_12factor', group: :production
+
+gem 'pg'
