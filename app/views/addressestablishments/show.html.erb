@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @addressestablishment.address %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @addressestablishment.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @addressestablishment.longitude %>
+</p>
+
+<p>
+  <strong>Establishment:</strong>
+  <%= @addressestablishment.establishment %>
+</p>
+
+<%= link_to 'Edit', edit_addressestablishment_path(@addressestablishment) %> |
+<%= link_to 'Back', addressestablishments_path %>
+
+
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@addressestablishment.latitude}%2C#{@addressestablishment.longitude}" %>
+
+<h3>Nearby locations</h3>
+<ul>
+<% for location in @addressestablishment.nearbys(10) %>
+  <li><%= link_to location.address, location %> (<%= location.distance.round(2) %> miles)</li>
+<% end %>
+</ul>

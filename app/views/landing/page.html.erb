@@ -58,12 +58,25 @@
 					<!-- ==============================================
 					Slider
 					=============================================== -->
-					<div class="span7 offset5">
-						<div class="flexslider">
+					<div class="span7 offset5" style="margin-top:100px; margin-left:0px; height:250px; background:#000; opacity:0.65; -moz-opacity: 0.65; filter: alpha(opacity=65); border-radius:10px; padding:30px;">
+						<!--<div class="flexslider">
 						 	<ul class="slides">
 						  	</ul>
+						</div>-->
+
+						<h1 style="color:#fff; font-weight:bold;">
+							Conheça o Traz Cupom! <%= @location %>
+						</h1><br />
+						<h5 style="font-weight:bold; color:#fff;">Pegue cupons de descontos gratuitos dos melhores estabelecimentos de sua cidade sem pagar nada por isso.</h5><br />
+						<div style="float:left; width:90%;">
+						<%= collection_select(:establishment, :city_id, City.all, :id, :name, :prompt => 'Selecione sua cidade', :class => 'city') %>
+						</div>
+						<div class="plan-row button-row" >
+						<%= link_to "Entrar", {:controller => "home", :action => "nearme"}, :style => 'background:#01334e; color:white;' %>
 						</div>
 					</div>
+
+					<div style="width:542px; height:383px;position:absolute; margin-left:500px; margin-top:120px; background: url('/landing/images/mobiletraz.png') no-repeat;"></div>
 					<!-- End Slider
 					=============================================== -->
 
@@ -72,7 +85,7 @@
 		</section>
 		<!-- End Teaser 
 		============================================== -->
- <div style="width:100%; height:20px; background:#333333;"></div>
+ <div style="width:100%; height:6px; background:#01334e;"></div>
 		<!-- ==============================================
 		Intro
 		=============================================== -->
@@ -138,7 +151,7 @@
 						</div>
 						<p><strong><%= establishment_rec.reason %></strong></p>
 						<p><%= establishment_rec.city.name %></p>
-						<p><u><a href="">Ver perfil do estabelecimento</a></u></p>
+						<p><u><%= link_to 'Ver perfil do estabelecimento', establishment_rec %></u></p>
 					</div>
 					<!-- End First rec 
 					============================================== -->

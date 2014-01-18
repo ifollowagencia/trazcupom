@@ -1,0 +1,33 @@
+<%= form_for(@addressestablishment) do |f| %>
+  <% if @addressestablishment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@addressestablishment.errors.count, "error") %> prohibited this addressestablishment from being saved:</h2>
+
+      <ul>
+      <% @addressestablishment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :establishment %><br>
+    <%= collection_select(:addressestablishment, :establishment_id, Establishment.all, :id, :reason, :prompt => 'selecione o estabelecimento') %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

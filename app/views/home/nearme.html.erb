@@ -61,8 +61,8 @@
 		<% @estabs.each do |estab|%>
 			<div class="track">
 				<div class="sm2-visualization">	
-					<div class="ui360 ui360-vis">
-						<%= image_tag estab.imageprofile_url(:banner_thumb) %>
+					<div class="teste" style="background:#fff;">
+						<%= link_to(image_tag(estab.imageprofile_url(:banner_thumb)), estab) %>
 					</div>
 				</div>
 				<div class="up"><i class="icon-caret-up"></i></div>

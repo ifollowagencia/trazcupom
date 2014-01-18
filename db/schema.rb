@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140116010337) do
+ActiveRecord::Schema.define(version: 20140118172336) do
+
+  create_table "addressestablishments", force: true do |t|
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "establishment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "addressestablishments", ["establishment_id"], name: "index_addressestablishments_on_establishment_id", using: :btree
 
   create_table "catches", force: true do |t|
     t.date     "dateinit"
@@ -34,7 +45,21 @@ ActiveRecord::Schema.define(version: 20140116010337) do
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
   end
+
+  create_table "commentestabs", force: true do |t|
+    t.text     "comment"
+    t.integer  "establishment_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "commentestabs", ["establishment_id"], name: "index_commentestabs_on_establishment_id", using: :btree
+  add_index "commentestabs", ["user_id"], name: "index_commentestabs_on_user_id", using: :btree
 
   create_table "establishments", force: true do |t|
     t.string   "name"
@@ -51,11 +76,35 @@ ActiveRecord::Schema.define(version: 20140116010337) do
     t.datetime "updated_at"
     t.integer  "category_id"
     t.string   "adress"
+    t.string   "site"
+    t.text     "description"
+    t.string   "facebook"
+    t.string   "twitter"
   end
 
   add_index "establishments", ["category_id"], name: "index_establishments_on_category_id", using: :btree
   add_index "establishments", ["city_id"], name: "index_establishments_on_city_id", using: :btree
   add_index "establishments", ["plan_id"], name: "index_establishments_on_plan_id", using: :btree
+
+  create_table "likeestablishments", force: true do |t|
+    t.integer  "count"
+    t.integer  "establishment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "likeestablishments", ["establishment_id"], name: "index_likeestablishments_on_establishment_id", using: :btree
+  add_index "likeestablishments", ["user_id"], name: "index_likeestablishments_on_user_id", using: :btree
+
+  create_table "locationestablishments", force: true do |t|
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "establishment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "notes", force: true do |t|
     t.text     "description"

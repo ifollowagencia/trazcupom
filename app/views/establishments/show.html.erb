@@ -1,54 +1,76 @@
-<p id="notice"><%= notice %></p>
+<section id="events" style="background:#f8f8f8; margin-top:">
+<div class="container" style="background:#dfdfdf; margin-top:-100px;">
+<!-- section header -->   
+    <div  style=" width:300px; margin-top:30px; margin-left:30px; height:280px; box-shadow: 5px 5px 5px #000;">
+      <%= image_tag @establishment.imageprofile_url(:banner_thumb) %>
+    </div>
+    <div style="width:70%; float:right; margin-top:-280px;">
+    <h1 style="font-weight:bold; padding-left:40px; color:#01334e; "><%= @establishment.reason %></h1>
+    <h5 style="padding-left:40px;"> <%= link_to @establishment.site %> </h5>
+ 
+    <blockquote style="color:#000;"> <%= @establishment.description %> </blockquote>
 
-<p>
-  <strong>Name:</strong>
-  <%= @establishment.name %>
-</p>
+    <div style="width:50px; height:50px; margin-left:40px;">
+      <%= link_to image_tag('/home/images/facebookbutom.png'), @establishment.facebook %>
+    </div>
+    <div style="width:46px; height:46px; margin-left:90px; margin-top:-48px;">
+      <%= link_to image_tag('/home/images/twitterbutom.png'), @establishment.twitter %>
+    </div>
+    <div style="width:186px; color:#000; height:46px; margin-left:150px; margin-top:-48px;">
+      <%= 
+       image_tag('/home/images/callbutom.png', :style => 'width:46px;')
 
-<p>
-  <strong>Surname:</strong>
-  <%= @establishment.surname %>
-</p>
+       %>
+       <%= phone_number_link @establishment.phone %>
+    </div>
+    <div style="width:286px; color:#000; height:46px; margin-left:350px; margin-top:-48px;">
+      <%= 
+       params[:estabelecimento] = @establishment.id
+       link_to image_tag('/home/images/likebutom.png', :style => 'width:46px;'), :action => "likeestab", :estab => params[:estabelecimento]
 
-<p>
-  <strong>Phone:</strong>
-  <%= @establishment.phone %>
-</p>
+       %>
+      <%= @likes %> Curtiram este estabelecimento.
+    </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @establishment.email %>
-</p>
+    </div>
+    <h3 style="color:#01334e; margin-left:40px; margin-top:30px;">Onde encontrar: </h3>
+    <div style="width:600px; height:360px;  margin-left: 40px; margin-top:40px; box-shadow: 5px 5px 5px #000;">
 
-<p>
-  <strong>Password:</strong>
-  <%= @establishment.password %>
-</p>
+      <%= image_tag "http://maps.google.com/maps/api/staticmap?size=800x400&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}" %>
+      
+    </div>
+    <div style="float:right; width:300px; height:380px;  margin-top:-380px; margin-right:180px; ">
+           <p style="color:#01334e; margin-left:40px; margin-top:30px;">Endereço:<%= @location.address %> </p>
+           
+           <p style="color:#01334e; margin-left:40px; margin-top:30px;">E-mail: <%= @establishment.email %> </p>
+           <p style="color:#01334e; margin-left:40px; margin-top:30px;">Contato: <%= @establishment.name + " " + @establishment.surname %> </p>
+      </div>
+    <br>
+ <hr />
 
-<p>
-  <strong>Cnpj:</strong>
-  <%= @establishment.cnpj %>
-</p>
+<h1 style="font-weight:bold; padding-left:40px; color:#01334e; "><%= " Cupons ativos de  "+ @establishment.reason %></h1>
 
-<p>
-  <strong>Reason:</strong>
-  <%= @establishment.reason %>
-</p>
+<hr />
+<h1 style="font-weight:bold; padding-left:40px; color:#01334e; "><%= " 
+Fotos de "+ @establishment.reason %></h1>
 
-<p>
-  <strong>City:</strong>
-  <%= @establishment.city.name %>
-</p>
+<hr />
+<h1 style="font-weight:bold; padding-left:40px; color:#01334e; "><%= " 
+Catalogo de "+ @establishment.reason %></h1>
 
-<p>
-  <strong>Plan:</strong>
-  <%= @establishment.plan %>
-</p>
+<hr />
+<h1 style="font-weight:bold; padding-left:40px; color:#01334e; ">Comentários 
+</h1>
+<div style="background:#ddd; width: 90%; margin-left:40px; padding:40px; margin-bottom:30px;">
 
-<p>
-  <strong>Imageprofile:</strong>
-  <%= @establishment.imageprofile %>
-</p>
+<% @comments.each do |comment| %>
 
-<%= link_to 'Edit', edit_establishment_path(@establishment) %> |
-<%= link_to 'Back', establishments_path %>
+<blockquote>
+  <%= comment.comment %>
+</blockquote>
+<spam style="color:#01334e; margin-left:40px;">Por: <%= comment.user.name  %></spam>
+<hr />
+<% end %>  
+
+</div>
+</section>

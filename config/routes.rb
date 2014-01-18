@@ -1,5 +1,13 @@
 Trazcupom::Application.routes.draw do
   
+  resources :commentestabs
+
+  resources :likeestablishments
+
+  resources :addressestablishments
+
+  resources :locationestablishments
+  
   resources :catches
 
   resources :notes
@@ -14,6 +22,7 @@ Trazcupom::Application.routes.draw do
   resources :categories
 
   get "partner/login"
+    get "establishments/likeestab"
   get "landing/anuncie"
 
   get  'user/update_password'

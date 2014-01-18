@@ -12,12 +12,16 @@ class LandingController < ApplicationController
     #resolvido
     @rec = Establishment.paginate(:page => params[:page]) # replaces Post.all
     
+    @location = getlocation
     #link parceiros
 
    # @link_area_parceiros = link_to 'Área do parceiro', :controller => 'establishments', :action => 'new'
 
   end
-
+ 
+  def getlocation
+    result = request.location.ip
+  end
 
 
   def recomendamos

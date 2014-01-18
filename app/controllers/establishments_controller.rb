@@ -7,9 +7,36 @@ class EstablishmentsController < ApplicationController
     @establishments = Establishment.all
   end
 
+  def countlike(estab)
+    
+    puts estab
+    @likes = Likeestablishment.where(:establishment_id => estab).count
+  end
+
+  def likeestab
+    
+
+    @likeestablishment = Likeestablishment.new(:establishment_id => params[:estab])
+    @establishment = params[:estab]
+    
+      if @likeestablishment.save
+      redirect_to :back
+      end
+    redirect_to :back
+  end
   # GET /establishments/1
   # GET /establishments/1.json
   def show
+    if user_signed_in?
+
+     @address = Addressestablishment.where("establishment_id = ?", params[:id])
+     @location = Addressestablishment.find(@address)
+
+     @likes = countlike(params[:id])
+     @comments = Commentestab.where("establishment_id = ?", params[:id])
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   # GET /establishments/new

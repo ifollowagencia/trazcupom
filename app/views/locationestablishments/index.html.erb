@@ -1,0 +1,29 @@
+<%= form_tag locationestablishment_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search Near", :name => nil %>
+  </p>
+<% end %>
+<% title "Locationestablishments" %>
+
+<table>
+  <tr>
+    <th>Address</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Establishment</th>
+  </tr>
+  <% for locationestablishment in @locationestablishments %>
+    <tr>
+      <td><%= locationestablishment.address %></td>
+      <td><%= locationestablishment.latitude %></td>
+      <td><%= locationestablishment.longitude %></td>
+      <td><%= locationestablishment.establishment %></td>
+      <td><%= link_to "Show", locationestablishment %></td>
+      <td><%= link_to "Edit", edit_locationestablishment_path(locationestablishment) %></td>
+      <td><%= link_to "Destroy", locationestablishment, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Locationestablishment", new_locationestablishment_path %></p>

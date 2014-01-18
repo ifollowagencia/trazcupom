@@ -1,0 +1,33 @@
+
+<p>
+  <strong>Address:</strong>
+  <%= @locationestablishment.address %>
+</p>
+<p>
+  <strong>Latitude:</strong>
+  <%= @locationestablishment.latitude %>
+</p>
+<p>
+  <strong>Longitude:</strong>
+  <%= @locationestablishment.longitude %>
+</p>
+<p>
+  <strong>Establishment:</strong>
+  <%= @locationestablishment.establishment %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_locationestablishment_path(@locationestablishment) %> |
+  <%= link_to "Destroy", @locationestablishment, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", locationestablishments_path %>
+</p>
+
+
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@locationestablishment.latitude}%2C#{@locationestablishment.longitude}" %>
+
+<h3>Nearby locations</h3>
+<ul>
+<% for location in @locationestablishment.nearbys(10) %>
+  <li><%= link_to location.address, location %> (<%= location.distance.round(2) %> miles)</li>
+<% end %>
+</ul>

@@ -29,6 +29,16 @@ test:
   password: rub32912289 
   socket: /var/run/mysqld/mysqld.sock
 
+#test:
+#  adapter: mysql2
+#  encoding: utf8
+#  database: trazcupom_test
+#  pool: 5
+#  username: root
+#  password: rub32912289 
+#  socket: /var/run/mysqld/mysqld.sock
+
+
 production:
   adapter: postgresql
   encoding: unicode

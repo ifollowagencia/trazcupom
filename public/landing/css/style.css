@@ -377,7 +377,7 @@ body.fixed-nav .teasera {
 
 }
 .teaser {
-	background: url('../images/sl1.png') no-repeat center center;
+	background: url('../images/teaser.jpg') no-repeat center center;
 }
 
 .teasera {
@@ -389,6 +389,9 @@ body.fixed-nav .teasera {
 	margin-top: 100px;
 	margin-bottom: 40px;
 }
+
+#establishment_city_id{ width: 504px; height: 40px; border-radius: 0;}
+#establishment_city_id option{ color: white; height: 40px; border-radius: 0; background: #01334e;}
 
 .teaser .text-container h1 {
 	color: #3097be;
