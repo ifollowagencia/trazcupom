@@ -221,7 +221,6 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-twitter
   pageless-rails!
-  pg
   rails (= 4.0.0)
   rails_12factor
   sass-rails (~> 4.0.0)
