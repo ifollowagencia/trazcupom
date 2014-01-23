@@ -1,5 +1,5 @@
 require 'capistrano-unicorn'
-require 'capistrano-nginx-unicorn'
+
 
 set :application, '162.243.115.252'
 
@@ -17,7 +17,9 @@ set :deploy_to, '/var/www/trazcupom'
 
 set :current, "#{deploy_to}/current"
 
-set :user, 'root'
+set :user, "root"
+
+set :use_sudo, false
 
 # Minhas configurações do Unicorn
 # comando para execução do unicorn

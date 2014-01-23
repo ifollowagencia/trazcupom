@@ -74,7 +74,6 @@ gem 'capistrano'
 
 gem 'unicorn'
 
-gem 'capistrano-nginx-unicorn', require: false, group: :development
 
 gem 'pageless-rails', github: 'rorlab/pageless-rails'
 
