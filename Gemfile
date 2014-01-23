@@ -56,9 +56,9 @@ gem 'mini_magick'
 
 gem 'lazybox'
 
-gem 'will_paginate', '~> 3.0'
+gem "will_paginate", "~> 3.0.2"
 
-gem 'kaminari'
+gem 'will_paginate_renderers'
 
 gem 'rails_12factor', group: :production
 
@@ -68,4 +68,6 @@ gem "nifty-generators", :group => :development
 
 gem 'geocoder'
 
-gem "mocha", group: :test
+
+gem 'pageless-rails', github: 'rorlab/pageless-rails'
+

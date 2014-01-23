@@ -10,6 +10,56 @@ class OffersController < ApplicationController
   # GET /offers/1
   # GET /offers/1.json
   def show
+    if user_signed_in?
+
+      #pegar o produto anunciado nessa oferta
+      @product = getproduct(@offer.product.id)
+
+      @oldprice = @product.price
+
+      @youngprice = @offer.priceproduct
+
+      # Algoritmo para calcular a porcentagem de desconto , na verdade calcular uma porcentagem mais veloz
+
+      @mult = (@youngprice * 100.0) / @oldprice
+
+      @div = @mult / @oldprice
+
+      
+
+      @porcentagem = 100.0 - @mult
+
+      # finalizado algoritmo para calcular o disconto total no produto
+
+      # printando no mapa o endereço do estabelecimento
+      @address = Addressestablishment.where("establishment_id = ?", @offer.establishment_id)
+      @location = Addressestablishment.find(@address)
+
+      #notes
+      @note = Note.where("offer_id = ?", @offer)
+      @rule = Rule.where("offer_id = ?", @offer)
+
+    else
+      redirect_to new_user_session_path
+
+    end # validando usuario logado para visualizar cupom
+  end
+
+
+  def getproduct(idproduct)
+      @product = Product.find(idproduct)
+  end
+
+
+    
+  
+
+  def calcdiscount
+
+    
+    
+
+
   end
 
   # GET /offers/new
@@ -69,6 +119,6 @@ class OffersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      params.require(:offer).permit(:name, :description, :establishment_id, :product_id, :amount, :validity, :date, :image1, :image2, :image3, :image4, :status)
+      params.require(:offer).permit(:name, :description, :establishment_id, :product_id, :amount, :validity, :date, :image1, :image2, :image3, :image4, :status, :priceproduct)
     end
 end

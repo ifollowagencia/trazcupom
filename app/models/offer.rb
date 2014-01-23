@@ -1,5 +1,9 @@
 class Offer < ActiveRecord::Base
 
+
+  
+  
+
   mount_uploader :image1, EstablishmentUploader	
   mount_uploader :image2, EstablishmentUploader	
   mount_uploader :image3, EstablishmentUploader	

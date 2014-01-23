@@ -1,5 +1,8 @@
 Trazcupom::Application.routes.draw do
   
+  get "coming/soon"
+  resources :categoryestablishments
+
   resources :commentestabs
 
   resources :likeestablishments

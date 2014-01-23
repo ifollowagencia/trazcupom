@@ -207,7 +207,8 @@ section .header h2{
     padding-bottom: 10px;
     margin-bottom: 24px;
     background-color: #FFFFFF;
-    color: #3D5054;    
+    color: #3D5054; 
+    min-height: 227px;   
 }
 .econtainer{
     padding: 10px;
@@ -495,14 +496,16 @@ article .info {
 }
 .gmap{
     height: 500px;
+    
 }
 
 .contact {
-    background:none repeat scroll 0 0 rgba(255, 255, 255, 0.60);
+    background:none repeat scroll 0 0 #000;
     height: 400px;
     position: absolute;
     z-index: 2;
     text-align: center;
+
 }
 .contact .pinico{
     margin-top: 50px;

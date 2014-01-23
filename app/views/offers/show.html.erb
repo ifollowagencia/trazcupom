@@ -1,64 +1,116 @@
-<p id="notice"><%= notice %></p>
+<section id="events" style="background:#f8f8f8;  ">
+<div class="container" style="background:#dfdfdf; margin-top:-100px; border:1px solid #ccc;">
 
-<p>
-  <strong>Name:</strong>
-  <%= @offer.name %>
-</p>
+<div style="width:250px; height:140px;  margin-left:-23px; background:#01334e; padding:15px; background:url('/landing/images/backdeal.png')">
+<!--Div topo offer-->  
+ <center><h1 style="text-weight:bold;"><%= number_to_percentage(@mult, precision: 0) %> OFF</h1></center>
+ <h6 style="color:#ccc;">De: <strike><%= number_to_currency(@oldprice, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "R$") %></strike> </h6>
 
-<p>
-  <strong>Description:</strong>
-  <%= @offer.description %>
-</p>
+ <h6 style="color:#fff; font-weight:bold; ">Por:<%= number_to_currency(@youngprice, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "R$") %> </h6>
+</div>
+ <div style="width:70%; height: 130px; margin-left:250px; margin-top:-100px;">
+   
+   <h1 style="color:#01334e; "><%= @offer.name %></h1>
+   <p style="color:#01334e;">Aproveite o desconto até: <%= @offer.validity.strftime(" %m de %b  de %Y ") %>&nbsp;&nbsp;&nbsp; </p>
+    
+   <%= link_to "Pegar cupom", {:controller => "home", :action => "nearme"}, :style => 'background:#01334e; color:white; width:200px; height:50px; float:right; margin-top:-50px; padding-left:50px; padding-top:15px;' %><br />
+  
+ </div> 
 
-<p>
-  <strong>Establishment:</strong>
-  <%= @offer.establishment %>
-</p>
+ <div style="width:540px; min-height:620px; background:#f8f8f8; padding-bottom:10px; margin-left:40px; border:1px solid #ccc;" >
+  <!-- Slide de fotos da oferta --> 
 
-<p>
-  <strong>Product:</strong>
-  <%= @offer.product %>
-</p>
+        <div class="imagem">
+             <%= image_tag @offer.image1_url(:giga) %>
+        </div>
+        <div class="clear"></div>
+        <div class="thumbs">
+            <%= image_tag @offer.image2_url(:giga) %> 
+            <%= image_tag @offer.image3_url(:giga) %>
+            <%= image_tag @offer.image4_url(:giga) %>
+        </div>
+        <br />
+        <p style="padding:30px; color:#000;"><%= @offer.description %></p>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @offer.amount %>
-</p>
+ </div>
+ <div style="width:520px; height:620px; background:#f8f8f8; margin-right:40px;  float:right; margin-top: -620px; border:1px solid #ccc;" >
+ <h1 style="width:100%; height:60px; background:#01334e; margin-top:0; text-align:center; padding:10px;"> <%= @offer.establishment.reason %> </h1>
 
-<p>
-  <strong>Validity:</strong>
-  <%= @offer.validity %>
-</p>
+ <div style=" width:140px; height:140px; margin-left:37%; border:3px solid #01334e; background:#01334e;">
+   <%= image_tag(@offer.establishment.imageprofile_url(:banner_thumb)) %>
+ </div>
+ <div style="width:100%; height:200px; padding:40px;">
 
-<p>
-  <strong>Date:</strong>
-  <%= @offer.date %>
-</p>
+   <p style="color:#888; text-align:center;"><i class="icon-large icon-th"><% 
+    a =  @offer.establishment.categoryestablishment_id 
+    @name = Categoryestablishment.find(a)
+   %>
+   <%= @name.name %></i>
+   </p>
 
-<p>
-  <strong>Image1:</strong>
-  <%= @offer.image1 %>
-</p>
+ </div>
 
-<p>
-  <strong>Image2:</strong>
-  <%= @offer.image2 %>
-</p>
+ </div>
+<br />
+<br />
+<div class="TabControl">
+ <div id="header">
+  <ul class="abas"> 
+  <li> 
+  <div class="aba"> 
+  <span>Condições de uso</span> 
+  </div> 
+  </li> 
+  <li> 
+  <div class="aba"> 
+  <span>Notas</span> 
+  </div> 
+  </li> 
+  <li> 
+  <div class="aba"> 
+  <span>Mapa</span> 
+  </div> 
+  </li> 
 
-<p>
-  <strong>Image3:</strong>
-  <%= @offer.image3 %>
-</p>
+  </ul> 
+  </div> 
+  <div id="content"> 
+  <div class="conteudo"  style="margin-left40px; padding-left:50px;"> 
+ <h1 style="color:#000; font-weight:bold; margin-left40px;">Condições de uso</h1>
+  <p style="color:#01334e; text-align: justify; width:100%; margin-left40px; margin-bottom:30px;">
 
-<p>
-  <strong>Image4:</strong>
-  <%= @offer.image4 %>
-</p>
+    <% @rule.each do |rule| %>
+      <%= rule.description %>
+    <% end %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @offer.status %>
-</p>
+ </div> 
+  <div class="conteudo" style="padding-left:50px;"> 
+  <h1 style="color:#000; font-weight:bold;">Notas</h1>
+  <p style="color:#01334e;">
 
-<%= link_to 'Edit', edit_offer_path(@offer) %> |
-<%= link_to 'Back', offers_path %>
+    <% @note.each do |note| %>
+      <%= note.description %>
+    <% end %>
+  </p>
+  </div> 
+  <div class="conteudo" style="width:100%; background:#fff; display:none; height:400px; color:#fff; "> 
+
+   <%= image_tag "http://maps.google.com/maps/api/staticmap?size=800x400&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}", :style => 'width:100%; height:100%;' %>
+
+ </div> 
+
+  </div> 
+  </div>
+
+
+
+<br />
+<br />
+<br />
+
+</div>
+</section>
+
+
+

@@ -1,6 +1,5 @@
-
 <!-- event -->
-<section id="events" style="background:black; ">
+<section id="events" style="background:black; " class="cupons">
 	<div class="container">
 <!-- section header -->		
 		<div class="header">
@@ -11,29 +10,16 @@
 <!-- event blocks -->
 		<div class="row">
 
+		<div id="cupons">
+		 	<%= render 'cupons' %>
 
-		<% @cupons.each do |cupom| %>
+		 </div>
+		 <div id="carregando"><center><img src='/home/images/loading.gif' width='24' height='24' /></center></div>
+		 <div id="append_and_paginate">
+		<center><%= will_paginate @cupons, :renderer => WillPaginateRenderers::Twitter %></center>
+		</div>
 
-			<div class="span4 eblock">
-				<div class="econtainer">
-					<div class="ehalf">
-						<%= image_tag cupom.image1_url(:banner_thumb) %>
-					</div>
-					<div class="ehalf">
-						<h3><a href="#"><%= cupom.establishment.reason %></a></h3>
-						<i class="icon-map-marker"><span><%= cupom.establishment.adress %></span></i>
-						<br />
-						<i class="icon-home"><span><%= cupom.establishment.city.name %></span></i><br />
-						<i class="icon-time"><span><%= cupom.validity.strftime('%d/%m/%y') %></span></i><br />
-						<div class="date">
-							<span class="day"></span>
-							<span class="week">pegar</span>
-						</div>						
-					</div>
-				</div>
-			</div>
 
-			<% end %>
 	
 		</div>
 <!-- event blocks end -->
@@ -43,7 +29,7 @@
 <!-- event end -->
 
 <!-- Audios -->
-<section id="audio" class="audios" style="background:#6b809b;">
+<section id="audio" class="audios" style="background:#6b809b; padding-left:40px;">
 	<div class="container">
 <!-- section header -->		
 		<div class="header">
@@ -264,7 +250,7 @@
 <!-- Shops end-->
 
 <!-- Contact -->
-<section id="map" style="background:#3097be;">
+<section id="map" style="background:#000;">
 	<div class="container">
 <!-- section header -->		
 		<div class="header">
@@ -276,20 +262,18 @@
 		<div class="row">
 			<ul class="socialnetwork">
 							<li><a href="#" data-placement="top" data-toggle="tooltip" title="Twitter"><i class="mt-twitter"></i></a></li>
-							<li><a href="#" data-placement="top" data-toggle="tooltip" title="Google plus"><i class="mt-google-plus"></i></a></li>
-							<li><a href="#" data-placement="top" data-toggle="tooltip" title="Soundcloud"><i class="mt-soundcloud"></i></a></li>
+							
 							<li><a href="#" data-placement="top" data-toggle="tooltip" title="Facebook"><i class="mt-facebook"></i></a></li>						
-							<li><a href="#" data-placement="top" data-toggle="tooltip" title="Flickr"><i class="mt-flickr-2"></i></a></li>					
+											
 							<li><a href="#" data-placement="top" data-toggle="tooltip" title="Instagram"><i class="mt-instagram"></i></a></li>
-							<li><a href="#" data-placement="top" data-toggle="tooltip" title="Last fm"><i class="mt-lastfm"></i></a></li>
-							<li><a href="#" data-placement="top" data-toggle="tooltip" title="pinterest"><i class="mt-pinterest-2"></i></a></li>
+							
 							<li><a href="#" data-placement="top" data-toggle="tooltip" title="youtube"><i class="mt-youtube"></i></a></li>			
 			</ul>
 		</div>
 	</div>
 	<div class="container-fluid">
-		<div class="span4 contact">
-		      <p class="pinico"><img src="/home/img/location1.png" alt="Pin Location"></p>
+		<div class="span4 contact" style="margin-top:50px;">
+		      <p class="pinico"><img src="/home/images/location.png" width="49" height="65" alt="Pin Location"></p>
 		        <h4>Valley Pub</h4>
 		        <p>Av Afonso Pena <br>Campo Grande, Mato Grosso do Sul</p>
 		        <p>(67) 3333-3333 <br>(67) 8228-9999</p>

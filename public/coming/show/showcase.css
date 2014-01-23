@@ -1,0 +1,56 @@
+body{
+	background-color:#ececea;
+}
+#container{
+	width:1416px;
+	display:block;
+	height:100%;
+	margin:auto;
+	background-color:#ececea;
+}
+#logo{
+	width:1416px;
+	display:block;
+	height:172px;
+	background-image:url(logo.jpg);
+	background-position:center;
+	background-repeat:no-repeat;
+	margin:auto;
+}
+#center{
+	display:block;
+	width:1160px;
+	margin:auto;
+	height:460px;
+}
+#l-mac{
+	float:left;
+	transition-property:opacity .3s linear;
+	-moz-transition:opacity .3s linear;
+	-webkit-transition:opacity .3s linear;
+	-o-transition:opacity .3s linear;
+}
+#r-mac{
+	float:left;
+	transition-property:opacity .3s linear;
+	-moz-transition:opacity .3s linear;
+	-webkit-transition:opacity .3s linear;
+	-o-transition:opacity .3s linear;
+}
+#l-mac:hover{
+	opacity:0.6;
+}
+#r-mac:hover{
+	opacity:0.6;
+}
+#features{
+	float:left;
+}
+#copyright{
+	background-image:url(copyright.jpg);
+	width:1137px;
+	height:53px;
+	margin:auto;
+	margin-top:50px;
+	display:block;
+}

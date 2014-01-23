@@ -47,6 +47,10 @@ class OfferUploader < CarrierWave::Uploader::Base
      process :resize_to_fill => [300, 300]
    end
 
+   version :giga do
+     process :resize_to_fill => [800, 800]
+   end
+
 
   # Create different versions of your uploaded files:
   # version :thumb do

@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @addressestablishments.each do |addressestablishment| %>
+    <% @addressestablishment.each do |addressestablishment| %>
       <tr>
         <td><%= addressestablishment.address %></td>
         <td><%= addressestablishment.latitude %></td>
@@ -32,9 +32,3 @@
 
 <%= link_to 'New Addressestablishment', new_addressestablishment_path %>
 
-<%= form_tag @addressestablishment, :method => :get do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search Near", :name => nil %>
-  </p>
-<% end %>

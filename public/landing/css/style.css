@@ -684,17 +684,11 @@ body.fixed-nav .teasera {
 ============================================== */
 
 .icon-container {
-	width: 64px;
-	height: 64px;
+	width: 120px;
+	height: 120px;
 	padding: 9px;
-	background: #ffffff;
-	-webkit-border-radius: 6px; 
-	-moz-border-radius: 6px; 
-	-o-border-radius: 6px; 
-	border-radius: 6px;
-	-webkit-transition: background linear .2s;
-	-moz-transition: background linear .2s;
-	-o-transition: background linear .2s;
+	background: #ccc;
+
 }
 
 .features .span6:hover .icon-container {

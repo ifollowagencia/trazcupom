@@ -106,10 +106,18 @@ img {
   border: 0;
   -ms-interpolation-mode: bicubic;
 }
+.mapoffer{
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
 
 #map_canvas img,
 .google-maps img {
-  max-width: none;
+  max-width: 100%;
 }
 
 button,

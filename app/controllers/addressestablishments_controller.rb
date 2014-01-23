@@ -4,11 +4,11 @@ class AddressestablishmentsController < ApplicationController
   # GET /addressestablishments
   # GET /addressestablishments.json
   def index
-    if params[:search].present?
-    @addressestablishment = Addressestablishment.near(params[:search], 50, :order => :distance)
-  else
+    #if params[:search].present?
+    #@addressestablishment = Addressestablishment.near(params[:search], 50, :order => :distance)
+  #else
     @addressestablishment = Addressestablishment.all
-  end
+  #end
   end
 
   # GET /addressestablishments/1

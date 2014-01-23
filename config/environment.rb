@@ -7,3 +7,4 @@ require 'will_paginate'
 Trazcupom::Application.initialize!
 
 WillPaginate::ViewHelpers.pagination_options[:renderer] = 'AjaxWillPaginate'
+

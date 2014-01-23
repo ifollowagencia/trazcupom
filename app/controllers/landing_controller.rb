@@ -20,7 +20,10 @@ class LandingController < ApplicationController
   end
  
   def getlocation
-    result = request.location.ip
+    location_info =  request.location
+    #@location = City.nearbys(50)
+    @a = request.location.try(:city)
+    puts @a
   end
 
 

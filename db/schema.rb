@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140118172336) do
+ActiveRecord::Schema.define(version: 20140120230033) do
 
   create_table "addressestablishments", force: true do |t|
     t.string   "address"
@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(version: 20140118172336) do
   add_index "catches", ["offer_id"], name: "index_catches_on_offer_id", using: :btree
 
   create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categoryestablishments", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -80,9 +86,11 @@ ActiveRecord::Schema.define(version: 20140118172336) do
     t.text     "description"
     t.string   "facebook"
     t.string   "twitter"
+    t.integer  "categoryestablishment_id"
   end
 
   add_index "establishments", ["category_id"], name: "index_establishments_on_category_id", using: :btree
+  add_index "establishments", ["categoryestablishment_id"], name: "index_establishments_on_categoryestablishment_id", using: :btree
   add_index "establishments", ["city_id"], name: "index_establishments_on_city_id", using: :btree
   add_index "establishments", ["plan_id"], name: "index_establishments_on_plan_id", using: :btree
 
@@ -130,6 +138,7 @@ ActiveRecord::Schema.define(version: 20140118172336) do
     t.boolean  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "priceproduct",     precision: 8, scale: 2
   end
 
   add_index "offers", ["establishment_id"], name: "index_offers_on_establishment_id", using: :btree
@@ -177,6 +186,7 @@ ActiveRecord::Schema.define(version: 20140118172336) do
     t.integer  "establishment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "priceproduct",     precision: 8,  scale: 2
   end
 
   add_index "products", ["establishment_id"], name: "index_products_on_establishment_id", using: :btree

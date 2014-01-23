@@ -58,21 +58,22 @@
 					<!-- ==============================================
 					Slider
 					=============================================== -->
-					<div class="span7 offset5" style="margin-top:100px; margin-left:0px; height:250px; background:#000; opacity:0.65; -moz-opacity: 0.65; filter: alpha(opacity=65); border-radius:10px; padding:30px;">
+					<div class="span7 offset5" style="margin-top:100px; margin-left:0px; height:260px; background:#000; opacity:0.65; -moz-opacity: 0.65; filter: alpha(opacity=65); border-radius:10px; padding:30px;">
 						<!--<div class="flexslider">
 						 	<ul class="slides">
 						  	</ul>
 						</div>-->
 
 						<h1 style="color:#fff; font-weight:bold;">
-							Conheça o Traz Cupom! <%= @location %>
+							Conheça o Traz Cupom! <%= @a %>
 						</h1><br />
 						<h5 style="font-weight:bold; color:#fff;">Pegue cupons de descontos gratuitos dos melhores estabelecimentos de sua cidade sem pagar nada por isso.</h5><br />
 						<div style="float:left; width:90%;">
 						<%= collection_select(:establishment, :city_id, City.all, :id, :name, :prompt => 'Selecione sua cidade', :class => 'city') %>
 						</div>
 						<div class="plan-row button-row" >
-						<%= link_to "Entrar", {:controller => "home", :action => "nearme"}, :style => 'background:#01334e; color:white;' %>
+						<%= link_to "Entrar", {:controller => "home", :action => "nearme"}, :style => 'background:#01334e; color:white;' %><br />
+						<div class="fb-like" data-href="http://www.facebook.com/TrazCupom" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 						</div>
 					</div>
 
@@ -135,7 +136,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="span12">
-						<h2 class="no-margin-bottom">Recomendamos</h2>
+						<h1 class="no-margin-bottom" style="color:#01334e;">Recomendamos</h1>
 						<hr>
 					</div>
 				</div>
@@ -149,8 +150,8 @@
 						<div class="icon-container float-left">
 							<%= image_tag establishment_rec.imageprofile_url(:banner_thumb) %>
 						</div>
-						<p><strong><%= establishment_rec.reason %></strong></p>
-						<p><%= establishment_rec.city.name %></p>
+						<p style="font-weight:bold;"><strong><%= link_to establishment_rec.reason, establishment_rec  %></strong></p>
+						<p><i class="icon-map-marker">&nbsp;<%= establishment_rec.city.name %></i></p>
 						<p><u><%= link_to 'Ver perfil do estabelecimento', establishment_rec %></u></p>
 					</div>
 					<!-- End First rec 
@@ -193,7 +194,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="span12">
-						<h2 class="no-margin-bottom">Cupons mais baixados</h2>
+						<h1 class="no-margin-bottom" style="color:#01334e;">Cupons mais baixados</h1>
 						<h4>Reunimos os cupons mais baixados para você.</h4>
 					</div>
 				</div>

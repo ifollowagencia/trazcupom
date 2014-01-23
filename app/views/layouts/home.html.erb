@@ -32,7 +32,13 @@
 <!-- required -->
 <link rel="stylesheet" type="text/css" href="/home/player/css/360player.css" />
 <link rel="stylesheet" type="text/css" href="/home/player/css/360player-visualization.css" />
-<%= javascript_include_tag :defaults %>
+
+<%= javascript_include_tag 'jquery' %>
+<style type="text/css">
+	.buttom_twitter{background: #01334e; width: 250px; height: 40px; padding: 10px; color:white;}
+	.buttom_twitter a:hover{color:#01334e;}
+	.buttom_twitter:hover{background: white;}
+</style>
 </head>
 <body>
 <!-- header -->	
@@ -102,13 +108,8 @@
 		<div class="copyright">Traz Cupom <p>&copy;2013 Todos os direitos reservados</p></div>
 		<div class="info">
 			<ul>
-				<li><i class="mt-html5"></i></li>
-				<li><i class="mt-css3"></i></li>
-				<li><i class="mt-chrome"></i></li>
-				<li><i class="mt-firefox"></i></li>
-				<li><i class="mt-safari"></i></li>
-				<li><i class="mt-IE"></i></li>
-				<li><i class="mt-opera"></i></li>
+				<li></li>
+
 			</ul>
 
 		</div>
@@ -123,6 +124,7 @@
 <script type="text/javascript" src="/home/js/jquery.scrollTo.js"></script>
 <script type="text/javascript" src="/home/js/jquery.nav.js"></script>
 <script type="text/javascript" src="/home/js/jquery.sticky.js"></script>
+<script type="text/javascript" src="/javascripts/endless_page.js"></script>
 <!-- special IE-only canvas fix -->
 <!--[if IE]><script type="text/javascript" src="player/script/excanvas.js"></script><![endif]-->
 
@@ -134,48 +136,28 @@
 <script type="text/javascript" src="/home/player/script/360player.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
 <script type="text/javascript" src="/home/js/gmap3.js"></script> 
-<script type="text/javascript">
 
-soundManager.setup({
-  // path to directory containing SM2 SWF
-  url: 'player/swf/'
-});
+<script type="text/javascript" charset="utf-8">
 
-threeSixtyPlayer.config.scaleFont = (navigator.userAgent.match(/msie/i)?false:true);
-threeSixtyPlayer.config.showHMSTime = true;
+$('#carregando').hide(); 
 
-// enable some spectrum stuffs
 
-threeSixtyPlayer.config.useWaveformData = true;
-threeSixtyPlayer.config.useEQData = true;
 
-// enable this in SM2 as well, as needed
 
-if (threeSixtyPlayer.config.useWaveformData) {
-  soundManager.flash9Options.useWaveformData = true;
-}
-if (threeSixtyPlayer.config.useEQData) {
-  soundManager.flash9Options.useEQData = true;
-}
-if (threeSixtyPlayer.config.usePeakData) {
-  soundManager.flash9Options.usePeakData = true;
-}
+$(function() { 
 
-if (threeSixtyPlayer.config.useWaveformData || threeSixtyPlayer.flash9Options.useEQData || threeSixtyPlayer.flash9Options.usePeakData) {
-  // even if HTML5 supports MP3, prefer flash so the visualization features can be used.
-  soundManager.preferFlash = true;
-}
+	$(".pagination a").on("click", function(event) {
+	 $('#carregando').show(); 
+	 $.getScript(this.href); 
+	 return false; 
+	}); 
+}); 
 
-// favicon is expensive CPU-wise, but can be used.
-if (window.location.href.match(/hifi/i)) {
-  threeSixtyPlayer.config.useFavIcon = true;
-}
 
-if (window.location.href.match(/html5/i)) {
-  // for testing IE 9, etc.
-  soundManager.useHTML5Audio = true;
-}
+
+
 
 </script>
+
 </body>
 </html>

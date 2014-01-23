@@ -1,0 +1,30 @@
+
+
+		<% @cupons.each do |cupom| %>
+
+
+			<div class="span4 eblock" id="offerhome">
+				<div class="econtainer">
+					<div class="ehalf" style="">
+					 <div class="markerdeal" style="position:absolute; background: url('/home/images/dealthumb.png') no-repeat; width:77px; height:61px; margin-left:102px; margin-top:-10px; ">
+					 	<p><%=  %> </p>
+					 </div>
+						<%= image_tag cupom.image1_url(:banner_thumb) %>
+					</div>
+					<div class="ehalf" style="padding:5px;">
+						<h3><a href="#"><%= cupom.establishment.reason %></a></h3>
+						<i class="icon-map-marker"><span><%= cupom.establishment.adress %></span></i>
+						<br />
+						<i class="icon-home"><span><%= cupom.establishment.city.name %></span></i><br />
+						<i class="icon-time"><span><%= cupom.validity.strftime('%d/%m/%y') %></span></i><br />
+						<div class="date" style="background:#01334e; color:white;">
+							
+							<%= link_to 'Pegar', cupom, :style => "color:white;" %>
+						</div>						
+					</div>
+				</div>
+			</div>
+
+		<% end %>
+		
+	

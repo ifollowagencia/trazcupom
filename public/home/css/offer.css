@@ -1,0 +1,22 @@
+        <style>
+            /*Criamos alguns estilos apenas pra posicionar melhor os elementos*/
+            .clear{clear:both;} 
+            .imagem{
+            	float:center; 
+            	margin:5px; 
+            	width: 98%;
+            	border-bottom: 3px solid #01334e;
+            	 } 
+            .thumbs{
+            	float: left; 
+            	width: 100%;
+            	padding-left: 100px;
+            }
+            .thumbs img{ 
+            	box-shadow: 5px 5px 5px #000; 
+            	float:left; margin:10px; 
+            	cursor:pointer;  
+            	width: 74px;
+            	 height: 74px;}
+ 
+        </style>

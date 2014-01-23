@@ -252,6 +252,7 @@ div.faq p {line-height: 25px;}
     <%= f.label :product %><br>
     <%= collection_select(:offer, :product_id, Product.all, :id, :name, :prompt => 'Produto') %>
   </div>
+
   <div class="field">
     <%= f.label :amount %><br>
     <%= f.number_field :amount %>
@@ -284,6 +285,13 @@ div.faq p {line-height: 25px;}
     <%= f.label :status %><br>
     <%= f.check_box :status %>
   </div>
+   <div class="field">
+    <%= f.label :priceproduct %><br>
+    <%= f.text_field :priceproduct %>
+  </div>
+
+  
+
   <div class="actions">
     <%= f.submit %>
   </div>
