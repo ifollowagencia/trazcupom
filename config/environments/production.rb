@@ -77,4 +77,5 @@ Trazcupom::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  RAILS_DEFAULT_LOGGER = SyslogLogger.new('/var/www/trazcupom/shared/log/production.log')
 end
