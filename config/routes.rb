@@ -66,7 +66,7 @@ Trazcupom::Application.routes.draw do
 
   #devise_for :users
   # You can have the root of your site routed with "root"
-  root 'landing#page'
+  root 'coming#soon'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

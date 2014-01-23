@@ -31,8 +31,10 @@ group :development do
 
 	gem 'better_errors'
 	gem "binding_of_caller"
+	gem 'capistrano-unicorn', :require => false
 
 end
+
 
 group :doc do
   gem 'sdoc', require: false
@@ -68,6 +70,9 @@ gem "nifty-generators", :group => :development
 
 gem 'geocoder'
 
+gem 'capistrano'
+
+gem 'unicorn'
 
 gem 'pageless-rails', github: 'rorlab/pageless-rails'
 
