@@ -74,7 +74,5 @@ gem 'capistrano'
 
 gem 'unicorn'
 
-gem 'pg'
-
 gem 'pageless-rails', github: 'rorlab/pageless-rails'
 
