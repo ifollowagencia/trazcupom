@@ -76,3 +76,4 @@ gem 'unicorn'
 
 gem 'pageless-rails', github: 'rorlab/pageless-rails'
 
+gem 'rvm-capistrano'

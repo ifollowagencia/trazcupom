@@ -21,6 +21,8 @@ set :user, "root"
 set :use_sudo, false
 set :rvm_ruby_string, 'ruby-2.1.0' # Change to your ruby version
 
+set :rvm_type, :system # :user if RVM installed in $HOME
+
 namespace :deploy do
   # verifica as pasta necessarias para o envio, e inicialização do s serviços
   # para corrigir bug que aconteceu comigo, talvez ja tenham corrigido esse erro
