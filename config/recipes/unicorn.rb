@@ -20,7 +20,7 @@ namespace :unicorn do
     sleep 4
     start
   end
-  # after "deploy:restart", "unicorn:restart"
+  after "deploy:restart", "unicorn:restart"
 
   desc "Get ouput of unicorn log file"
   task :tail do
