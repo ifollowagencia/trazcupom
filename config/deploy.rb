@@ -42,7 +42,7 @@ namespace :deploy do
     sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
     sudo "chmod +x #{current_path}/config/unicorn_init.sh"
     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
-    sudo "update-rc.d unicorn_ifollow defaults"
+    sudo "update-rc.d unicorn_#{application} defaults"
   end
   after "deploy:setup", "deploy:setup_config"
 
