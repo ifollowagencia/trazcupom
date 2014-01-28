@@ -7,7 +7,8 @@
 				<div class="econtainer">
 					<div class="ehalf" style="">
 					 <div class="markerdeal" style="position:absolute; background: url('/home/images/dealthumb.png') no-repeat; width:77px; height:61px; margin-left:102px; margin-top:-10px; ">
-					 	<p><%=  %> </p>
+					 	<p style="color:white; font-weight:bold; margin-left:30px; margin-top:10px;"><%= number_to_percentage(get_discount(cupom.id), precision: 0) %> </p>
+					 	<p style="color:white; font-weight:bold; margin-top:-20px; margin-left:30px;">OFF!</p>
 					 </div>
 						<%= image_tag cupom.image1_url(:banner_thumb) %>
 					</div>

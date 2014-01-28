@@ -39,29 +39,7 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
 
   end
 
-  def getdiscount(idoffer)
 
-      @offer = Offer.find(idoffer)
-    #pegar o produto anunciado nessa oferta
-      @product = getproduct(@offer.product.id)
-
-      @oldprice = @product.price
-
-      @youngprice = @offer.priceproduct
-
-      # Algoritmo para calcular a porcentagem de desconto , na verdade calcular uma porcentagem mais veloz
-
-      @mult = (@youngprice * 100.0) / @oldprice
-
-      @div = @mult / @oldprice     
-
-      @porcentagem = 100.0 - @mult
-    
-  end
-
-  def getproduct(idproduct)
-      @product = Product.find(idproduct)
-  end
 
 
 

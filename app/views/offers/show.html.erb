@@ -3,7 +3,7 @@
 
 <div style="width:250px; height:140px;  margin-left:-23px; background:#01334e; padding:15px; background:url('/landing/images/backdeal.png')">
 <!--Div topo offer-->  
- <center><h1 style="text-weight:bold;"><%= number_to_percentage(@mult, precision: 0) %> OFF</h1></center>
+ <center><h1 style="text-weight:bold;"><%= number_to_percentage(get_discount(@offer.id), precision: 0) %> OFF</h1></center>
  <h6 style="color:#ccc;">De: <strike><%= number_to_currency(@oldprice, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "R$") %></strike> </h6>
 
  <h6 style="color:#fff; font-weight:bold; ">Por:<%= number_to_currency(@youngprice, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "R$") %> </h6>

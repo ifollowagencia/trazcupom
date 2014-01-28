@@ -1,6 +1,9 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
 
+  helper :home
+
+
   # GET /offers
   # GET /offers.json
   def index
@@ -20,14 +23,6 @@ class OffersController < ApplicationController
       @youngprice = @offer.priceproduct
 
       # Algoritmo para calcular a porcentagem de desconto , na verdade calcular uma porcentagem mais veloz
-
-      @mult = (@youngprice * 100.0) / @oldprice
-
-      @div = @mult / @oldprice
-
-      
-
-      @porcentagem = 100.0 - @mult
 
       # finalizado algoritmo para calcular o disconto total no produto
 
@@ -50,17 +45,6 @@ class OffersController < ApplicationController
       @product = Product.find(idproduct)
   end
 
-
-    
-  
-
-  def calcdiscount
-
-    
-    
-
-
-  end
 
   # GET /offers/new
   def new

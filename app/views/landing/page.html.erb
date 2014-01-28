@@ -23,9 +23,9 @@
 						=============================================== -->
 						<ul class="nav hidden-phone hidden-tablet">
 							<li><a href="#top">Inicio</a></li>
-							<li><a href="#features">Recomendamos</a></li>
-							<li><a href="#plans">Tops</a></li>
-							<li><a href="#testimonials">Quem ja usou</a></li>
+							<li><a href="#recomendamos">Recomendamos</a></li>
+							<li><a href="#tops">Tops</a></li>
+							<li><a href="#onde">Onde?</a></li>
 							<li><%= link_to "Anúncie", {:controller => 'landing', :action => 'anuncie'} %></li>
 							<li><%= link_to "Entrar", {:controller => "home", :action => "nearme"}, :style => 'background:#3097be; color:white;' %></li>
 						</ul>
@@ -132,7 +132,7 @@
 		<!-- ==============================================
 		Features
 		=============================================== -->
-		<section class="features light-gray-background" id="features">
+		<section class="features light-gray-background" id="recomendamos">
 			<div class="container">
 				<div class="row">
 					<div class="span12">
@@ -141,26 +141,17 @@
 					</div>
 				</div>
 			<div class="row" id="results">
-
-					<% @rec.each do |establishment_rec| %>
-					<!-- ==============================================
-					First Rec
-					=============================================== -->
-					<div class="span6" style="">
-						<div class="icon-container float-left">
-							<%= image_tag establishment_rec.imageprofile_url(:banner_thumb) %>
-						</div>
-						<p style="font-weight:bold;"><strong><%= link_to establishment_rec.reason, establishment_rec  %></strong></p>
-						<p><i class="icon-map-marker">&nbsp;<%= establishment_rec.city.name %></i></p>
-						<p><u><%= link_to 'Ver perfil do estabelecimento', establishment_rec %></u></p>
-					</div>
-					<!-- End First rec 
-					============================================== -->
-                    <% end %>
-                    <%= will_paginate @rec %>
-				</div>
-
+			<div id="estab" style="margin-bottom:30px;">
+				<%= render 'establishments' %>
+				 </div>
 			</div>
+			<div style="margin-top:130px;">
+		<div id="carregando"><center><img src='/home/images/loading.gif' width='24' height='24' /></center></div>
+		 <div id="append_and_paginate" >
+		<center><%= will_paginate @rec, :renderer => WillPaginateRenderers::Twitter %></center>
+				</div>
+				</div>
+		
 		</section>
 		<!-- End Features 
 		============================================== -->
@@ -190,12 +181,25 @@
 		<!-- ==============================================
 		Plans
 		=============================================== -->
-		<section class="white-background plans" id="plans">
+		<section class="white-background plans" id="tops">
 			<div class="container">
 				<div class="row">
 					<div class="span12">
 						<h1 class="no-margin-bottom" style="color:#01334e;">Cupons mais baixados</h1>
 						<h4>Reunimos os cupons mais baixados para você.</h4>
+						<div class="row">
+							
+							<div id="ticketsloop" style="">
+
+								<%= render 'tickets' %>
+							
+							</div>
+							<div id="carregandot"><center><img src='/home/images/loading.gif' width='24' height='24' /></center></div>
+		 <div id="append_and_paginate" >
+		<center><%= will_paginate @tickets, :renderer => WillPaginateRenderers::Twitter %></center>
+
+						</div>
+
 					</div>
 				</div>
 				<div class="row">
@@ -208,12 +212,12 @@
 		<!-- ==============================================
 		Testimonials
 		=============================================== -->
-		<section class="testimonials gray-background" id="testimonials">
+		<section class="testimonials gray-background" id="onde">
 			<div class="container">
 				<div class="row">
 					<div class="span12">
-						<h2 class="no-margin-bottom">Quem ja usou?</h2>
-						<h4>Veja os depoimentos de quem já está usando o app de cupons gratuitos.</h4>
+						<h2 class="no-margin-bottom">Onde o Traz Cupom é a melhor opção</h2>
+						<h4>Os melhores momentos para você utilizar o Traz Cupom no seu dia a dia.</h4>
 					</div>
 
 					<!-- ==============================================
@@ -221,13 +225,14 @@
 					=============================================== -->
 					<div class="span4">
 						<div class="bubble">
-							Acho muito bacana a idéia de reunir e disponibilizar inúmeros cupons de descontos. Uso e recomendo o app!
+							Quando você vai ao
+							salão para cortar apenas o cabelo e acaba realizando outros serviços, é uma ótima ocasião para acompanhar o Traz Cupom.
 							
 						</div>
 						<div class="person">
-							<img src="/landing/images/lequeiroz.jpg" width="100" height="100" alt="" class="float-left">
-							<h3 class="no-margin-bottom">Leandro Queiroz</h3>
-							<h4>Estudante de engenharia</h4>
+							<img src="/landing/images/beautyhair.jpg" width="100" height="100" alt="" class="float-left">
+							<h3 class="no-margin-bottom" style="font-weight:bold;">Para você</h3>
+							<h4>Salões de beleza, clinicas de estética e fitness.</h4>
 						</div>
 					</div>
 					<!-- End First Testimonial
@@ -238,13 +243,16 @@
 					=============================================== -->
 					<div class="span4">
 						<div class="bubble">
-							Acho muito bacana a idéia de reunir e disponibilizar inúmeros cupons de descontos. Uso e recomendo o app!
+							Quando você sai do
+							trabalho louco para convidar os colegas para um happy hour,
+							e sabe que possui cupons de desconto para economizar muito.
+
 							
 						</div>
 						<div class="person">
-							<img src="/landing/images/lequeiroz.jpg" width="100" height="100" alt="" class="float-left">
-							<h3 class="no-margin-bottom">Leandro Queiroz</h3>
-							<h4>Estudante de engenharia</h4>
+							<img src="/landing/images/happy-hour.png" width="100" height="100" alt="" class="float-left">
+							<h3 class="no-margin-bottom" style="font-weight:bold;">Na Balada</h3>
+							<h4>Casas noturnas, bares e boates.</h4>
 						</div>
 					</div>
 					<!-- End Second Testimonial
@@ -255,13 +263,15 @@
 					=============================================== -->
 				<div class="span4">
 						<div class="bubble">
-							Acho muito bacana a idéia de reunir e disponibilizar inúmeros cupons de descontos. Uso e recomendo o app!
+							Quando você resolve 
+							acompanhar sua familia para um almoço de domingo,
+							e avisa que possui cupons de desconto para utilizar.
 							
 						</div>
 						<div class="person">
-							<img src="/landing/images/lequeiroz.jpg" width="100" height="100" alt="" class="float-left">
-							<h3 class="no-margin-bottom">Leandro Queiroz</h3>
-							<h4>Estudante de engenharia</h4>
+							<img src="/landing/images/tableeat.jpg" width="100" height="100" alt="" class="float-left">
+							<h3 class="no-margin-bottom" style="font-weight:bold;">Com a familia</h3>
+							<h4>Restaurantes, cinema e lazer.</h4>
 						</div>
 					</div>
 					<!-- End Third Testimonial

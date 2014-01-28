@@ -1,0 +1,16 @@
+					<% @rec.each do |establishment_rec| %>
+					<!-- ==============================================
+					First Rec
+					=============================================== -->
+					<div class="span6" style="">
+						<div class="icon-container float-left">
+							<%= image_tag establishment_rec.imageprofile_url(:banner_thumb) %>
+						</div>
+						<p style="font-weight:bold;"><strong><%= link_to establishment_rec.reason, establishment_rec  %></strong></p>
+						<p><i class="icon-map-marker">&nbsp;<%= establishment_rec.city.name %></i></p>
+						<p><u><%= link_to 'Ver perfil do estabelecimento', establishment_rec %></u></p>
+					</div>
+					<!-- End First rec 
+					============================================== -->
+                    <% end %>
+                    

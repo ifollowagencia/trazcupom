@@ -1,5 +1,9 @@
 class LandingController < ApplicationController
+helper :home
 
+WillPaginateRenderers.pagination_options[:twitter_label] = "Carregar mais estabelecimentos"
+
+WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
   def page
 
 
@@ -10,13 +14,25 @@ class LandingController < ApplicationController
       
     end
     #resolvido
-    @rec = Establishment.paginate(:page => params[:page]) # replaces Post.all
+    #@rec = Establishment.paginate(:page => params[:page]) # replaces Post.all
     
+    resultoffer = Establishment.all
+    sleep 1
+    @rec = resultoffer.paginate(:page=>params[:page], :per_page => 6)
+
+    @tickets = gettickets
+
     @location = getlocation
     #link parceiros
 
    # @link_area_parceiros = link_to 'Área do parceiro', :controller => 'establishments', :action => 'new'
 
+  end
+
+  def gettickets
+    resultoffer = Offer.all
+    sleep 1
+    @tickets = resultoffer.paginate(:page=>params[:page], :per_page => 3)
   end
  
   def getlocation

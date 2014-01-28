@@ -4,7 +4,8 @@ def get_discount(cupom_id)
 
 	 @offer = Offer.find(cupom_id)
     #pegar o produto anunciado nessa oferta
-      @product = getproduct(@offer.product.id)
+      #@product = getproduct(@offer.product.id)
+      @product = Product.find(@offer.product.id)
 
       @oldprice = @product.price
 
@@ -15,9 +16,6 @@ def get_discount(cupom_id)
       @mult = @youngprice * 100.0
 
       @div = @mult / @oldprice
-
-      
-
       @porcentagem = 100.0 - @div
 	
 end
