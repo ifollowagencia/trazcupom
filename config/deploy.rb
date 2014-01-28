@@ -7,7 +7,6 @@ load "config/recipes/logs"
 load "config/recipes/nginx"
 load "config/recipes/unicorn"
 
-
 set :application, "trazcupom"
 server "162.243.115.252", :web, :app, :db, primary: true
 set :keep_releases, 2
