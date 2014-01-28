@@ -44,5 +44,6 @@ namespace :deploy do
     sudo "update-rc.d unicorn_#{application} defaults"
   end
   after "deploy:setup", "deploy:setup_config"
+  after "deploy:create_symlink", "deploy:setup_config"
 
 end
