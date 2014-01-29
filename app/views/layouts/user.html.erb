@@ -33,6 +33,31 @@
 <link rel="stylesheet" type="text/css" href="/home/player/css/360player.css" />
 <link rel="stylesheet" type="text/css" href="/home/player/css/360player-visualization.css" />
 <%= javascript_include_tag :defaults %>
+<style type="text/css">
+input[type='submit'] {
+  height: 40px;
+  width: 200px;
+  background: #01334e;
+  color: white;
+  border:none;
+}
+input[type='text'] {
+  height: 40px;
+  width: 490px;
+  background: #fff;
+  color: #888;
+  border:none;
+  border-radius: none;
+  padding: 5px;
+}
+input[type='text']:hover {
+  border: 1px solid #01334e;
+  color: #01334e;
+}
+.select_city{width: 490px;
+height: 40px;
+}
+</style>
 </head>
 <body>
 <!-- header -->	
@@ -62,7 +87,7 @@
 			        <ul class="nav">
 			            <li><%= link_to('Perfil', :controller => 'user', :action => 'profile') %></li>
 						<li><%= link_to('Configurações', :controller => 'user', :action => 'profile') %></li>
-						<li><%= link_to('Meus Cupons', :controller => 'user', :action => 'profile') %></li>
+						<li><%= link_to('Meus Cupons', :controller => 'user', :action => 'tickets') %></li>
 
 						<li><%= link_to('Voltar ao app', :controller => 'home', :action => 'nearme') %></li>
 						<li><%= link_to('Sair', destroy_user_session_path, :method => :delete) %></li>
@@ -104,17 +129,38 @@
 <script type="text/javascript" src="/home/js/jquery.scrollTo.js"></script>
 <script type="text/javascript" src="/home/js/jquery.nav.js"></script>
 <script type="text/javascript" src="/home/js/jquery.sticky.js"></script>
-<!-- special IE-only canvas fix -->
-<!--[if IE]><script type="text/javascript" src="player/script/excanvas.js"></script><![endif]-->
 
-<!-- Apache-licensed animation library -->
-<script type="text/javascript" src="/home/player/script/berniecode-animator.js"></script>
-
-<!-- the core stuff -->
 <script type="text/javascript" src="/home/player/script/soundmanager2.js"></script>
 <script type="text/javascript" src="/home/player/script/360player.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
 <script type="text/javascript" src="/home/js/gmap3.js"></script> 
 
+<script type="text/javascript" src="https://raw.github.com/digitalBush/jquery.maskedinput/1.3.1/dist/jquery.maskedinput.min.js"></script>
+
+<script type="text/javascript">
+
+$(function() {
+        $.mask.definitions['~'] = "[+-]";
+        $("#date").mask("99/99/9999",{completed:function(){alert("completed!");}});
+        $("#tel").mask("(999) 999-9999");
+        $("#phoneExt").mask("(999) 999-9999? x99999");
+        $("#iphone").mask("+33 999 999 999");
+        $("#tin").mask("99-9999999");
+        $("#ssn").mask("999-99-9999");
+        $("#product").mask("a*-999-a999", { placeholder: " " });
+        $("#eyescript").mask("~9.99 ~9.99 999");
+        $("#po").mask("PO: aaa-999-***");
+        $("#pct").mask("99%");
+        $("#phoneAutoclearFalse").mask("(999) 999-9999", { autoclear: false, completed:function(){alert("completed autoclear!");} });
+        $("#phoneExtAutoclearFalse").mask("(999) 999-9999? x99999", { autoclear: false });
+
+        $("input").blur(function() {
+            $("#info").html("Unmasked value: " + $(this).mask());
+        }).dblclick(function() {
+            $(this).unmask();
+        });
+    });
+$("#notice").html('<%= escape_javascript(flash.discard(:notice)) %>');
+</script>
 </body>
 </html>

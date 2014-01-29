@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140128205850) do
+ActiveRecord::Schema.define(version: 20140129021949) do
 
   create_table "addressestablishments", force: true do |t|
     t.string   "address"
@@ -66,6 +66,17 @@ ActiveRecord::Schema.define(version: 20140128205850) do
 
   add_index "commentestabs", ["establishment_id"], name: "index_commentestabs_on_establishment_id", using: :btree
   add_index "commentestabs", ["user_id"], name: "index_commentestabs_on_user_id", using: :btree
+
+  create_table "downloads", force: true do |t|
+    t.integer  "offer_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "code"
+  end
+
+  add_index "downloads", ["offer_id"], name: "index_downloads_on_offer_id", using: :btree
+  add_index "downloads", ["user_id"], name: "index_downloads_on_user_id", using: :btree
 
   create_table "establishments", force: true do |t|
     t.string   "name"
@@ -221,8 +232,10 @@ ActiveRecord::Schema.define(version: 20140128205850) do
     t.string   "phone"
     t.string   "city"
     t.date     "nascimento"
+    t.integer  "city_id"
   end
 
+  add_index "users", ["city_id"], name: "index_users_on_city_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 

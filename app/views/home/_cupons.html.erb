@@ -20,7 +20,7 @@
 						<i class="icon-time"><span><%= cupom.validity.strftime('%d/%m/%y') %></span></i><br />
 						<div class="date" style="background:#01334e; color:white;">
 							
-							<%= link_to 'Pegar', cupom, :style => "color:white;" %>
+							<%= link_to 'Pegar', cupom, :idoffer => cupom.id , :style => "color:white;" %>
 						</div>						
 					</div>
 				</div>

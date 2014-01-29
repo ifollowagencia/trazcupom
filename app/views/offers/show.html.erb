@@ -13,7 +13,7 @@
    <h1 style="color:#01334e; "><%= @offer.name %></h1>
    <p style="color:#01334e;">Aproveite o desconto até: <%= @offer.validity.strftime(" %m de %b  de %Y ") %>&nbsp;&nbsp;&nbsp; </p>
     
-   <%= link_to "Pegar cupom", {:controller => "home", :action => "nearme"}, :style => 'background:#01334e; color:white; width:200px; height:50px; float:right; margin-top:-50px; padding-left:50px; padding-top:15px;' %><br />
+   <%= link_to "Pegar cupom", {:controller => "user", :action => "download", :idoffer => @offer.id}, :style => 'background:#01334e; color:white; width:200px; height:50px; float:right; margin-top:-50px; padding-left:50px; padding-top:15px;' %><br />
   
  </div> 
 

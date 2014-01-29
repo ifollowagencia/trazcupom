@@ -1,6 +1,14 @@
 Trazcupom::Application.routes.draw do
   
+  get "getcupom/download"
+  resources :downloads
+
   get "coming/soon"
+
+  get 'user/print'
+
+  get 'user/update_password'
+
   resources :categoryestablishments
 
   resources :commentestabs
@@ -28,13 +36,11 @@ Trazcupom::Application.routes.draw do
     get "establishments/likeestab"
   get "landing/anuncie"
 
-  get  'user/update_password'
+  get  'user/download'
+
+  get 'user/tickets'
   
-  resource :user, only: [:edit] do
-  collection do
-    patch 'update_password'
-  end
-  end
+  resources :user
 
   resources :establishments
 
