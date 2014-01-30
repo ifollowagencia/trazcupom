@@ -19,7 +19,8 @@ class UserController < ApplicationController
   end
 
   def tickets
-    @cupons_baixados = Download.where('user_id = ?', current_user.id)
+    @cupons = Download.where('user_id = ?', current_user.id)
+    @cupons_baixados = @cupons.paginate(:page=>params[:page], :per_page => 6)
     puts @cupons_baixados
   end
 

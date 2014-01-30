@@ -12,13 +12,13 @@
 
 
 	<% else %>
-	<div id="notice" style="background:#01334e; width:80%; border:1px solid #ccc; height:40px; margin-left:40px; color:white;">
+	<div id="notice" style="background:#01334e; width:80%; border:1px solid #ccc; height:40px; margin-left:40px; color:white; margin-bottom:20px;">
 	 <p style="color:#fff; padding:10px;"><%= notice  %></p>
 	 </div>
 	 <% end %>
 
 	 <% @cupons_baixados.each do |cupom| %>
-	 <div class="ticket" style="width:100%; height:140px; background:#dfdfdf; border:1px solid #888; margin-bottom:20px;">
+	 <div class="ticket" style="width:100%; height:160px; background:#dfdfdf; border:1px solid #888; margin-bottom:20px; position:relative; padding:20px;">
 	 	<div class="imageticket" style="padding:10px; float:left;">
 	 		<%= image_tag cupom.offer.image1_url(:mega_thumb) %>
 	 	</div>
@@ -31,12 +31,12 @@
 	 	<div class="cod_cupom" style=" width:250px; margin-left:120px; margin-top:-20px;">
 	 		<p>Seu cupom: <%= cupom.code %></p>
 	 	</div>
-	 	<div class="print" style="float:right; margin-right:40px; margin-top:-40px; height:40px; width:100px; background:#01334e; color:white; padding: 9px;">
+	 	<div class="print" style="">
 	 		<%= link_to 'Imprimir', :controller => 'user', :action => 'print', :idoffer => cupom.offer.id %>
 	 	</div>
 	 </div>
 	 <% end %>
-
+	 <center><%= will_paginate @cupons_baixados %></center>
 	</div>
 
 </div>
