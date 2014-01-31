@@ -61,10 +61,16 @@
 
    <div id="feedimages" style="width:100%;">
    <ul style="width:100%;">
+     
+   <% if @feedimages.count <= 0 %>
+
+
+   <% else %>
       <% @feedimages.each do |imagem| %>
       <li style="width:120px; height:120px;  display:inline; margin-left:20px; margin-bottom:10px; ">
         <%= image_tag(imagem.image_url(:mega_thumb), :style => 'border:1px solid #01334e; margin-bottom:10px;') %>
       </li>
+      <% end %>
       <% end %>
    </ul> 
      
