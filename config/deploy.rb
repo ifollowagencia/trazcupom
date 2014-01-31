@@ -6,6 +6,7 @@ load "config/recipes/check"
 load "config/recipes/logs"
 load "config/recipes/nginx"
 load "config/recipes/unicorn"
+load "config/recipes/carrierwave"
 
 set :application, "trazcupom"
 server "162.243.115.252", :web, :app, :db, primary: true
