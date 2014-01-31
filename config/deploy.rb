@@ -47,10 +47,5 @@ namespace :deploy do
   after "deploy:setup", "deploy:setup_config"
   after "deploy:create_symlink", "deploy:setup_config"
 
-  desc "Configurando o carrierwave"
-  task :symlink_config, roles: :app do
-  
-  run "ln -nfs #{deploy_to}/#{shared_dir}/uploads #{release_path}/public/uploads"
-end
 
 end
