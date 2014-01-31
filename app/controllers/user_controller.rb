@@ -32,10 +32,14 @@ class UserController < ApplicationController
       flash[:notice] = 'Você não pode mais baixar este cupom!' 
       redirect_to :controller => 'user', :action => 'tickets'
     else
+    #option to save voucher 
     o = [('a'..'z'), ('A'..'Z')].map { |i| i.to_a }.flatten
     code = (0...10).map { o[rand(o.length)] }.join
     download = Download.new(:offer_id => params[:idoffer],:user_id => current_user.id, :code => code)
+    #definido o disparo dos emails
+    @offer = Offer.find(params[:idoffer])
     if download.save
+      UserMailer.download_ticket(params[:idoffer], @offer.establishment.id,current_user.id).deliver
       flash[:message] = 'Parabéns, desfrute seu cupom de desconto :)' 
       redirect_to :controller => 'user', :action => 'tickets', :notice => 'Parabéns, desfrute seu cupom de desconto :)'
     else
@@ -48,7 +52,15 @@ class UserController < ApplicationController
 
   def print
     @offer = Offer.find(params[:idoffer])
+    @code = Download.where("offer_id = ? AND user_id = ?", params[:idoffer], current_user.id)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => @offer
+      end
+    end
   end
+
 
 
   def profile

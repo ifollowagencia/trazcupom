@@ -1,11 +1,33 @@
-<body>
-<table>
-   <thead><tr><td><%= @offer.name %></td></tr></thead>
-   <tfoot><tr><td>Your footer goes here</td></tr></tfoot>
-   <tbody>
-     <tr><td>
-     Page body in here -- as long as it needs to be
-     </td></tr>
-   </tbody>
-</table>
+<!DOCTYPE html>
+<head>
+<style media="print" type="text/css">
+
+  @media print
+
+  {
+
+    body * { visibility: hidden; }
+
+    #PrintDiv * { visibility: visible; }
+
+    #PrintDiv { position: absolute; top: 40px; left: 30px; }
+
+  }
+
+</style></head>
+<body style="background:#fff;">
+<div class="content">
+<h1 style="color:#01334e;"> Você acaba de imprimir um voucher Traz Cupom, para consumi-lo, basta recortar o voucher nesta folha e leva-lo até o estabelecimento! </h1><br />
+<h2>A equipe Traz Cupom deseja boas compras para você!</h2>	
+<div class="ticketcut" style="width:400px; height:350px; margin-left:50px;">
+<h1 style="margin-top:70px; margin-left:70px; position:absolute; color:#fff;"><%= @offer.establishment.reason %></h1>
+<p style="margin-top:110px; width:300px; margin-left:70px; position:absolute; color:#fff;">Descrição: <%= @offer.name %></p>
+<p style="margin-top:150px; width:300px; margin-left:70px; position:absolute; color:#fff;">Cliente: <%= current_user.name %></p>
+<p style="margin-top:180px; margin-left:70px; position:absolute; color:#fff;">Seu código: <% @code.each do |code| %><%= code.code %> <% end %></p>
+	<img src="/landing/images/ticket.png">
+
+</div>
+
+</div>
 </body>
+</html>

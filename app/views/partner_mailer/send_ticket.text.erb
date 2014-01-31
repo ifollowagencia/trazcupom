@@ -1,0 +1,12 @@
+Olá <%= @establishment.email %>,
+
+Realizaram o download do voucher:  <%= @offer_title.name %>
+
+<% @code = Download.where("offer_id = ? AND user_id = ?", @offer_title.id, @user.id) %>
+<% @code.each do |code| %>
+O código do voucher é: <%= code.code  %>
+<% end %>
+
+O cliente que realizou o download é: <%= @user.name %>
+
+Obrigado, equipe Traz Cupom.

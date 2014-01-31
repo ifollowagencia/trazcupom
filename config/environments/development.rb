@@ -27,5 +27,14 @@ Trazcupom::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  :authentication => :plain,
+  :address => "smtp.mailgun.org",
+  :port => 587,
+  :domain => "sandbox32726.mailgun.org",
+  :user_name => "postmaster@sandbox32726.mailgun.org",
+  :password => "rub32912289"
+}
   
 end
