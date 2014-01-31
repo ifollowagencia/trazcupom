@@ -1,7 +1,7 @@
 (function($) {
 	"use strict";
 /*----Countdown----*/
-	$('#timer').countdown('2014/01/31 12:30:00') // Set as YYYY/MM/DD or YYYY/MM/DD HH:MM:SS
+	$('#timer').countdown('2014/01/31 14:30:00') // Set as YYYY/MM/DD or YYYY/MM/DD HH:MM:SS
 	.on('update.countdown', function(event) {
       	$('#day-cd').html(event.strftime('%-D'));
 	  	$('#hour-cd').html(event.strftime('%H'));
