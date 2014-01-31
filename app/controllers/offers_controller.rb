@@ -38,7 +38,7 @@ class OffersController < ApplicationController
       @rule = Rule.where("offer_id = ?", @offer)
 
       @feedimages = Imageestablishment.where("establishment_id = ?", @offer.establishment_id)
-
+      
     else
       redirect_to new_user_session_path
 
