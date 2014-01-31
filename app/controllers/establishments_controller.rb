@@ -42,6 +42,8 @@ class EstablishmentsController < ApplicationController
     sleep 1
     @cupons = resultoffer.paginate(:page=>params[:page], :per_page => 4)
 
+    @products = Product.where("establishment_id = ?", params[:id])
+
     else
       redirect_to new_user_session_path
     end

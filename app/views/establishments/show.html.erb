@@ -84,11 +84,22 @@
 <hr />
 <h1 style="font-weight:bold; padding-left:40px; color:#01334e; "><%= " 
 Fotos de "+ @establishment.reason %></h1>
-
+  
 <hr />
 <h1 style="font-weight:bold; padding-left:40px; color:#01334e; "><%= " 
 Catalogo de "+ @establishment.reason %></h1>
+  <div id="box-toggle">
 
+<% @products.each do |product| %>
+<div class="tgl" style="width:90%; padding:30px; margin-left:40px; background:#888; border:1px solid #01334e;">
+   <h2><%= product.name %></h2>
+   <p>Preço: <%= number_to_currency(product.price, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "R$") %></p>
+   <p>Descrição:<br /> <%= product.description %></p>
+</div>
+<br />
+<% end %>
+
+</div>
 <hr />
 <h1 style="font-weight:bold; padding-left:40px; color:#01334e; ">Comentários 
 </h1>
