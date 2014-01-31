@@ -209,12 +209,13 @@ div.faq p {line-height: 25px;}
 
 </style>
 </head>
-<body>
+<body style="">
+<div class="conteiner">
   <div style="width:100%; height:200px; " >
     <center><img src="/landing/images/logo01.png" style="margin-top:40px;"></center>
   </div>
 <div style="position:absolute; background:#dfdfdf; padding:50px; width:500px; float:left; left:50%; margin-left:-260px; box-shadow: 10px 10px 5px #888; ">  
-<div class="form-wrapper">
+<div class="form-wrapper" style="margin-bottom:50px; margin-top:50px;">
 <!--Inicio do render form -->  
 <%= form_for(@establishment, :html => { :multipart => true , :class => "ddfm"}) do |f| %>
 
@@ -346,10 +347,12 @@ div.faq p {line-height: 25px;}
 <!--Final do render form --> 
 </div>
 </div>
+</div>
+</body>
 <script type="text/javascript">
 $(document).ready(function(){
   $("#cnpj").mask("99.999.999/9999-99");
 });
 </script>
-</body>
+
 </html>

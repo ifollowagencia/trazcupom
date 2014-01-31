@@ -71,7 +71,8 @@
 	#tickets img{width: 180px; height: 130px; float: left; margin-top: 10px; border:1px solid #ccc; }
 	#tickets h1{width: 75%; float: left; margin-left: 190px; margin-top: -120px;  padding: 10px; font-size: 18px;}
  	.partnerinfo img{width: 28px; height: 28px;}
- 	.tk{width:200px; height: 40px; float:right; margin-top:-40px; background:#01334e; color:white; padding:5px; font-weight:22px; letter-spacing: 2px;}
+ 	.tk{width:200px; height: 40px; float:right; margin-top:-40px; background:#01334e; color:white; padding:5px; font-size:20px; letter-spacing: 1px; font-weight: bold; font-family: 'Open Sans', sans-serif;
+}
  	.tk:hover{background:#3097be; color: #01334e;}
  	</style>
 
@@ -110,17 +111,24 @@ $(function() {
 
 
 </script>
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
+$('#city_city_id').change(function() {
+ 
+var v = $(this).find('option:selected').val();
+var url = "/home/nearme?city_id=" + v; 
 
+// change value of link_to - MoSh - 29/01
+ $("#entrar").attr("href", url)
+
+
+});
+</script>
+<script type="text/javascript" charset="utf-8">
 $('#carregandot').hide(); 
 
-
-
-
 $(function() { 
-
-	$(".pagination a").on("click", function(event) {
-	 $('#carregandot').show(); 
+	$(".pagination_ticket a").on("click", function(event) {
+	$('#carregandot').show(); 
 	 $.getScript(this.href); 
 	 return false; 
 	}); 

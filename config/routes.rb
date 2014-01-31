@@ -1,5 +1,7 @@
 Trazcupom::Application.routes.draw do
   
+  resources :imageestablishments
+
   get "getcupom/download"
   resources :downloads
 
@@ -33,9 +35,9 @@ Trazcupom::Application.routes.draw do
   resources :categories
 
   get "partner/login"
-    get "establishments/likeestab"
+  get "establishments/likeestab"
   get "landing/anuncie"
-
+  get 'landing/ticket'
   get  'user/download'
 
   get 'user/tickets'
@@ -72,7 +74,7 @@ Trazcupom::Application.routes.draw do
 
   #devise_for :users
   # You can have the root of your site routed with "root"
-  root 'coming#soon'
+  root 'landing#page'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

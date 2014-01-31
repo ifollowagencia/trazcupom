@@ -27,6 +27,9 @@ class OffersController < ApplicationController
       # finalizado algoritmo para calcular o disconto total no produto
 
       # printando no mapa o endereço do estabelecimento
+
+      @downloads = jabaixaram(@offer.id)
+
       @address = Addressestablishment.where("establishment_id = ?", @offer.establishment_id)
       @location = Addressestablishment.find(@address)
 
@@ -34,12 +37,19 @@ class OffersController < ApplicationController
       @note = Note.where("offer_id = ?", @offer)
       @rule = Rule.where("offer_id = ?", @offer)
 
+      @feedimages = Imageestablishment.where("establishment_id = ?", @offer.establishment_id)
+
     else
       redirect_to new_user_session_path
 
     end # validando usuario logado para visualizar cupom
   end
 
+  def jabaixaram(idoffer)
+    
+    @qtde = Download.where("offer_id = ?", idoffer).count()
+
+  end
 
   def getproduct(idproduct)
       @product = Product.find(idproduct)

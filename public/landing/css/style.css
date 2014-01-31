@@ -390,8 +390,8 @@ body.fixed-nav .teasera {
 	margin-bottom: 40px;
 }
 
-#establishment_city_id{ width: 504px; height: 40px; border-radius: 0;}
-#establishment_city_id option{ color: white; height: 40px; border-radius: 0; background: #01334e;}
+#city_city_id{ width: 504px; height: 40px; border-radius: 0;}
+#city_city_id option{ color: white; height: 40px; border-radius: 0; background: #01334e;}
 
 .teaser .text-container h1 {
 	color: #3097be;

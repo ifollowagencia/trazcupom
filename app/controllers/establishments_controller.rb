@@ -34,6 +34,14 @@ class EstablishmentsController < ApplicationController
 
      @likes = countlike(params[:id])
      @comments = Commentestab.where("establishment_id = ?", params[:id])
+
+     puts "Cidade: #{@city}"
+    @name = current_user.name
+    
+    resultoffer = Offer.where("establishment_id = ?", params[:id])
+    sleep 1
+    @cupons = resultoffer.paginate(:page=>params[:page], :per_page => 4)
+
     else
       redirect_to new_user_session_path
     end
@@ -99,6 +107,6 @@ class EstablishmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def establishment_params
-      params.require(:establishment).permit(:name, :surname, :phone, :email, :password, :cnpj, :reason, :city_id, :plan_id, :imageprofile)
+      params.require(:establishment).permit(:name, :surname, :phone, :email, :password, :cnpj, :reason, :city_id, :plan_id, :imageprofile, :categoryestablishment_id)
     end
 end

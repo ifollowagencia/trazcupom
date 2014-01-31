@@ -69,10 +69,11 @@
 						</h1><br />
 						<h5 style="font-weight:bold; color:#fff;">Pegue cupons de descontos gratuitos dos melhores estabelecimentos de sua cidade sem pagar nada por isso.</h5><br />
 						<div style="float:left; width:90%;">
-						<%= collection_select(:establishment, :city_id, City.all, :id, :name, :prompt => 'Selecione sua cidade', :class => 'city') %>
+						<%= collection_select(:city, :city_id, City.all, :id, :name, :prompt => 'Selecione sua cidade', :class => 'city') %>
 						</div>
 						<div class="plan-row button-row" >
-						<%= link_to "Entrar", {:controller => "home", :action => "nearme"}, :style => 'background:#01334e; color:white;' %><br />
+						<%= link_to "Entrar", {:controller => "home", :action => "nearme"}, :style => 'background:#01334e; color:white;', remote: true, :id => 'entrar' %><br />
+
 						<div class="fb-like" data-href="http://www.facebook.com/TrazCupom" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 						</div>
 					</div>
@@ -94,24 +95,6 @@
 			<div class="container">
 				<div class="row">
 
-					<!-- ==============================================
-					Featured Box
-					=============================================== 
-					<div class="span4 featured">	
-						<h2 class="feature-title">Atraia Clientes</h2>
-						<form action="send-mail.php" method="post" id="contact-form">
-							<p>Não perca esta chance de atrair mais clientes para seu estabelecimento!</p>
-							<input type="text" value="Proprietário" name="name" class="required">
-							<input type="text" value="Email" name="email" class="required email">
-							<input type="text" value="Telefone de contato" name="phone">
-							<input type="text" value="Endereço" name="address">
-
-							<input type="submit" name="subscribe" value="Enviar">
-						</form>
-					</div>
-
-					End Featured Box
-					=============================================== -->
 
 					<div class="span7 offset1" style="margin-left:-15px; padding-left:13px;">
 						<h2 class="padding-top">Encontre inúmeros cupons de descontos dos melhores estabelecimentos de sua <span>cidade </span> gratuitamente!</h2>
@@ -148,7 +131,7 @@
 			<div style="margin-top:130px;">
 		<div id="carregando"><center><img src='/home/images/loading.gif' width='24' height='24' /></center></div>
 		 <div id="append_and_paginate" >
-		<center><%= will_paginate @rec, :renderer => WillPaginateRenderers::Twitter %></center>
+		<center><%= will_paginate @rec, :params => { :controller => "landing", :action => "ticket" }, :renderer => WillPaginateRenderers::Twitter %></center>
 				</div>
 				</div>
 		
@@ -193,12 +176,12 @@
 
 								<%= render 'tickets' %>
 							
-							</div>
-							<div id="carregandot"><center><img src='/home/images/loading.gif' width='24' height='24' /></center></div>
-		 <div id="append_and_paginate" >
-		<center><%= will_paginate @tickets, :renderer => WillPaginateRenderers::Twitter %></center>
+							</div><br />
+							<center><div id="carregandot" style=""><img src='/home/images/loading.gif' width='24' height='24' /></div></center>
+					 <div id="append_and_paginate"  style="margin-top:30px;">
+					<center><%= will_paginate @tickets, :params => { :controller => "landing", :action => "ticket" }, :class => 'pagination_ticket', :renderer => WillPaginateRenderers::Twitter %></center>
 
-						</div>
+									</div>
 
 					</div>
 				</div>

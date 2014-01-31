@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140129021949) do
+ActiveRecord::Schema.define(version: 20140130222441) do
 
   create_table "addressestablishments", force: true do |t|
     t.string   "address"
@@ -104,6 +104,15 @@ ActiveRecord::Schema.define(version: 20140129021949) do
   add_index "establishments", ["categoryestablishment_id"], name: "index_establishments_on_categoryestablishment_id", using: :btree
   add_index "establishments", ["city_id"], name: "index_establishments_on_city_id", using: :btree
   add_index "establishments", ["plan_id"], name: "index_establishments_on_plan_id", using: :btree
+
+  create_table "imageestablishments", force: true do |t|
+    t.string   "image"
+    t.integer  "establishment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "imageestablishments", ["establishment_id"], name: "index_imageestablishments_on_establishment_id", using: :btree
 
   create_table "likeestablishments", force: true do |t|
     t.integer  "count"

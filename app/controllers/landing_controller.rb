@@ -29,6 +29,31 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
 
   end
 
+    def ticket
+
+
+    #validando usuario logado
+    if user_signed_in?
+      
+      redirect_to  :controller => 'home', :action => 'nearme'
+      
+    end
+    #resolvido
+    #@rec = Establishment.paginate(:page => params[:page]) # replaces Post.all
+    
+    resultoffer = Establishment.all
+    sleep 1
+    @rec = resultoffer.paginate(:page=>params[:page], :per_page => 6)
+
+    @tickets = gettickets
+
+    @location = getlocation
+    #link parceiros
+
+   # @link_area_parceiros = link_to 'Área do parceiro', :controller => 'establishments', :action => 'new'
+
+  end
+
   def gettickets
     resultoffer = Offer.all
     sleep 1

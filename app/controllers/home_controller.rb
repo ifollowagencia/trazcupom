@@ -7,10 +7,14 @@ WillPaginateRenderers.pagination_options[:twitter_label] = "Carregar mais cupons
 WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
    # GET /offers
   # GET /offers.xml
-  def nearme
+  def nearme 
+    @city = params[:city_id]  
+    session[:city] = @city
+
   	if user_signed_in?
   		#pegar dados do usuario logado
-
+     
+    puts "Cidade: #{@city}"
   	@name = current_user.name
     @estabs = estabs
     resultoffer = Offer.all
