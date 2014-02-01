@@ -8,7 +8,7 @@
 
 	<div class="profile" style="color:#01334e; margin-top:-60px; padding:40px; background:#ccc; border:2px solid #888; height:900px;">
  <%= flash[:notice]  %>
-	<%= form_for @user, url: user_path(current_user.id), html: { method: :post } do |f| %>
+	<%= form_for current_user, :url => url_for(:controller => 'user', :action => 'edit', :id => current_user.id) do |f| %>
   <div class="field">
     
     <%= image_tag current_user.image, :style => 'border:1px solid #01334e; width:100px; height:100px;' %><br /><br />

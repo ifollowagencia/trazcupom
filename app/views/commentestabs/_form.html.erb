@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :establishment %><br>
-    <%= f.text_field :establishment %>
+    <%= collection_select(:establishment, :establishment_id, Establishment.all, :id, :reason, :prompt => 'Establishment:') %>
   </div>
   <div class="field">
     <%= f.label :user %><br>

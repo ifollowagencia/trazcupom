@@ -1,0 +1,2 @@
+module PdfticketHelper
+end

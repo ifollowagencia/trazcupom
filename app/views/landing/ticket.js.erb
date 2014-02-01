@@ -8,7 +8,9 @@ $('#ticketsloop').append('<%= escape_javascript(render("tickets")) %>');
     $('.pagination_ticket').remove();
 <% end %>
 
-<% if @tickets.current_page %>
+<% if @tickets.current_page == 2 %>
+	$('.pagination_ticket').remove();
+
     $('#carregandot').hide();
 <% end %>
 

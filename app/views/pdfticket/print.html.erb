@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+<style media="print" type="text/css">
+
+</style></head>
+<body style="background:#fff;">
+<div class="content">
+<h1 style="color:#01334e;"> Você acaba de imprimir um voucher Traz Cupom, para consumi-lo, basta recortar o voucher nesta folha e leva-lo até o estabelecimento! </h1><br />
+<h2>A equipe Traz Cupom deseja boas compras para você!</h2>	
+<div class="ticketcut" style="width:400px; height:350px; margin-left:50px;">
+<h1 style="margin-top:70px; margin-left:70px; position:absolute; color:#fff;"><%= @offer.establishment.reason %></h1>
+<p style="margin-top:110px; width:300px; margin-left:70px; position:absolute; color:#fff;">Descrição: <%= @offer.name %></p>
+<p style="margin-top:150px; width:300px; margin-left:70px; position:absolute; color:#fff;">Cliente: <%= current_user.name %></p>
+<p style="margin-top:180px; margin-left:70px; position:absolute; color:#fff;">Seu código: <% @code.each do |code| %><%= code.code %> <% end %></p>
+	<img src="/landing/images/ticket.png" width="500" height="300" />
+
+</div>
+<div>
+	<h2>Regras de uso:</h2>
+	<hr />
+	<p><% @regra.each do |rule| %><%= rule.description %><% end %></p>
+</div>
+<div>
+	<h2>Notas da Oferta:</h2>
+	<hr />
+	<p><% @notas.each do |nota| %><%= nota.description %><% end %></p>
+</div>
+</div>
+<%= link_to_function("Imprimir Voucher", "javascript:print()") %>
+</body>
+</html>

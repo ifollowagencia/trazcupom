@@ -10,13 +10,13 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'antonio.eschola@gmail.com'
+  config.mailer_sender = 'contato@ifollowagencia.com.br'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
   require "omniauth-facebook"
 
-  config.omniauth :facebook, "1400731803499862", "2dc6f4c4d32ffe325868d134fe97d1d1"
+  config.omniauth :facebook, "198613480286820", "d68cbc982b45c4307bd761a10fb96e90"
 
   require 'omniauth-twitter'
 

@@ -1,7 +1,7 @@
-$('#estab').append('<%= escape_javascript(render("establishments")) %>');
+$('#estab').html('<%= escape_javascript(render("establishments")) %>');
 
 <% if @rec.current_page < @rec.total_pages %>
-	$('.buttom_twitter').attr('href','page?page=<%= @rec.current_page + 1 %>');
+	$('.buttom_twitter a').attr('href','page?page=<%= @rec.current_page + 1 %>');
 
 <% end %>
 
@@ -9,7 +9,8 @@ $('#estab').append('<%= escape_javascript(render("establishments")) %>');
     $('.pagination').remove();
 <% end %>
 
-<% if @rec.current_page %>
+<% if @rec.current_page == 2 %>
+$('.pagination').remove();
     $('#carregando').hide();
 <% end %>
 

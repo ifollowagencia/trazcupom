@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
 helper :home
 
-WillPaginateRenderers.pagination_options[:twitter_label] = "Carregar mais cupons"
+WillPaginateRenderers.pagination_options[:twitter_label] = "Carregar mais"
 
 WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
    # GET /offers
@@ -33,7 +33,7 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
 
   def estabs
     
-    @estabs = Establishment.find(:all, :order => "id desc", :limit => 8).reverse
+    @estabs = Establishment.find(:all, :order => "id desc", :limit => 16).reverse
 
   end
 

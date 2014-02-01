@@ -241,7 +241,7 @@ div.faq p {line-height: 25px;}
   </div>
   <div class="field">
     <%= f.label :offer %><br>
-    <%= collection_select(:catch, :offer_id, Offer.all, :id, :name, :prompt => 'Oferta') %>
+    <%= collection_select(:note, :offer_id, Offer.all, :id, :name, :prompt => 'Oferta') %>
   </div>
   <div class="actions">
     <%= f.submit %>

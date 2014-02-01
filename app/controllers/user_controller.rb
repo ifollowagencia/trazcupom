@@ -1,4 +1,6 @@
 class UserController < ApplicationController
+
+
   def index
       #validar login
     if user_signed_in?
@@ -53,12 +55,7 @@ class UserController < ApplicationController
   def print
     @offer = Offer.find(params[:idoffer])
     @code = Download.where("offer_id = ? AND user_id = ?", params[:idoffer], current_user.id)
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render :pdf => @offer
-      end
-    end
+    
   end
 
 
@@ -83,6 +80,19 @@ class UserController < ApplicationController
 
   end
 
+  def edit
+    
+    @user = User.find(params[:id])
+
+    puts @user.name
+
+      
+      redirect_to :controller => "user", :action => "profile"
+
+
+  end
+
+
   def show
     #validar login
     if user_signed_in?
@@ -104,7 +114,7 @@ class UserController < ApplicationController
 
   def update
   @user = User.find(params[:id])
-  if @user.update_attributes(params[:user])
+  if @user.update_attributes(:name,params[:name])
     flash[:success] = "Profile updated."
     redirect_to :controller => 'user', :action => 'profile'
   else
@@ -113,11 +123,7 @@ class UserController < ApplicationController
   end
 
 
-   def user_params
-    # NOTE: Using `strong_parameters` gem
-    params.required(:user).permit(:phone, :image, :city_id, :namefull, :nascimento,:password, :password_confirmation)
-  end
-
+ 
 
 
 end

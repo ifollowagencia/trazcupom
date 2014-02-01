@@ -32,7 +32,29 @@
 <!-- required -->
 <link rel="stylesheet" type="text/css" href="/home/player/css/360player.css" />
 <link rel="stylesheet" type="text/css" href="/home/player/css/360player-visualization.css" />
+<style type="text/css">
+	            /*Criamos alguns estilos apenas pra posicionar melhor os elementos*/
+            .clear{clear:both;} 
+            .imagem{
+            	float:center; 
+            	margin:5px; 
+            	width: 90%;
+            	border-bottom: 3px solid #01334e;
 
+            	 }
+            .imagem img{width: 100%; height:500px;} 
+            .thumbs{
+            	float: left; 
+            	width: 100%;
+            	padding-left: 100px;
+            }
+            .thumbs img{ 
+            	box-shadow: 5px 5px 5px #000; 
+            	float:left; margin:10px; 
+            	cursor:pointer;  
+            	width: 74px;
+            	 height: 74px;}
+</style>
 </head>
 <body>
 <!-- header -->	
@@ -136,6 +158,21 @@ $(this).toggleText('Revelar','Esconder')
 })
 
 </script>
-
+<script type="text/javascript">
+	
+            $(function(){
+                //Criamos um evento de click em todas tags img dentro do elemento com class "thumbs"
+                $('.thumbs img').bind('click',trocaImagem);
+ 
+            });
+ 
+            function trocaImagem(){
+                objClk = $(this); 
+                srcImg = objClk.attr('src'); 
+                $('.imagem img').attr('src',srcImg);
+ 
+            }
+      
+</script>
 </body>
 </html>

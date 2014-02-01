@@ -84,7 +84,30 @@
 <hr />
 <h1 style="font-weight:bold; padding-left:40px; color:#01334e; "><%= " 
 Fotos de "+ @establishment.reason %></h1>
-  
+<div id="gallryproducts" style="margin-left:50px;">
+
+          <% if @images <= 0 %>
+
+          <% else %>
+   <div style="width:90%; min-height:540px; background:#ddd; padding-bottom:10px; margin-left:40px; border:1px solid #ccc; float:left; margin-bottom:40px;" >
+  <!-- Slide de fotos da oferta --> 
+
+        <div class="imagem">
+             <%= image_tag @establishment.imageprofile_url(:giga) %>
+        </div>
+        <div class="clear"></div>
+        <div class="thumbs">
+           
+            <% @feedimages.each do |image| %>
+            <%= image_tag image.image_url(:giga) %> 
+            <% end %>
+        </div>
+        <br />
+       
+
+ </div>
+ <% end %>
+</div>  
 <hr />
 <h1 style="font-weight:bold; padding-left:40px; color:#01334e; "><%= " 
 Catalogo de "+ @establishment.reason %></h1>
@@ -114,5 +137,14 @@ Catalogo de "+ @establishment.reason %></h1>
 <hr />
 <% end %>  
 
+</div>
+<div style="takecomment">
+<h3 style="color:#01334e; margin-left:50px;">Comentário:</h3><br />
+  <textarea style="width:90%; height:120px; background:#ddd; border:1px solid #01334e; margin-left:50px; margin-bottom:50px; margin-top:-20px;">
+    
+  </textarea>
+  <div style="width:200px; height:40px; padding:15px; background:#01334e; color: white;  float:right; margin-right:50px; margin-bottom:50px;">
+  <a href="#" style="color:#fff; margin-left:50px; margin-top:-10px;">Comentar </a>
+  </div>
 </div>
 </section>

@@ -1,7 +1,7 @@
 class LandingController < ApplicationController
 helper :home
 
-WillPaginateRenderers.pagination_options[:twitter_label] = "Carregar mais estabelecimentos"
+WillPaginateRenderers.pagination_options[:twitter_label] = "Carregar mais"
 
 WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
   def page
@@ -57,7 +57,7 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
   def gettickets
     resultoffer = Offer.all
     sleep 1
-    @tickets = resultoffer.paginate(:page=>params[:page], :per_page => 3)
+    @tickets = resultoffer.paginate(:page=>params[:page], :per_page => 8)
   end
  
   def getlocation

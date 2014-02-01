@@ -44,6 +44,10 @@ class EstablishmentsController < ApplicationController
 
     @products = Product.where("establishment_id = ?", params[:id])
 
+    @images = Imageestablishment.where("establishment_id = ?", params[:id]).count()
+
+    @feedimages = Imageestablishment.where("establishment_id = ?", params[:id]).last(10)
+    
     else
       redirect_to new_user_session_path
     end

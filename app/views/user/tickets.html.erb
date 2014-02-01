@@ -32,7 +32,8 @@
 	 		<p>Seu cupom: <%= cupom.code %></p>
 	 	</div>
 	 	<div class="print" style="">
-	 		<%= link_to 'Imprimir', :controller => 'user', :action => 'print', :idoffer => cupom.offer.id %>
+	 		<%= link_to 'Imprimir', :controller => 'pdfticket', :action => 'print', :idoffer => cupom.offer.id,  :method => :post %>
+	 		
 	 	</div>
 	 </div>
 	 <% end %>

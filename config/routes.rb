@@ -1,5 +1,6 @@
 Trazcupom::Application.routes.draw do
   
+  get "pdfticket/print"
   resources :imageestablishments
 
   get "getcupom/download"
@@ -58,7 +59,7 @@ Trazcupom::Application.routes.draw do
   get "home/nearme"
   get "landing/page"
 
- 
+   match 'user/:id/edit' => 'user#edit', :as => :update_profile, via: [:patch]
 
   match 'partner/partner_auth' => 'partner#partner_auth', :as => :login_partner, via: [:post]
 
@@ -72,9 +73,10 @@ Trazcupom::Application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+  
   #devise_for :users
   # You can have the root of your site routed with "root"
-  root 'coming#soon'
+  root 'landing#page'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

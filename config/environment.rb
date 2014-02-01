@@ -6,4 +6,3 @@ require 'will_paginate'
 # Initialize the Rails application.
 Trazcupom::Application.initialize!
 
-
