@@ -28,13 +28,28 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 group :development do
-
+	gem "quiet_assets"
 	gem 'better_errors'
 	gem "binding_of_caller"
 	gem 'capistrano-unicorn', :require => false
-
+	gem "meta_request"
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'sqlite3'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+	gem 'factory_girl'
+	gem 'simplecov', require: false
+  gem 'shoulda-matchers'
+end
 
 group :doc do
   gem 'sdoc', require: false
