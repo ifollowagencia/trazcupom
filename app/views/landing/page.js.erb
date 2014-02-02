@@ -1,14 +1,10 @@
 $('#estab').append('<%= escape_javascript(render("establishments")) %>');
 
-<% if @rec.current_page < @rec.total_pages %>
- 	$('.buttom_twitter').attr('href','page?page=<%= @rec.current_page + 1 %>');
- 
+ <% if @rec.current_page < @rec.total_pages %>
+ 		 $('div.pagination a.buttom_twitter').attr('href','page?page=<%= @rec.current_page + 1 %>');
  <% end %>
  
  <% if @rec.total_pages == @rec.current_page %>
-     $('.pagination').remove();
- <% end %>
- 
- <% if @rec.current_page %>
-     $('#carregando').hide();
+     $('div.pagination').remove();
+     $('div#carregando').hide();
  <% end %>
