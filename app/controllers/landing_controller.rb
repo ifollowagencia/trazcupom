@@ -18,7 +18,7 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
     
     resultoffer = Establishment.all
     sleep 1
-    @rec = resultoffer.paginate(:page=>params[:page], :per_page => 4)
+    @rec = resultoffer.paginate(:page=>params[:page], :per_page => 1)
 
     @tickets = gettickets
 
@@ -43,7 +43,7 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
     
     resultoffer = Establishment.all
     sleep 1
-    @rec = resultoffer.paginate(:page=>params[:page], :per_page => 4)
+    @rec = resultoffer.paginate(:page=>params[:page], :per_page => 1)
 
     @tickets = gettickets
 
