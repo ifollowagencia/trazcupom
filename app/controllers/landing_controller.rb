@@ -57,7 +57,7 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
   def gettickets
     resultoffer = Offer.all
     sleep 1
-    @tickets = resultoffer.paginate(:page=>params[:page], :per_page => 8)
+    @tickets = resultoffer.paginate(:page=>params[:page], :per_page => 2)
   end
  
   def getlocation
