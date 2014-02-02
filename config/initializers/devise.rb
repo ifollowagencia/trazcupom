@@ -17,9 +17,9 @@ Devise.setup do |config|
   require "omniauth-facebook"
 
   if Rails.env.production?
-    config.omniauth :facebook, "395980473880366", "e2f6acfa12d1b455005486e8d795e021"
+    config.omniauth :facebook, "254481078054245", "b3a5427420c9f97a43f7608290903dd5"
   else
-    config.omniauth :facebook, "1441077476122940", "40b453cb7cc29ee5f032f826b0db1b01"
+    config.omniauth :facebook, "1420525664855756", "0847c6359dd59dfde17f19b0e91f9432"
   end
 
   require 'omniauth-twitter'
