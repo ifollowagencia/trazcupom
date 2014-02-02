@@ -16,7 +16,11 @@ Devise.setup do |config|
   # config.mailer = 'Devise::Mailer'
   require "omniauth-facebook"
 
-  config.omniauth :facebook, "198613480286820", "d68cbc982b45c4307bd761a10fb96e90"
+  if Rails.env.production?
+    config.omniauth :facebook, "395980473880366", "e2f6acfa12d1b455005486e8d795e021"
+  else
+    config.omniauth :facebook, "1441077476122940", "40b453cb7cc29ee5f032f826b0db1b01"
+  end
 
   require 'omniauth-twitter'
 
