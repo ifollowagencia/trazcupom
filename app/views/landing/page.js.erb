@@ -2,6 +2,7 @@ $('#estab').append('<%= escape_javascript(render("establishments")) %>');
 
  <% if @rec.current_page < @rec.total_pages %>
  		 $('div.pagination a.buttom_twitter').attr("href","<%= landing_page_path %>?page=<%= @rec.current_page + 1 %>");
+ 		 $('div#carregando').hide();
  <% end %>
  
  <% if @rec.total_pages == @rec.current_page %>

@@ -2,6 +2,7 @@ $('#ticketsloop').append('<%= escape_javascript(render("tickets")) %>');
 
  <% if @tickets.current_page < @tickets.total_pages %>
 		 $('div.pagination_ticket a.buttom_twitter').attr("href","<%= landing_ticket_path %>?page=<%= @tickets.current_page + 1 %>");
+ 		 $('div#carregandot').hide();
  <% end %>
  
  <% if @tickets.total_pages == @tickets.current_page %>
