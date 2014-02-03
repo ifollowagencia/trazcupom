@@ -53,5 +53,6 @@ namespace :deploy do
    task :symlink_config, roles: :app do
     run "ln -nsf #{shared_path}/uploads #{current_path}/public/uploads"
   end
+   after "deploy:setup_config", "deploy:symlink_config"
 
 end
