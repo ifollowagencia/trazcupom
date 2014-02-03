@@ -1,3 +1,4 @@
+<!-- Inicio Section -->
 <section id="events" style="background:#f8f8f8;  ">
 <div class="container" style="background:#dfdfdf; margin-top:-100px; border:1px solid #ccc;">
 
@@ -106,9 +107,9 @@
   </li> 
 
   </ul> 
-  </div> 
-  <div id="content"> 
-  <div class="conteudo"  style="margin-left40px; padding-left:50px;"> 
+  </div> <!-- Fim header -->
+<div id="content"> 
+<div class="conteudo"  style="margin-left40px; padding-left:50px;"> 
  <h1 style="color:#000; font-weight:bold; margin-left40px;">Condições de uso</h1>
   <p style="color:#01334e; text-align: justify; width:100%; margin-left40px; margin-bottom:30px;">
 
@@ -117,7 +118,7 @@
     <% end %>
   </p>
 
- </div> 
+ </div> <!-- Fim Tab Conteudo -->
   <div class="conteudo" style="padding-left:50px;"> 
   <h1 style="color:#000; font-weight:bold;">Notas</h1>
   <p style="color:#01334e;">
@@ -126,15 +127,15 @@
       <%= note.description %>
     <% end %>
   </p>
-  </div> 
+  </div><!-- Fim Tab Conteudo --> 
   <div class="conteudo" style="width:100%; background:#fff; display:none; height:400px; color:#fff; "> 
 
    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=800x400&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}", :style => 'width:100%; height:100%;' %>
 
- </div> 
+</div> <!-- Fim Tab Conteudo --> 
 
-  </div> 
-  </div>
+</div> <!-- Fim Content -->
+</div> <!-- Fim Tab Control -->
 
 
 
@@ -144,6 +145,7 @@
 
 </div>
 </section>
+<!-- Fim de seciton -->
 
 
 
