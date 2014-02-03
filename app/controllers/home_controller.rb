@@ -33,13 +33,13 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
 
   def estabs
     
-    @estabs = Establishment.find(:all, :order => "id desc", :limit => 16).reverse
+    @estabs = Establishment.find(:all, :order => "id DESC", :limit => 16).reverse
 
   end
 
   def cuponsrecentes
     
-    @cuponsrecentes = Offer.find(:all, :order => "id desc", :limit => 9).reverse
+    @cuponsrecentes = Offer.find(:all, :order => "validity DESC", :limit => 9).reverse
 
   end
 
