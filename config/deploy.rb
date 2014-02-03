@@ -21,6 +21,7 @@ set :user, "root"
 set :use_sudo, false
 set :rvm_ruby_string, 'ruby-2.1.0' # Change to your ruby version
 
+
 set :rvm_type, :system # :user if RVM installed in $HOME
 
 set :default_shell, "/bin/bash -l"

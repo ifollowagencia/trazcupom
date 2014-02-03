@@ -10,5 +10,3 @@ namespace :carrierwave do
   end
   after 'deploy', 'carrierwave:symlink'
 end
-
-#{deploy_to}/#{shared_dir}/uploads
