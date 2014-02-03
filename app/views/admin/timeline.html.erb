@@ -10,3 +10,30 @@
 
 
 	<% end %>
+
+  <hr />
+
+  <h1>Mapa</h1>
+
+  <div style='width: 800px;'>
+  <div id="mapao" style='width: 800px; height: 400px;'></div>
+</div>
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'mapao'}}, function(){
+  markers = handler.addMarkers([
+    {
+      "lat": 0,
+      "lng": 0,
+      "picture": {
+        "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
+        "width":  36,
+        "height": 36
+      },
+      "infowindow": "hello!"
+    }
+  ]);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>

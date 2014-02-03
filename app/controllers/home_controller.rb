@@ -21,15 +21,33 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
     sleep 1
     @cupons = resultoffer.paginate(:page=>params[:page], :per_page => 6)
 
+    @pins = Addressestablishment.all
+    @hash = Gmaps4rails.build_markers(@pins) do |pin, marker|
+    marker.lat pin.latitude
+    marker.lng pin.longitude
+    marker.picture({
+    "picture" => "/home/images/location.png",
+     "width" =>  '32',        
+     "height" => '32'
+     })
+    end
+
 
   	else
-  		
+      # caso não esteja logado redireciona pro login 	   	
   		redirect_to new_user_session_path
 
   	end
   	
   end  #final do método nearme
 
+  def gmaps4rails_marker_picture
+    {
+    "picture" => "http://www.trazcupom.com/home/images/location.png",
+    "width" => 32, #beware to resize your pictures properly
+    "height" => 32 #beware to resize your pictures properly
+    }
+end
 
   def estabs
     

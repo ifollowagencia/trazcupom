@@ -11,6 +11,11 @@ class AdminController < ApplicationController
   	@downloads = Download.all
   	@offers = Offer.all
   	@establishments = Establishment.all	
-
+    
+    @pins = Addressestablishment.all
+    @hash = Gmaps4rails.build_markers(@pins) do |pin, marker|
+    marker.lat pin.latitude
+    marker.lng pin.longitude
+    end
   end
 end

@@ -15,6 +15,6 @@
 //= require turbolinks
 //= require lazybox
 //= require_tree .
-
-
 //= require jquery.infinitescroll
+//= require underscore
+//= require gmaps/google
