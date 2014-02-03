@@ -27,6 +27,7 @@ set :rvm_type, :system # :user if RVM installed in $HOME
 set :default_shell, "/bin/bash -l"
 
 
+set :shared_children, shared_children + %w{public/uploads}
 
 namespace :deploy do
   # verifica as pasta necessarias para o envio, e inicialização do s serviços
