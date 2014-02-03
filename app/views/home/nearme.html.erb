@@ -131,4 +131,18 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   handler.fitMapToBounds();
 });
 
-    </script>
+</script>
+<script type="text/javascript" charset="utf-8">
+
+$('#carregando').hide(); 
+
+$(function() { 
+
+	$(".pagination a").on("click", function(event) {
+	 $('#carregando').show(); 
+	 $.getScript(this.href); 
+	 return false; 
+	}); 
+}); 
+
+</script>

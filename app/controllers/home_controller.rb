@@ -17,8 +17,13 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
     puts "Cidade: #{@city}"
   	@name = current_user.name
     @estabs = estabs
+    
+
     resultoffer = Offer.all
+    
+
     sleep 1
+    
     @cupons = resultoffer.paginate(:page=>params[:page], :per_page => 6)
 
     @pins = Addressestablishment.all
@@ -30,6 +35,7 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
      "width" =>  '32',        
      "height" => '32'
      })
+
     end
 
 
