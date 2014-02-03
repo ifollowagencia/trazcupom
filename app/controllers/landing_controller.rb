@@ -21,8 +21,13 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
     @rec = resultoffer.paginate(:page=>params[:page], :per_page => 4)
 
     @tickets = gettickets
-
-    @location = getlocation
+    
+    @location = Geocoder.search(get_ip_by_env).first
+    @estabs = find_establishments_by_location @location.data["city"]
+    offers_relation = @estabs.map do |es| es.offers end
+    @offers = offers_relation.flatten
+    
+    ######@location = getlocation
     #link parceiros
 
    # @link_area_parceiros = link_to 'Área do parceiro', :controller => 'establishments', :action => 'new'
@@ -61,7 +66,7 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
   end
  
   def getlocation
-    location_info =  request.location
+    location_info = request.location
     #@location = City.nearbys(50)
     @a = request.location.try(:city)
     puts @a
@@ -69,22 +74,16 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
 
 
   def recomendamos
-    
     #@rec = Establishment.last(4)
     @rec = Establishment.paginate(:page => params[:page], :per_page => 4)
-
   end
 
-  def anuncie
-    
-  end
+  def anuncie; end
 
   def new
     @establishment = Establishment.new
   end
 
-  # POST /establishments
-  # POST /establishments.json
   def create
     @establishment = Establishment.new(establishment_params)
 
@@ -98,6 +97,14 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
       end
     end
   end
-
   
+  private
+  def get_ip_by_env
+    (Rails.env.eql?("development") || Rails.env.eql?("staging")) ? "189.52.48.2" : request.remote_ip
+  end
+
+  def find_establishments_by_location(city_name)
+    city = City.where(name: city_name).first
+    Establishment.where(city_id: city.id) rescue []
+  end
 end
