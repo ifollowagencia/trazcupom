@@ -96,3 +96,7 @@ gem 'rvm-capistrano'
 gem 'wkhtmltopdf-binary'
 
 gem 'wicked_pdf'
+
+gem 'gmaps4rails'
+
+gem 'mailgunner', '~> 1.3.0'

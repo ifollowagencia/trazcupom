@@ -92,6 +92,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.9.3)
     geocoder (1.1.9)
+    gmaps4rails (2.1.1)
     hashie (2.0.5)
     highline (1.6.20)
     hike (1.2.3)
@@ -112,6 +113,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mailgunner (1.3.0)
     meta_request (0.2.8)
       callsite
       rack-contrib
@@ -280,10 +282,12 @@ DEPENDENCIES
   factory_girl
   factory_girl_rails
   geocoder
+  gmaps4rails
   jbuilder (~> 1.2)
   jquery-rails
   launchy
   lazybox
+  mailgunner (~> 1.3.0)
   meta_request
   mini_magick
   mysql2

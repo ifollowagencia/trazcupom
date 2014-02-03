@@ -1,5 +1,6 @@
 Trazcupom::Application.routes.draw do
   
+  get "admin/dashboard"
   get "pdfticket/print"
   resources :imageestablishments
 
@@ -11,6 +12,8 @@ Trazcupom::Application.routes.draw do
   get 'user/print'
 
   get 'user/update_password'
+
+  get  'admin/timeline'
 
   resources :categoryestablishments
 

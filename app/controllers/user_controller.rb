@@ -27,7 +27,7 @@ class UserController < ApplicationController
   end
 
   def download
-    puts "entrei"
+ 
     result = Download.where("user_id = ? AND offer_id = ?", current_user.id, params[:idoffer]).count
 
     if result > 0 
@@ -36,14 +36,20 @@ class UserController < ApplicationController
     else
     #option to save voucher 
     o = [('a'..'z'), ('A'..'Z')].map { |i| i.to_a }.flatten
+
     code = (0...10).map { o[rand(o.length)] }.join
+
     download = Download.new(:offer_id => params[:idoffer],:user_id => current_user.id, :code => code)
+
     #definido o disparo dos emails
     @offer = Offer.find(params[:idoffer])
     if download.save
       UserMailer.download_ticket(params[:idoffer], @offer.establishment.id,current_user.id).deliver
+      
       flash[:message] = 'Parabéns, desfrute seu cupom de desconto :)' 
+      
       redirect_to :controller => 'user', :action => 'tickets', :notice => 'Parabéns, desfrute seu cupom de desconto :)'
+    
     else
       flash[:notice] = 'Tivemos um erro ao tentar baixar o seu cupom, tente novamente!' 
       redirect_to :controller => 'user', :action => 'tickets', :notice => 'Tivemos um erro ao tentar baixar o seu cupom, tente novamente!'

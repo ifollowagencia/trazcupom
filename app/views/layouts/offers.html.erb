@@ -33,7 +33,10 @@
 <link rel="stylesheet" type="text/css" href="/home/player/css/360player-visualization.css" />
 <link rel="stylesheet" type="text/css" href="/home/css/offer.css" />
 
-<%= javascript_include_tag :defaults %>
+<%= javascript_include_tag :jquery %>
+
+
+
 <style> 
 .TabControl{ width:100%; overflow:hidden; min-height:500px; margin-left: 40px; margin-top: 40px;} 
 .TabControl #header{ width:50%; overflow:hidden; cursor:hand} 
@@ -50,6 +53,44 @@
 </style>
 
 
+<script type="text/javascript">
+	
+            $(function(){
+                //Criamos um evento de click em todas tags img dentro do elemento com class "thumbs"
+                $('.thumbs img').bind('click',trocaImagem);
+ 
+            });
+ 
+            function trocaImagem(){
+                objClk = $(this); 
+                srcImg = objClk.attr('src'); 
+                $('.imagem img').attr('src',srcImg);
+ 
+            }
+      
+</script>
+<script type="text/javascript"> 
+
+$(document).ready(function(){  
+	$("#content div:nth-child(1)").show();  
+	$(".abas li:first div").addClass("selected");	 
+	$(".aba").click(function(){  
+		$(".aba").removeClass("selected");  
+		$(this).addClass("selected");  
+		var indice = $(this).parent().index();  
+		indice++;  
+		$("#content div").hide();  
+		$("#content div:nth-child("+indice+")").show(); 
+		 }); 
+	$(".aba").hover(  
+		function(){
+			$(this).addClass("ativa")}, 
+			function(){
+				$(this).removeClass("ativa")}  
+				);	 
+				 });  
+
+</script>
 </head>
 <body>
 <!-- header -->	
@@ -132,49 +173,8 @@
 <script type="text/javascript" src="/home/player/script/soundmanager2.js"></script>
 <script type="text/javascript" src="/home/player/script/360player.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
-<script type="text/javascript" src="/home/js/gmap3.js"></script> 
-
-<script type="text/javascript">
-	
-            $(function(){
-                //Criamos um evento de click em todas tags img dentro do elemento com class "thumbs"
-                $('.thumbs img').bind('click',trocaImagem);
- 
-            });
- 
-            function trocaImagem(){
-                objClk = $(this); 
-                srcImg = objClk.attr('src'); 
-                $('.imagem img').attr('src',srcImg);
- 
-            }
-      
-</script>
-<script type="text/javascript"> 
-
-$(document).ready(function(){  
-	$("#content div:nth-child(1)").show();  
-	$(".abas li:first div").addClass("selected");	 
-	$(".aba").click(function(){  
-		$(".aba").removeClass("selected");  
-		$(this).addClass("selected");  
-		var indice = $(this).parent().index();  
-		indice++;  
-		$("#content div").hide();  
-		$("#content div:nth-child("+indice+")").show(); 
-		 }); 
-	$(".aba").hover(  
-		function(){
-			$(this).addClass("ativa")}, 
-			function(){
-				$(this).removeClass("ativa")}  
-				);	 
-				 });  
-
-$(elemento).hover( function(){/*função a ser executada ao pôr o cursor sobre o elemento*/}, function(){/*função a ser executada ao tirar o cursor do elemento*/} );
 
 
-</script>
 
 
 

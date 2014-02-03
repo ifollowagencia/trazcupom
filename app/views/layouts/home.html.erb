@@ -34,11 +34,16 @@
 <link rel="stylesheet" type="text/css" href="/home/player/css/360player-visualization.css" />
 
 <%= javascript_include_tag 'jquery' %>
+
 <style type="text/css">
 	.buttom_twitter{background: #01334e; width: 250px; height: 40px; padding: 10px; color:white;}
 	.buttom_twitter a:hover{color:#01334e;}
 	.buttom_twitter:hover{background: white;}
 </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script src="/javascripts/gmaps_google.js"></script>
+    <script src="/javascripts/underscore.js"></script>
+   
 </head>
 <body>
 
@@ -125,18 +130,10 @@
 
 <script type="text/javascript" src="/home/player/script/berniecode-animator.js"></script>
 
-
-<script type="text/javascript" src="/home/player/script/soundmanager2.js"></script>
-<script type="text/javascript" src="/home/player/script/360player.js"></script>
-<script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
-<script type="text/javascript" src="/home/js/gmap3.js"></script> 
-
+ 
 <script type="text/javascript" charset="utf-8">
 
 $('#carregando').hide(); 
-
-
-
 
 $(function() { 
 
@@ -146,10 +143,6 @@ $(function() {
 	 return false; 
 	}); 
 }); 
-
-
-
-
 
 </script>
 

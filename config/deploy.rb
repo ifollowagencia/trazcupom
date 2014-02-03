@@ -6,7 +6,7 @@ load "config/recipes/check"
 load "config/recipes/logs"
 load "config/recipes/nginx"
 load "config/recipes/unicorn"
-load "config/recipes/carrierwave"
+#load "config/recipes/carrierwave"
 
 set :application, "trazcupom"
 server "162.243.115.252", :web, :app, :db, primary: true
@@ -21,9 +21,13 @@ set :user, "root"
 set :use_sudo, false
 set :rvm_ruby_string, 'ruby-2.1.0' # Change to your ruby version
 
+
 set :rvm_type, :system # :user if RVM installed in $HOME
 
 set :default_shell, "/bin/bash -l"
+
+
+set :shared_children, shared_children + %w{public/uploads}
 
 namespace :deploy do
   # verifica as pasta necessarias para o envio, e inicialização do s serviços
@@ -47,5 +51,9 @@ namespace :deploy do
   after "deploy:setup", "deploy:setup_config"
   after "deploy:create_symlink", "deploy:setup_config"
 
+   task :symlink_config, roles: :app do
+    run "ln -nsf #{shared_path}/uploads #{current_path}/public/uploads"
+  end
+   after "deploy:setup_config", "deploy:symlink_config"
 
 end
