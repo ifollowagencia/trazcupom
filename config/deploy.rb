@@ -26,7 +26,7 @@ set :rvm_type, :system # :user if RVM installed in $HOME
 
 set :default_shell, "/bin/bash -l"
 
-after 'deploy:update_code', ':symlink_uploads'
+
 
 namespace :deploy do
   # verifica as pasta necessarias para o envio, e inicialização do s serviços
