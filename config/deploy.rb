@@ -26,6 +26,8 @@ set :rvm_type, :system # :user if RVM installed in $HOME
 
 set :default_shell, "/bin/bash -l"
 
+after 'deploy:update_code', ':symlink_uploads'
+
 namespace :deploy do
   # verifica as pasta necessarias para o envio, e inicialização do s serviços
   # para corrigir bug que aconteceu comigo, talvez ja tenham corrigido esse erro
@@ -49,7 +51,7 @@ namespace :deploy do
   after "deploy:create_symlink", "deploy:setup_config"
 
    task :symlink_config, roles: :app do
-    run "ln -nfs #{shared_dir}/uploads #{release_path}/public/uploads"
+    run "ln -nfs #{deploy_to}/#{current_path}/uploads #{release_path}/public/uploads"
   end
 
 end
