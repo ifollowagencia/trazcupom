@@ -87,5 +87,5 @@ Trazcupom::Application.configure do
   :user_name => "postmaster@sandbox32726.mailgun.org",
   :password => "rub32912289"
 }
-
+ActionMailer::Base.delivery_method = :smtp
 end
