@@ -6,7 +6,7 @@ load "config/recipes/check"
 load "config/recipes/logs"
 load "config/recipes/nginx"
 load "config/recipes/unicorn"
-load "config/recipes/carrierwave"
+#load "config/recipes/carrierwave"
 
 set :application, "trazcupom"
 server "162.243.115.252", :web, :app, :db, primary: true
@@ -48,5 +48,8 @@ namespace :deploy do
   after "deploy:setup", "deploy:setup_config"
   after "deploy:create_symlink", "deploy:setup_config"
 
+   task :symlink_config, roles: :app do
+    run "ln -nfs #{shared_dir}/uploads #{release_path}/public/uploads"
+  end
 
 end
