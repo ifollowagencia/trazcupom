@@ -7,8 +7,7 @@ helper :home
 WillPaginateRenderers.pagination_options[:twitter_label] = "Carregar mais"
 
 WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
-   # GET /offers
-  # GET /offers.xml
+
   def nearme
     @city = params[:city_id]
     session[:city] = @city
@@ -26,7 +25,6 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
 
       @pins = Addressestablishment.all
       build_makers_for_map
-      
     else
       # caso não esteja logado redireciona pro login
       redirect_to new_user_session_path
@@ -48,7 +46,6 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
 
   def cuponsrecentes
     @cuponsrecentes = Offer.all.order(validity: :desc).limit(9).reverse
-    #@cuponsrecentes = Offer.find(:all, :order => "validity DESC", :limit => 9).reverse
   end
 
   private
@@ -66,7 +63,6 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
     @hash = Gmaps4rails.build_markers(@pins) do |pin, marker|
       marker.lat pin.latitude
       marker.lng pin.longitude
-
     end
   end
 
