@@ -26,6 +26,7 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
 
       @pins = Addressestablishment.all
       build_makers_for_map
+      
     else
       # caso não esteja logado redireciona pro login
       redirect_to new_user_session_path
@@ -65,11 +66,7 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
     @hash = Gmaps4rails.build_markers(@pins) do |pin, marker|
       marker.lat pin.latitude
       marker.lng pin.longitude
-      marker.picture({
-        "picture" => "/home/images/location.png",
-        "width" =>  '32',
-        "height" => '32'
-      })
+
     end
   end
 
