@@ -55,7 +55,9 @@
             	width: 74px;
             	 height: 74px;}
 </style>
+<%= javascript_include_tag 'jquery' %>
 </head>
+
 <body>
 <!-- header -->	
 <header id="mt-header" class="header-bg-style">
@@ -173,6 +175,13 @@ $(this).toggleText('Revelar','Esconder')
  
             }
       
+</script>
+<script type="text/javascript">
+  //ajax like estab
+$(document).ready(function(){
+ 
+  alert('DOM is loaded.');
+  });
 </script>
 </body>
 </html>

@@ -200,7 +200,7 @@ a:hover {
 }
 
 .color-background {
-	background: #3097be;
+	background: #01334e;
 	color: #ffffff;
 }
 
@@ -684,7 +684,7 @@ body.fixed-nav .teasera {
 ============================================== */
 
 .icon-container {
-	width: 120px;
+	width: 200px;
 	height: 120px;
 	padding: 9px;
 	background: #ccc;

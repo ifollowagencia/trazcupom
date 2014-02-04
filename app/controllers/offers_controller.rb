@@ -16,7 +16,7 @@ class OffersController < ApplicationController
     if user_signed_in?
 
       #pegar o produto anunciado nessa oferta
-      @product = getproduct(@offer.product.id)
+      @product = get_product(@offer.product.id)
 
       @oldprice = @product.price
 
@@ -28,7 +28,7 @@ class OffersController < ApplicationController
 
       # printando no mapa o endereço do estabelecimento
 
-      @downloads = jabaixaram(@offer.id)
+      @downloads = has_downloaded(@offer.id)
 
       @address = Addressestablishment.where("establishment_id = ?", @offer.establishment_id)
       @location = Addressestablishment.find(@address)
@@ -38,21 +38,20 @@ class OffersController < ApplicationController
       @rule = Rule.where("offer_id = ?", @offer)
 
       @feedimages = Imageestablishment.where("establishment_id = ?", @offer.establishment_id)
-      
+
+      # inserir como oferta visitada
+      VisitedOffer.create(
+        user_id: current_user.id,
+        offer_id: @offer.id,
+        category_establishments_id: @offer.establishment.categoryestablishment.id
+      )
     else
       redirect_to new_user_session_path
-
     end # validando usuario logado para visualizar cupom
   end
 
-  def jabaixaram(idoffer)
-    
-    @qtde = Download.where("offer_id = ?", idoffer).count()
-
-  end
-
-  def getproduct(idproduct)
-      @product = Product.find(idproduct)
+  def get_product(product_id)
+    @product = Product.find(product_id)
   end
 
 
@@ -106,6 +105,11 @@ class OffersController < ApplicationController
   end
 
   private
+
+    def has_downloaded(offer_id)
+      @qtde = Download.where("offer_id = ?", offer_id).count()
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_offer
       @offer = Offer.find(params[:id])

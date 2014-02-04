@@ -124,14 +124,14 @@
 					</div>
 				</div>
 			<div class="row" id="results">
-			<div id="estab" style="margin-bottom:30px;">
+			<div id="estab" style="margin-bottom:30px; ">
 				<%= render 'establishments' %>
 				 </div>
 			</div>
 			<div style="margin-top:130px;">
 		<div id="carregando"><center><img src='/home/images/loading.gif' width='24' height='24' /></center></div>
-		 <div id="append_and_paginate" >
-		<center><%= will_paginate @rec, :params => { :controller => "landing", :action => "page" }, :renderer => WillPaginateRenderers::Twitter %></center>
+		 <div id="append_and_paginate" style="">
+		<center><%= will_paginate @rec, :params => { :controller => "landing", :action => "page" }, :style => 'width:80%;', :renderer => WillPaginateRenderers::Twitter %></center>
 				</div>
 				</div>
 		
