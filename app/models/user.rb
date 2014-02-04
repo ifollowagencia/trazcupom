@@ -3,8 +3,10 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-
   has_many :visited_offers
+  belongs_to :city
+
+  mount_uploader :image, UserUploader
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
@@ -43,5 +45,9 @@ class User < ActiveRecord::Base
         )
       end
     end
+  end
+
+  def has_updated_profile?
+    (name && namefull && phone)
   end
 end
