@@ -45,6 +45,7 @@ class OffersController < ApplicationController
         offer_id: @offer.id,
         category_establishments_id: @offer.establishment.categoryestablishment.id
       )
+
     else
       redirect_to new_user_session_path
     end # validando usuario logado para visualizar cupom
