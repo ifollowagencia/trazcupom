@@ -6,9 +6,9 @@ json.array!(@addressestablishments) do |addressestablishment|
   json.lng addressestablishment.longitude
 
   json.picture do
-    json.url "http://localhost:3000/home/images/location.png"
-    json.width 150
-    json.height 150
+    json.url "http://localhost:3000/home/images/location_small.png"
+    json.width 24
+    json.height 32
   end
 
   json.infowindow "Hello!!!"
