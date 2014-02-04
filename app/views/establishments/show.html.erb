@@ -26,7 +26,7 @@
     <div style="width:286px; color:#000; height:46px; margin-left:350px; margin-top:-48px;">
       <%= 
        params[:estabelecimento] = @establishment.id
-       link_to image_tag('/home/images/likebutom.png', :style => 'width:46px;'), :action => "likeestab", :estab => params[:estabelecimento]
+       link_to image_tag('/home/images/likebutom.png', :id => 'like', :style => 'width:46px;'), :action => "likeestab", :estab => params[:estabelecimento]
 
        %>
       <%= @likes %> Curtiram este estabelecimento.

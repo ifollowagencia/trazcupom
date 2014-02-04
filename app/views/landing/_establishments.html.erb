@@ -2,14 +2,20 @@
 					<!-- ==============================================
 					First Rec
 					=============================================== -->
-					<div class="span6" style="">
-						<div class="icon-container float-left">
-							<%= image_tag establishment_rec.imageprofile_url(:banner_thumb) %>
+					<div class="span6" style="width:400px; margin-bottom:30px; padding:20px; background:#dfdfdf; height:300px;">
+						<div class="icon-container float-left" style="with:300px; height:200px; margin-bottom:20px;">
+							<%= image_tag establishment_rec.imageprofile_url(:banner_thumb), :style => "width:200px; margin-bottom:20px;" %>
 						</div>
-						<p style="font-weight:bold;"><strong><%= link_to establishment_rec.reason, establishment_rec  %></strong></p>
+						<div style="float:right; width:156px; height:210px; ">
+						<p style="font-weight:bold; font-size:14px;"><strong><%= link_to establishment_rec.reason, establishment_rec, :style => 'font-size:18px;'  %></strong></p>
 						<p><i class="icon-map-marker">&nbsp;<%= establishment_rec.city.name %></i></p>
-						<p><u><%= link_to 'Ver perfil do estabelecimento', establishment_rec %></u></p>
+						
+
+					</div><br />
+					<div style="clear:both;"></div>
+					<div style="width:100%; height:40px; padding:6px; margin-top:10px; background:#01334e;"><center><p style="text-decoration:none;"><u><%= link_to 'Conhecer', establishment_rec, :style => 'text-decoration:none; color:white; font-size:18px; margin-top:5px;' %></u></p></center></div>
 					</div>
+
 					<!-- End First rec 
 					============================================== -->
                     <% end %>
