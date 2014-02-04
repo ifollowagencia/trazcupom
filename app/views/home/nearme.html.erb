@@ -149,9 +149,12 @@
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
       $.get( "/addressestablishments.json", function(data) {
-        handler.addMarkers(data);
-        });
+        custom_markers = handler.addMarkers(data);
+        handler.bounds.extendWith(custom_markers);
+  			handler.fitMapToBounds();
+  			handler.getMap().setZoom(7);
       });
+  });
 </script>
 
 <script type="text/javascript" charset="utf-8">
