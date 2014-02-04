@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class LandingController < ApplicationController
 helper :home
 
@@ -23,9 +25,9 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
     @tickets = gettickets
     
     @location = Geocoder.search(get_ip_by_env).first
-    @estabs = find_establishments_by_location @location.data["city"]
-    offers_relation = @estabs.map do |es| es.offers end
-    @offers = offers_relation.flatten
+    @estabs = find_establishments_by_location "Rio De Janeiro" #@location.data["city"]
+    offers_relation = @estabs.map { |es| es.offers }
+    @offers = offers_relation.flatten.paginate(:page => params[:page], :per_page => 1)
     
     ######@location = getlocation
     #link parceiros
