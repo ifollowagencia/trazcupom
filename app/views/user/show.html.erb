@@ -1,16 +1,16 @@
 <section id="events" style="background:#dfdfdf;">
 <div class="container" style="margin-top:-50px; color:#01334e;">
-<!-- section header -->		
+<!-- section header -->
 		<div class="header">
 			<h2 style="color:#01334e;">Perfil</h2>
 			<p style="color:#01334e;">Aqui voce poderá alterar todos os seus dados de perfil</p>
 		</div>
 
 	<div class="profile" style="color:#01334e; margin-top:-60px; padding:40px; background:#ccc; border:2px solid #888; height:900px;">
- <%= flash[:notice]  %>
-	<%=  form_for :user, @user, :url => { :action => "update" } do |f| %>
+  <%= flash[:notice]  %>
+  <%= form_for(@user) do |f| %>
   <div class="field">
-    
+
     <%= image_tag current_user.image, :style => 'border:1px solid #01334e; width:100px; height:100px;' %><br /><br />
     <%= f.file_field :image, :style => 'width:450px; height:40px;'  %>
   </div><hr />
@@ -29,7 +29,7 @@
   </div><br />
   <div class="field">
     <%= f.label :cidade %>
-    <%= collection_select(:city, :city_id, City.all, :id, :name, :prompt => 'Selecione sua cidade:', :class => 'select_city')  %>
+    <%= f.select :city_id, options_from_collection_for_select(City.all, :id, :name), {:prompt => 'Selecione sua cidade:', class: 'select_city', include_blank: false, selected: @user.try(:city).try(:id) } %>
   </div><br />
   <div class="field">
     <%= f.label :datadenascimento %>
