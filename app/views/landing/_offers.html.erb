@@ -1,0 +1,17 @@
+<% @offers.each do |ticket| %>		  
+		<div id="tickets">
+		  <%= image_tag ticket.image1_url(:banner_thumb) %>
+	  <h1 style="; font-weight:bold; color:#01334e;"> <%= ticket.name %></h1>
+	  <div class="partnerinfo">
+	  	<img src="/landing/images/partnericon.png" width="28" height="28" style="border:none; width:16px; height:16px; margin-left:200px; margin-top:-50px; ">
+	  	<p style="float:left; margin-left:230px; margin-top:-55px; font-weight:bold; color:#01334e;" ><%= ticket.establishment.reason %></p>
+	  	<h3 style="margin-top:-20px; margin-left:200px; float:left; color:red; font-weight:bold;"><strike>De: <%= number_to_currency(ticket.product.price, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "R$") %></strike></h3><br />
+	  	<h2 style="margin-top:-25px; margin-left:40px; float:left; font-weight:bold;">Por:  <%= number_to_currency(ticket.priceproduct, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "R$") %></h2>
+	  </div>
+	  <div class="tk" style="">
+	
+	<center style="margin-top:10px; font-weight:bold;"><%= link_to 'Pegar Cupom', ticket, :style => "color:white; ", :class => 'getcupom' %></center>
+		</div>						
+	  </div>
+	  <br />
+<% end %>
