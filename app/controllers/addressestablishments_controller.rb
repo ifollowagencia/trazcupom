@@ -7,7 +7,7 @@ class AddressestablishmentsController < ApplicationController
     #if params[:search].present?
     #@addressestablishment = Addressestablishment.near(params[:search], 50, :order => :distance)
   #else
-    @addressestablishment = Addressestablishment.all
+    @addressestablishments = Addressestablishment.all
   #end
   end
 
