@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
+  has_many :visited_offers
 
- def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     if user
       return user
@@ -15,40 +16,32 @@ class User < ActiveRecord::Base
         return registered_user
       else
         user = User.create(name:auth.extra.raw_info.name,
-                            provider:auth.provider,
-                            uid:auth.uid,
-                            email:auth.info.email,
-                            image:auth.info.image,
-                            password:Devise.friendly_token[0,20],
+                            provider:   auth.provider,
+                            uid:        auth.uid,
+                            email:      auth.info.email,
+                            image:      auth.info.image,
+                            password:   Devise.friendly_token[0,20],
                           )
       end
-       
     end
   end
 
-
-
-
-def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
- 
-  user = User.where(:provider => auth.provider, :uid => auth.uid).first
-  if user
-    return user
-  else
-    registered_user = User.where(:email => auth.uid + "@twitter.com").first
-    if registered_user
-      return registered_user
+  def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    if user
+      return user
     else
-      user = User.create(name:auth.info.name,
-        provider:auth.provider,
-        uid:auth.uid,
-        email:auth.uid+"@twitter.com",
-        password:Devise.friendly_token[0,20],
-      )
+      registered_user = User.where(:email => auth.uid + "@twitter.com").first
+      if registered_user
+        return registered_user
+      else
+        user = User.create(name:auth.info.name,
+          provider:auth.provider,
+          uid:auth.uid,
+          email:auth.uid+"@twitter.com",
+          password:Devise.friendly_token[0,20],
+        )
+      end
     end
   end
-end
-
-
-
 end
