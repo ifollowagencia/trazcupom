@@ -1,16 +1,11 @@
 class UserController < ApplicationController
 
+  before_action :set_user, only: [:edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   def index
-    #validar login
-    if user_signed_in?
-      #pegar dados do usuario logado
-      @name = current_user.name
-      @user = current_user
-    else
-      redirect_to new_user_session_path
-    end
-
+    @name = current_user.name
+    @user = current_user
   end
 
   def tickets
@@ -19,7 +14,6 @@ class UserController < ApplicationController
   end
 
   def download
-
     result = Download.where("user_id = ? AND offer_id = ?", current_user.id, params[:idoffer]).count
 
     if result > 0
@@ -50,46 +44,39 @@ class UserController < ApplicationController
   def print
     @offer = Offer.find(params[:idoffer])
     @code = Download.where("offer_id = ? AND user_id = ?", params[:idoffer], current_user.id)
-
   end
 
-
-
   def profile
-    if user_signed_in?
-      @name = current_user.name
-      @user = current_user
-    else
-      redirect_to new_user_session_path
-    end
+    @name = current_user.name
+    @user = current_user
   end
 
   def edit
-    @user = User.find(params[:id])
-    redirect_to :controller => "user", :action => "profile"
   end
 
 
   def show
-    #validar login
-    if user_signed_in?
-      #pegar dados do usuario logado
-      @name = current_user.name
-      @user = current_user
-    else
-      redirect_to new_user_session_path
-    end
+    @name = current_user.name
+    @user = current_user
   end
 
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(:name, params[:name])
-      flash[:success] = "Profile updated."
-      redirect_to :controller => 'user', :action => 'profile'
+    if @user.update_attributes(user_params)
+      redirect_to @user, notice: 'Profile Updated'
     else
-      flash[:success] = "Profile updated not."
+      render action: 'profile'
     end
   end
 
+  private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+  # Only allow a trusted parameter "white list" through.
+  def user_params
+    params.require(:user).permit(:name, :image, :namefull, :phone, :city, :nascimento, :city_id)
+  end
 end
