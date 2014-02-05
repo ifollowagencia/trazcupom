@@ -1,5 +1,6 @@
 Trazcupom::Application.routes.draw do
   
+  get "now/index"
   get "admin/dashboard"
   get "pdfticket/print"
   resources :imageestablishments
