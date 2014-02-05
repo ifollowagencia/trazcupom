@@ -88,5 +88,9 @@ Trazcupom::Application.configure do
     :user_name => "postmaster@sandbox32726.mailgun.org",
     :password => "rub32912289"
   }
+<<<<<<< HEAD
   
 end
+=======
+end
+>>>>>>> dd07292a640162a968caae09b96be72252643d41
