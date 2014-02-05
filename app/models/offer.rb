@@ -10,6 +10,8 @@ class Offer < ActiveRecord::Base
 
   has_many :visited_offers
 
+  has_many :downloads
+
   def self.suggestions_by_category_establishments(current_user)
     offers = []
     category_ids = current_user.visited_offers.group(:category_establishments_id).order("count_all DESC").count.keys

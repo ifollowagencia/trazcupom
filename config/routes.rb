@@ -16,6 +16,8 @@ Trazcupom::Application.routes.draw do
 
   get  'admin/timeline'
 
+  get 'now/index'
+
   resources :categoryestablishments
 
   resources :commentestabs

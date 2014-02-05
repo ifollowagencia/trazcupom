@@ -14,8 +14,20 @@ class UserController < ApplicationController
   end
 
   def download
+    
     result = Download.where("user_id = ? AND offer_id = ?", current_user.id, params[:idoffer]).count
+    qtdoffer = Offer.where("id = ?", params[:idoffer]).first
 
+    qtd = Download.where("offer_id = ?", params[:idoffer]).count
+
+
+    if qtd == qtdoffer.amount
+
+      flash[:notice] = 'Infelizmente o número de downloads deste cupom se esgotou :(, acompanhe nosso aplicativo e aproveite!'
+      redirect_to :controller => 'user', :action => 'tickets'
+
+
+    else  
     if result > 0
       flash[:notice] = 'Você não pode mais baixar este cupom!'
       redirect_to :controller => 'user', :action => 'tickets'
@@ -29,6 +41,7 @@ class UserController < ApplicationController
 
       #definido o disparo dos emails
       @offer = Offer.find(params[:idoffer])
+      
       if download.save
         UserMailer.download_ticket(params[:idoffer], @offer.establishment.id,current_user.id).deliver
         flash[:message] = 'Parabéns, desfrute seu cupom de desconto :)'
@@ -36,10 +49,11 @@ class UserController < ApplicationController
       else
         flash[:notice] = 'Tivemos um erro ao tentar baixar o seu cupom, tente novamente!'
         redirect_to :controller => 'user', :action => 'tickets', :notice => 'Tivemos um erro ao tentar baixar o seu cupom, tente novamente!'
-      end
+      end #fim if download.save
+    
+    end # fim if result 0
     end
-
-  end
+  end # fim action
 
   def print
     @offer = Offer.find(params[:idoffer])

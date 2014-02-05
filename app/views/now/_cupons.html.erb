@@ -1,0 +1,34 @@
+
+
+		<% @cupons.each do |cupom| %>
+
+
+			<div class="span4 eblock" id="offerhome">
+				<div class="econtainer">
+					<div class="ehalf" style="">
+					 <div class="markerdeal" style="position:absolute; background: url('/home/images/dealthumb.png') no-repeat; width:77px; height:61px; margin-left:102px; margin-top:-10px; ">
+					 	<p style="color:white; font-weight:bold; margin-left:30px; margin-top:10px;"><%= number_to_percentage(get_discount(cupom.id), precision: 0) %> </p>
+					 	<p style="color:white; font-weight:bold; margin-top:-20px; margin-left:30px;">OFF!</p>
+					 </div>
+						<%= image_tag cupom.image1_url(:banner_thumb) %>
+					</div>
+					<div class="ehalf" style="padding:5px;">
+						<h3 style="font-weight:bold;"><a href="#"><%= cupom.establishment.reason %></a></h3>
+						
+						<i class="icon-home"><span><%= cupom.establishment.city.name %></span></i><br />
+						<i class="icon-time"><span><%= cupom.validity.strftime('%d/%m/%y') %></span></i><br />
+
+						<% @produto = Product.find(cupom.product.id) %>
+						<p style="color:red;"><strike>De: <%= number_to_currency(@produto.price, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "R$") %> </strike></p>
+						<h5 style="color:#01334e; margin-top:-20px; font-weight:bold;">Por: <%= number_to_currency(cupom.priceproduct, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "R$") %></h5>
+						<div class="date" style="background:#01334e; color:white;">
+							
+							<%= link_to 'Pegar', cupom, :idoffer => cupom.id , :style => "color:white;" %>
+						</div>						
+					</div>
+				</div>
+			</div>
+
+		<% end %>
+		
+	

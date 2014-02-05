@@ -87,9 +87,10 @@ header{
 /*navigation
 ------------------------------------*/
 nav{
-    background-color: #F1F3F4;
-    border-bottom: 1px solid #D7DBDC;
+    background-color: #01334e;
+    border-bottom: 1px solid #01334e;
     height: 90px;
+    color: white;
 }
 .nav{
     list-style: none;
