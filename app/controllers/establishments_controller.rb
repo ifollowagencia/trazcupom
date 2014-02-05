@@ -15,14 +15,14 @@ class EstablishmentsController < ApplicationController
 
   def likeestab
     
-
     @likeestablishment = Likeestablishment.new(:establishment_id => params[:estab])
+    
     @establishment = params[:estab]
     
       if @likeestablishment.save
       redirect_to :back
       end
-    redirect_to :back
+     redirect_to :back
   end
   # GET /establishments/1
   # GET /establishments/1.json

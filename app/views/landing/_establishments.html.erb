@@ -9,6 +9,15 @@
 						<div style="float:right; width:156px; height:210px; ">
 						<p style="font-weight:bold; font-size:14px;"><strong><%= link_to establishment_rec.reason, establishment_rec, :style => 'font-size:18px;'  %></strong></p>
 						<p><i class="icon-map-marker">&nbsp;<%= establishment_rec.city.name %></i></p>
+						<% aux = Offer.where("establishment_id = ?", establishment_rec.id).count %>
+						<% if aux <= 1 %>
+						<% message_offer = "#{aux} oferta ativa" %>
+						<% else %>
+						<% message_offer = "#{aux} ofertas ativas" %>
+						<% end %>
+						<p><i class="icon-tag">&nbsp;<%= message_offer %> </i></p>
+
+						<p><i class="icon-heart">&nbsp;<%= Likeestablishment.where("establishment_id = ?", establishment_rec).count %> curtiram </i></p>
 						
 
 					</div><br />

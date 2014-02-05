@@ -1,5 +1,5 @@
 class PartnerMailer < ActionMailer::Base
-  default from: "contato@ifollowagencia.com.br"
+  default from: "trazcupom@ifollowagencia.com.br"
 
   
   def send_ticket(idoffer,idestablishment, iduser)

@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140203180146) do
     t.datetime "updated_at"
   end
 
-  add_index "addressestablishments", ["establishment_id"], name: "index_addressestablishments_on_establishment_id", using: :btree
+  add_index "addressestablishments", ["establishment_id"], name: "index_addressestablishments_on_establishment_id"
 
   create_table "catches", force: true do |t|
     t.date     "dateinit"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20140203180146) do
     t.datetime "updated_at"
   end
 
-  add_index "catches", ["offer_id"], name: "index_catches_on_offer_id", using: :btree
+  add_index "catches", ["offer_id"], name: "index_catches_on_offer_id"
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 20140203180146) do
     t.datetime "updated_at"
   end
 
-  add_index "commentestabs", ["establishment_id"], name: "index_commentestabs_on_establishment_id", using: :btree
-  add_index "commentestabs", ["user_id"], name: "index_commentestabs_on_user_id", using: :btree
+  add_index "commentestabs", ["establishment_id"], name: "index_commentestabs_on_establishment_id"
+  add_index "commentestabs", ["user_id"], name: "index_commentestabs_on_user_id"
 
   create_table "downloads", force: true do |t|
     t.integer  "offer_id"
@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(version: 20140203180146) do
     t.string   "code"
   end
 
-  add_index "downloads", ["offer_id"], name: "index_downloads_on_offer_id", using: :btree
-  add_index "downloads", ["user_id"], name: "index_downloads_on_user_id", using: :btree
+  add_index "downloads", ["offer_id"], name: "index_downloads_on_offer_id"
+  add_index "downloads", ["user_id"], name: "index_downloads_on_user_id"
 
   create_table "establishments", force: true do |t|
     t.string   "name"
@@ -100,10 +100,10 @@ ActiveRecord::Schema.define(version: 20140203180146) do
     t.integer  "categoryestablishment_id"
   end
 
-  add_index "establishments", ["category_id"], name: "index_establishments_on_category_id", using: :btree
-  add_index "establishments", ["categoryestablishment_id"], name: "index_establishments_on_categoryestablishment_id", using: :btree
-  add_index "establishments", ["city_id"], name: "index_establishments_on_city_id", using: :btree
-  add_index "establishments", ["plan_id"], name: "index_establishments_on_plan_id", using: :btree
+  add_index "establishments", ["category_id"], name: "index_establishments_on_category_id"
+  add_index "establishments", ["categoryestablishment_id"], name: "index_establishments_on_categoryestablishment_id"
+  add_index "establishments", ["city_id"], name: "index_establishments_on_city_id"
+  add_index "establishments", ["plan_id"], name: "index_establishments_on_plan_id"
 
   create_table "imageestablishments", force: true do |t|
     t.string   "image"
@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 20140203180146) do
     t.datetime "updated_at"
   end
 
-  add_index "imageestablishments", ["establishment_id"], name: "index_imageestablishments_on_establishment_id", using: :btree
+  add_index "imageestablishments", ["establishment_id"], name: "index_imageestablishments_on_establishment_id"
 
   create_table "likeestablishments", force: true do |t|
     t.integer  "count"
@@ -122,8 +122,8 @@ ActiveRecord::Schema.define(version: 20140203180146) do
     t.integer  "user_id"
   end
 
-  add_index "likeestablishments", ["establishment_id"], name: "index_likeestablishments_on_establishment_id", using: :btree
-  add_index "likeestablishments", ["user_id"], name: "index_likeestablishments_on_user_id", using: :btree
+  add_index "likeestablishments", ["establishment_id"], name: "index_likeestablishments_on_establishment_id"
+  add_index "likeestablishments", ["user_id"], name: "index_likeestablishments_on_user_id"
 
   create_table "locationestablishments", force: true do |t|
     t.string   "address"
@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 20140203180146) do
     t.datetime "updated_at"
   end
 
-  add_index "notes", ["offer_id"], name: "index_notes_on_offer_id", using: :btree
+  add_index "notes", ["offer_id"], name: "index_notes_on_offer_id"
 
   create_table "offers", force: true do |t|
     t.string   "name"
@@ -161,8 +161,8 @@ ActiveRecord::Schema.define(version: 20140203180146) do
     t.decimal  "priceproduct",     precision: 8, scale: 2
   end
 
-  add_index "offers", ["establishment_id"], name: "index_offers_on_establishment_id", using: :btree
-  add_index "offers", ["product_id"], name: "index_offers_on_product_id", using: :btree
+  add_index "offers", ["establishment_id"], name: "index_offers_on_establishment_id"
+  add_index "offers", ["product_id"], name: "index_offers_on_product_id"
 
   create_table "partners", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -189,12 +189,12 @@ ActiveRecord::Schema.define(version: 20140203180146) do
     t.datetime "updated_at"
   end
 
-  add_index "partners", ["email"], name: "index_partners_on_email", unique: true, using: :btree
-  add_index "partners", ["reset_password_token"], name: "index_partners_on_reset_password_token", unique: true, using: :btree
+  add_index "partners", ["email"], name: "index_partners_on_email", unique: true
+  add_index "partners", ["reset_password_token"], name: "index_partners_on_reset_password_token", unique: true
 
   create_table "plans", force: true do |t|
     t.string   "name"
-    t.decimal  "price",      precision: 10, scale: 0
+    t.decimal  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -202,14 +202,14 @@ ActiveRecord::Schema.define(version: 20140203180146) do
   create_table "products", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.decimal  "price",            precision: 10, scale: 0
+    t.decimal  "price"
     t.integer  "establishment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "priceproduct",     precision: 8,  scale: 2
+    t.decimal  "priceproduct",     precision: 8, scale: 2
   end
 
-  add_index "products", ["establishment_id"], name: "index_products_on_establishment_id", using: :btree
+  add_index "products", ["establishment_id"], name: "index_products_on_establishment_id"
 
   create_table "rules", force: true do |t|
     t.text     "description"
@@ -218,7 +218,7 @@ ActiveRecord::Schema.define(version: 20140203180146) do
     t.datetime "updated_at"
   end
 
-  add_index "rules", ["offer_id"], name: "index_rules_on_offer_id", using: :btree
+  add_index "rules", ["offer_id"], name: "index_rules_on_offer_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -244,9 +244,9 @@ ActiveRecord::Schema.define(version: 20140203180146) do
     t.integer  "city_id"
   end
 
-  add_index "users", ["city_id"], name: "index_users_on_city_id", using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["city_id"], name: "index_users_on_city_id"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "visited_offers", force: true do |t|
     t.integer  "user_id"

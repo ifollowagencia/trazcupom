@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "contato@ifollowagencia.com.br"
+  default from: "trazcupom@ifollowagencia.com.br"
 
   def download_ticket(idoffer, idestablishment, iduser)
     @establishment_email = Establishment.find(idestablishment)

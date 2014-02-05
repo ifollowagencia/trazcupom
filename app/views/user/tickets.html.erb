@@ -18,7 +18,7 @@
 	 <% end %>
 
 	 <% @cupons_baixados.each do |cupom| %>
-	 <div class="ticket" style="width:100%; height:160px; background:#dfdfdf; border:1px solid #888; margin-bottom:20px; position:relative; padding:20px;">
+	 <div class="ticket" style="width:100%; min-height:160px; background:#dfdfdf; border:1px solid #888; margin-bottom:20px; position:relative; padding:20px;">
 	 	<div class="imageticket" style="padding:10px; float:left;">
 	 		<%= image_tag cupom.offer.image1_url(:mega_thumb) %>
 	 	</div>
