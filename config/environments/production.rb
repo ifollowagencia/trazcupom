@@ -81,12 +81,11 @@ Trazcupom::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  :authentication => :plain,
-  :address => "smtp.live.com",
-  :port => 587,
-  :domain => "ifollowagencia.com.br",
-  :user_name => "contato@ifollowagencia.com.br",
-  :password => "lasd5419"
-}
-ActionMailer::Base.delivery_method = :smtp
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "sandbox32726.mailgun.org",
+    :user_name => "postmaster@sandbox32726.mailgun.org",
+    :password => "rub32912289"
+  }
 end
