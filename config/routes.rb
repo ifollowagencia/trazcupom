@@ -1,8 +1,11 @@
 Trazcupom::Application.routes.draw do
-  
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   get "now/index"
   get "admin/dashboard"
   get "pdfticket/print"
+
   resources :imageestablishments
 
   get "getcupom/download"
@@ -27,7 +30,7 @@ Trazcupom::Application.routes.draw do
   resources :addressestablishments
 
   resources :locationestablishments
-  
+
   resources :catches
 
   resources :notes
@@ -48,7 +51,7 @@ Trazcupom::Application.routes.draw do
   get  'user/download'
 
   get 'user/tickets'
-  
+
   resources :user
 
   resources :establishments
@@ -70,16 +73,15 @@ Trazcupom::Application.routes.draw do
   match 'partner/partner_auth' => 'partner#partner_auth', :as => :login_partner, via: [:post]
 
   match 'partner/dashboard' => 'partner#dashboard', :as => :dashboard, via: [:get]
-  match 'partner/destroy_user' => 'partner#destroy_user', :as => :partner_logout, via: [:post] 
-  
+  match 'partner/destroy_user' => 'partner#destroy_user', :as => :partner_logout, via: [:post]
+
   get 'partner/destroy_user'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   #devise_for :users, :skip => [:sessions]
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  
+
   #devise_for :users
   # You can have the root of your site routed with "root"
   root 'landing#page'
@@ -118,7 +120,7 @@ Trazcupom::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
