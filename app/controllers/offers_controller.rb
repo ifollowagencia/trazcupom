@@ -43,7 +43,7 @@ class OffersController < ApplicationController
       VisitedOffer.create(
         user_id: current_user.id,
         offer_id: @offer.id,
-        category_establishments_id: @offer.establishment.categoryestablishment.id
+        category_establishments_id: @offer.establishment.category_establishment.id
       )
 
     else

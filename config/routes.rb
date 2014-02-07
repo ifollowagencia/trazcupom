@@ -21,7 +21,7 @@ Trazcupom::Application.routes.draw do
 
   get 'now/index'
 
-  resources :categoryestablishments
+  resources :category_establishments
 
   resources :commentestabs
 
