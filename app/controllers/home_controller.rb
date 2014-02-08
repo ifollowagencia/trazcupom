@@ -17,13 +17,11 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
 
       puts "Cidade: #{@city}"
       @name = current_user.name
-      @estabs = estabs
-
       sleep 1
-
       @cupons = offer_suggestions.paginate(page: params[:page], per_page: 6)
+      load_establishments
 
-      @pins = Addressestablishment.all
+      @pins = AddressEstablishment.all
       build_makers_for_map
     else
       # caso não esteja logado redireciona pro login
@@ -40,7 +38,7 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
     }
   end
 
-  def estabs
+  def load_establishments
     @estabs = Establishment.find(:all, :order => "id DESC", :limit => 16).reverse
   end
 
@@ -59,7 +57,7 @@ WillPaginateRenderers.pagination_options[:twitter_class] = 'buttom_twitter'
   end
 
   def build_makers_for_map
-    @pins = Addressestablishment.all
+    @pins = AddressEstablishment.all
     @hash = Gmaps4rails.build_markers(@pins) do |pin, marker|
       marker.lat pin.latitude
       marker.lng pin.longitude
