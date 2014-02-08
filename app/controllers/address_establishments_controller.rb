@@ -1,32 +1,20 @@
 class AddressEstablishmentsController < ApplicationController
   before_action :set_address_establishment, only: [:show, :edit, :update, :destroy]
 
-  # GET /address_establishments
-  # GET /address_establishments.json
   def index
-    #if params[:search].present?
-    #@address_establishment = AddressEstablishment.near(params[:search], 50, :order => :distance)
-  #else
     @address_establishments = AddressEstablishment.all
-  #end
   end
 
-  # GET /address_establishments/1
-  # GET /address_establishments/1.json
   def show
   end
 
-  # GET /address_establishments/new
   def new
     @address_establishment = AddressEstablishment.new
   end
 
-  # GET /address_establishments/1/edit
   def edit
   end
 
-  # POST /address_establishments
-  # POST /address_establishments.json
   def create
     @address_establishment = AddressEstablishment.new(address_establishment_params)
 
@@ -41,8 +29,6 @@ class AddressEstablishmentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /address_establishments/1
-  # PATCH/PUT /address_establishments/1.json
   def update
     respond_to do |format|
       if @address_establishment.update(address_establishment_params)
@@ -55,8 +41,6 @@ class AddressEstablishmentsController < ApplicationController
     end
   end
 
-  # DELETE /address_establishments/1
-  # DELETE /address_establishments/1.json
   def destroy
     @address_establishment.destroy
     respond_to do |format|
