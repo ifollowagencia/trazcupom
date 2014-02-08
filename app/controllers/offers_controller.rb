@@ -30,7 +30,7 @@ class OffersController < ApplicationController
 
       @downloads = has_downloaded(@offer.id)
 
-      @address = Addressestablishment.where("establishment_id = ?", @offer.establishment_id)
+      @address = AddressEstablishment.where("establishment_id = ?", @offer.establishment_id)
       @location = Addressestablishment.find(@address)
 
       #notes
