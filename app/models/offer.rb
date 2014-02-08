@@ -16,7 +16,7 @@ class Offer < ActiveRecord::Base
     offers = []
     category_ids = current_user.visited_offers.group(:category_establishments_id).order("count_all DESC").count.keys
     category_ids.each do |category_id|
-      offers.concat(includes(:establishment).where("establishments.categoryestablishment_id = ?", category_id))
+      offers.concat(includes(:establishment).where("establishments.category_establishment_id = ?", category_id))
     end
     offers
   end
