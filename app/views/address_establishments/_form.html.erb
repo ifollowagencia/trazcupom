@@ -1,10 +1,10 @@
-<%= form_for(@addressestablishment) do |f| %>
-  <% if @addressestablishment.errors.any? %>
+<%= form_for(@address_establishment) do |f| %>
+  <% if @address_establishment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@addressestablishment.errors.count, "error") %> prohibited this addressestablishment from being saved:</h2>
+      <h2><%= pluralize(@address_establishment.errors.count, "error") %> prohibited this address_establishment from being saved:</h2>
 
       <ul>
-      <% @addressestablishment.errors.full_messages.each do |msg| %>
+      <% @address_establishment.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :establishment %><br>
-    <%= collection_select(:addressestablishment, :establishment_id, Establishment.all, :id, :reason, :prompt => 'selecione o estabelecimento') %>
+    <%= collection_select(:address_establishment, :establishment_id, Establishment.all, :id, :reason, prompt: 'selecione o estabelecimento') %>
   </div>
   <div class="actions">
     <%= f.submit %>
