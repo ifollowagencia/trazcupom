@@ -1,10 +1,10 @@
-<%= form_for(@likeestablishment) do |f| %>
-  <% if @likeestablishment.errors.any? %>
+<%= form_for(@like_establishment) do |f| %>
+  <% if @like_establishment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@likeestablishment.errors.count, "error") %> prohibited this likeestablishment from being saved:</h2>
+      <h2><%= pluralize(@like_establishment.errors.count, "error") %> prohibited this like_establishment from being saved:</h2>
 
       <ul>
-      <% @likeestablishment.errors.full_messages.each do |msg| %>
+      <% @like_establishment.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @like_establishment.count %>
+</p>
+
+<p>
+  <strong>Establishment:</strong>
+  <%= @like_establishment.establishment %>
+</p>
+
+<%= link_to 'Edit', edit_like_establishment_path(@like_establishment) %> |
+<%= link_to 'Back', like_establishments_path %>
