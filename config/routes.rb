@@ -6,7 +6,7 @@ Trazcupom::Application.routes.draw do
   get "admin/dashboard"
   get "pdfticket/print"
 
-  resources :imageestablishments
+  resources :image_establishments
 
   get "getcupom/download"
   resources :downloads
@@ -27,7 +27,7 @@ Trazcupom::Application.routes.draw do
 
   resources :likeestablishments
 
-  resources :addressestablishments
+  resources :address_establishments
 
   resources :locationestablishments
 
