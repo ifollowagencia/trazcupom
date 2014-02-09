@@ -3,10 +3,9 @@ FactoryGirl.define do
      sequence(:email) {|n| "user#{n}@email.com" }
      password '12345678'
    end
-   factory :address_establishment do
-     address 'Rua Dom Aquino, 2045 Sala 04'
-     latitude  -20.4603
-     longitude -20.4603
+
+   factory :category_establishment do
+     name 'Serviços'
    end
 
    factory :establishment do
@@ -20,9 +19,17 @@ FactoryGirl.define do
      city_id 1
      plan_id 1
      imageprofile 'logo.png'
-     association :address_establishment
+
+     association :category_establishment
    end
 
+   factory :address_establishment do
+     address 'Rua Dom Aquino, 2045 Sala 04'
+     latitude  -20.4603
+     longitude -20.4603
+
+     association :establishment
+   end
 
    factory :product do
      name "NAME"
@@ -33,9 +40,11 @@ FactoryGirl.define do
    factory :offer do
      name "Offer"
      description "Offer description"
-     amount 0
+     amount 10
      validity Time.now + 6.hours
      date Time.now
+
+     association :establishment
      association :product
    end
 
