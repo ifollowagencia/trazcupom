@@ -1,4 +1,4 @@
-class Imageestablishment < ActiveRecord::Base
+class ImageEstablishment < ActiveRecord::Base
 
   mount_uploader :image, ImageEstablishmentsUploader
 
