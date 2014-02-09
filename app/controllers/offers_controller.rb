@@ -36,7 +36,7 @@ class OffersController < ApplicationController
       @note = Note.where("offer_id = ?", @offer)
       @rule = Rule.where("offer_id = ?", @offer)
 
-      @feedimages = Imageestablishment.where("establishment_id = ?", @offer.establishment_id)
+      @feedimages = ImageEstablishment.where("establishment_id = ?", @offer.establishment_id)
 
       # inserir como oferta visitada
       VisitedOffer.create(
