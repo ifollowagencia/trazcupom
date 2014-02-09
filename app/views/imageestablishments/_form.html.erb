@@ -1,10 +1,10 @@
-<%= form_for(@imageestablishment) do |f| %>
-  <% if @imageestablishment.errors.any? %>
+<%= form_for(@image_establishment) do |f| %>
+  <% if @image_establishment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@imageestablishment.errors.count, "error") %> prohibited this imageestablishment from being saved:</h2>
+      <h2><%= pluralize(@image_establishment.errors.count, "error") %> prohibited this image_establishment from being saved:</h2>
 
       <ul>
-      <% @imageestablishment.errors.full_messages.each do |msg| %>
+      <% @image_establishment.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :establishment %><br>
-    <%= collection_select(:imageestablishment, :establishment_id, Establishment.all, :id, :reason, :prompt => 'Selecione o Parceiro') %>
+    <%= collection_select(:image_establishment, :establishment_id, Establishment.all, :id, :reason, :prompt => 'Selecione o Parceiro') %>
   </div>
   <div class="actions">
     <%= f.submit %>

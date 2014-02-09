@@ -1,4 +1,4 @@
-<h1>Listing imageestablishments</h1>
+<h1>Listing image_establishments</h1>
 
 <table>
   <thead>
@@ -12,13 +12,13 @@
   </thead>
 
   <tbody>
-    <% @imageestablishments.each do |imageestablishment| %>
+    <% @image_establishments.each do |image_establishment| %>
       <tr>
-        <td><%= imageestablishment.image %></td>
-        <td><%= imageestablishment.establishment %></td>
-        <td><%= link_to 'Show', imageestablishment %></td>
-        <td><%= link_to 'Edit', edit_imageestablishment_path(imageestablishment) %></td>
-        <td><%= link_to 'Destroy', imageestablishment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= image_establishment.image %></td>
+        <td><%= image_establishment.establishment %></td>
+        <td><%= link_to 'Show', image_establishment %></td>
+        <td><%= link_to 'Edit', edit_image_establishment_path(image_establishment) %></td>
+        <td><%= link_to 'Destroy', image_establishment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Imageestablishment', new_imageestablishment_path %>
+<%= link_to 'New Imageestablishment', new_image_establishment_path %>
