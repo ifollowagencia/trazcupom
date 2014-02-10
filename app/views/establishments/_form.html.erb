@@ -55,7 +55,7 @@ input[type=text]:focus, textarea:focus {
 textarea {
   width: 456px;
   height: 300px;
-  padding: 12px; 
+  padding: 12px;
 }
 
 select {
@@ -144,7 +144,7 @@ select#fm_subject {background-position: 0 301px;}
     width: 500px;
     background-position: 21px 301px !important;
   }
-  
+
   .ff-only {
     outline: 1px solid #c8c8c8;
     overflow: hidden;
@@ -188,7 +188,7 @@ div.errorlist {
   margin-top: -8px;
   color: #999;
 }
-  
+
 div.faq {
   background: #fff48a;
   outline: 1px solid #fff279;
@@ -214,24 +214,24 @@ div.faq p {line-height: 25px;}
   <div style="width:100%; height:200px; " >
     <center><img src="/landing/images/logo01.png" style="margin-top:40px;"></center>
   </div>
-<div style="position:absolute; background:#dfdfdf; padding:50px; width:500px; float:left; left:50%; margin-left:-260px; box-shadow: 10px 10px 5px #888; ">  
+<div style="position:absolute; background:#dfdfdf; padding:50px; width:500px; float:left; left:50%; margin-left:-260px; box-shadow: 10px 10px 5px #888; ">
 <div class="form-wrapper" style="margin-bottom:50px; margin-top:50px;">
-<!--Inicio do render form -->  
+<!--Inicio do render form -->
 <%= form_for(@establishment, :html => { :multipart => true , :class => "ddfm"}) do |f| %>
 
 
 <p>Agora ficou fácil ganhar visibilidade com sua empresa, cadastre seu estabelecimento e anuncie conosco.</p><br>
 <div class="notification success">
   <p>Preencha os dados de seu estabelecimento!</p>
-</div> 
-  
-  
-  
+</div>
+
+
+
 <p class="fieldwrap">
   <label for="fm_name" class="disp">
     <span class="required">
       *
-    </span> 
+    </span>
     Nome
   </label>
   <%= f.text_field :name, :class => "fmtext", :id => "fm_name", :placeholder => "Nome" %>
@@ -240,7 +240,7 @@ div.faq p {line-height: 25px;}
   <label for="fm_name" class="disp">
     <span class="required">
       *
-    </span> 
+    </span>
     Sobrenome
   </label>
   <%= f.text_field :surname, :class => "fmtext", :id => "fm_name", :placeholder => "Sobrenome" %>
@@ -249,7 +249,7 @@ div.faq p {line-height: 25px;}
   <label for="fm_name" class="disp">
     <span class="required">
       *
-    </span> 
+    </span>
     Nome
   </label>
   <%= f.text_field :phone, :class => "fmtext", :id => "fm_name", :placeholder => "Telefone" %>
@@ -259,7 +259,7 @@ div.faq p {line-height: 25px;}
   <label for="fm_email" class="disp">
     <span class="required">
       *
-    </span> 
+    </span>
     Email</label>
     <%= f.text_field :email, :class => "fmtext", :id => "fm_email", :placeholder => "Email" %>
   </p>
@@ -269,7 +269,7 @@ div.faq p {line-height: 25px;}
   <label for="fm_email" class="disp">
     <span class="required">
       *
-    </span> 
+    </span>
     Senha</label>
     <%= f.password_field :password, :class => "fmtext", :id => "", :placeholder => "Senha" %>
   </p>
@@ -278,7 +278,7 @@ div.faq p {line-height: 25px;}
   <label for="fm_email" class="disp">
     <span class="required">
       *
-    </span> 
+    </span>
     CNPJ</label>
     <%= f.text_field :cnpj, :class => "fmtext", :id => "cnpj", :placeholder => "CNPJ" %>
   </p>
@@ -287,7 +287,7 @@ div.faq p {line-height: 25px;}
   <label for="fm_email" class="disp">
     <span class="required">
       *
-    </span> 
+    </span>
     Razão Social</label>
     <%= f.text_field :reason, :class => "fmtext", :id => "", :placeholder => "Razão Social" %>
   </p>
@@ -298,7 +298,7 @@ div.faq p {line-height: 25px;}
 <p class="fieldwrap"><label class="disp"><span class="required">*</span> Subject</label><div class="ff-only">
 <%= collection_select(:establishment, :city_id, City.all, :id, :name, :prompt => 'Por favor informe sua cidade') %>
 </div>
-</p>   
+</p>
 
 <p class="fieldwrap"><div class="notification faq">
   <p>Informe o plano que deseja anunciar o seu estabelecimento:</p>
@@ -309,7 +309,7 @@ div.faq p {line-height: 25px;}
 <p class="fieldwrap"><label class="disp"><span class="required">*</span> Subject</label><div class="ff-only">
 <%= collection_select(:establishment, :plan_id, Plan.all, :id, :name, :prompt => 'Selecione um plano:') %>
 </div>
-</p>   
+</p>
 <p class="fieldwrap"><div class="notification faq">
   <p>Faça upload da logomarca de seu estabelecimento</p>
 </div>
@@ -318,33 +318,33 @@ div.faq p {line-height: 25px;}
   <label class="disp">
     <span class="required">
       *
-    </span> 
+    </span>
     Imagem</label>
     <div class="ff-only">
 <%= f.file_field :imageprofile, :style => "width:450px; height:40px; border:none; cursor: pointer;" %>
 </div>
-</p> 
+</p>
 <p class="fieldwrap"><label class="disp"><span class="required">*</span> Subject</label><div class="ff-only">
-<%= collection_select(:establishment, :categoryestablishment_id, Categoryestablishment.all, :id, :name, :prompt => 'Categoria:') %>
+<%= collection_select(:establishment, :category_establishment_id, CategoryEstablishment.all, :id, :name, :prompt => 'Categoria:') %>
 </div>
-</p> 
+</p>
 
 <p class="fieldwrap"><label></label><span class="fmoptin">
 <input type="checkbox" name="fmoptinyes" id="fmoptinyes" value="Yes, please send me coupons and special offers!" checked="checked"><label for="fmoptinyes" class="fmchecklabel">Sim, estou de acordo com a politica de privacidade e termos de uso!</label>
 <br></span></p>
-  
+
   <p class="fieldwrap">
 
     <div class="submit">
-     
+
       <%= f.submit "Concluir" %>
-      
+
     </div>
   </p>
-  
+
 
 <% end %>
-<!--Final do render form --> 
+<!--Final do render form -->
 </div>
 </div>
 </div>

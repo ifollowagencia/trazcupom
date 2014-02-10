@@ -1,0 +1,29 @@
+<h1>Listing image_establishments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Establishment</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @image_establishments.each do |image_establishment| %>
+      <tr>
+        <td><%= image_establishment.image %></td>
+        <td><%= image_establishment.establishment %></td>
+        <td><%= link_to 'Show', image_establishment %></td>
+        <td><%= link_to 'Edit', edit_image_establishment_path(image_establishment) %></td>
+        <td><%= link_to 'Destroy', image_establishment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Imageestablishment', new_image_establishment_path %>

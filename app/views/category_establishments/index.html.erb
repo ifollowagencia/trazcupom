@@ -1,0 +1,27 @@
+<h1>Listing category_establishments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @category_establishments.each do |category_establishment| %>
+      <tr>
+        <td><%= category_establishment.name %></td>
+        <td><%= link_to 'Show', category_establishment %></td>
+        <td><%= link_to 'Edit', edit_category_establishment_path(category_establishment) %></td>
+        <td><%= link_to 'Destroy', category_establishment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Categoryestablishment', new_category_establishment_path %>

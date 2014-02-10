@@ -1,0 +1,29 @@
+<h1>Listing like_establishments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Count</th>
+      <th>Establishment</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @like_establishments.each do |like_establishment| %>
+      <tr>
+        <td><%= like_establishment.count %></td>
+        <td><%= like_establishment.establishment %></td>
+        <td><%= link_to 'Show', like_establishment %></td>
+        <td><%= link_to 'Edit', edit_like_establishment_path(like_establishment) %></td>
+        <td><%= link_to 'Destroy', like_establishment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Likeestablishment', new_like_establishment_path %>

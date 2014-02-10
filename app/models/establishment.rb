@@ -1,7 +1,7 @@
 class Establishment < ActiveRecord::Base
   belongs_to :city
   belongs_to :plan
-  belongs_to :categoryestablishment
+  belongs_to :category_establishment
 
   has_many :offers
   has_many :products

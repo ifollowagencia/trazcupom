@@ -30,20 +30,19 @@ class OffersController < ApplicationController
 
       @downloads = has_downloaded(@offer.id)
 
-      @address = Addressestablishment.where("establishment_id = ?", @offer.establishment_id)
-      @location = Addressestablishment.find(@address)
+      @address = AddressEstablishment.where(establishment_id: @offer.establishment.id).first
 
       #notes
       @note = Note.where("offer_id = ?", @offer)
       @rule = Rule.where("offer_id = ?", @offer)
 
-      @feedimages = Imageestablishment.where("establishment_id = ?", @offer.establishment_id)
+      @feedimages = ImageEstablishment.where("establishment_id = ?", @offer.establishment_id)
 
       # inserir como oferta visitada
       VisitedOffer.create(
         user_id: current_user.id,
         offer_id: @offer.id,
-        category_establishments_id: @offer.establishment.categoryestablishment.id
+        category_establishments_id: @offer.establishment.category_establishment.id
       )
 
     else

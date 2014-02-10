@@ -1,0 +1,34 @@
+<h1>Listing address_establishments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Establishment</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @address_establishments.each do |address_establishment| %>
+      <tr>
+        <td><%= address_establishment.address %></td>
+        <td><%= address_establishment.latitude %></td>
+        <td><%= address_establishment.longitude %></td>
+        <td><%= address_establishment.establishment %></td>
+        <td><%= link_to 'Show', address_establishment %></td>
+        <td><%= link_to 'Edit', edit_address_establishment_path(address_establishment) %></td>
+        <td><%= link_to 'Destroy', address_establishment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Addressestablishment', new_address_establishment_path %>
+

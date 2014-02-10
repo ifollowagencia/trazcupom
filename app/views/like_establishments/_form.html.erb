@@ -1,0 +1,25 @@
+<%= form_for(@like_establishment) do |f| %>
+  <% if @like_establishment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@like_establishment.errors.count, "error") %> prohibited this like_establishment from being saved:</h2>
+
+      <ul>
+      <% @like_establishment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :count %><br>
+    <%= f.number_field :count %>
+  </div>
+  <div class="field">
+    <%= f.label :establishment %><br>
+    <%= f.text_field :establishment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
