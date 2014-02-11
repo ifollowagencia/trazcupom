@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
@@ -9,16 +10,16 @@
 <meta charset="utf-8">
 <meta name="description" content="" />
 <meta name="keywords" content=""/>
-<meta name="author" content="Metrothenes" />
+<meta name="author" content="iFollow Agência" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <title>Traz Cupom - O seu aplicativo de cupons</title>
-<!--Fav and touch icons-->
+
 <link rel="shortcut icon" href="/home/img/icons/favicon.ico">
 <link rel="apple-touch-icon" href="/home/img/icons/apple-touch-icon.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/home/img/icons/apple-touch-icon-72x72.png">
 <link rel="apple-touch-icon" sizes="114x114" href="/home/img/icons/apple-touch-icon-114x114.png">
 
-<!--style sheet-->
+
 <link rel="stylesheet" type="text/css" href="/home/css/bootstrap.css"/>
 <link rel="stylesheet" type="text/css" href="/home/css/bootstrap-responsive.css"/>
 <link rel="stylesheet" type="text/css" href="/home/css/font-awesome/css/font-awesome.css"/>
@@ -26,128 +27,97 @@
 <link rel="stylesheet" type="text/css" href="/home/css/sgallery-styles.css"/>
 <link media="all" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,800italic,400,300,700,800&amp;subset=latin,latin-ext" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="/home/css/metro-icon.css" />
-<!-- soundManager.useFlashBlock: related CSS -->
+
 <link rel="stylesheet" type="text/css" href="/home/player/flashblock/flashblock.css" />
-<!-- required -->
+
 <link rel="stylesheet" type="text/css" href="/home/player/css/360player.css" />
 <link rel="stylesheet" type="text/css" href="/home/player/css/360player-visualization.css" />
-<link rel="stylesheet" type="text/css" href="/home/css/offer.css" />
 
-<%= javascript_include_tag :jquery %>
+<script src="/assets/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+<script src="/assets/bootstrap/js/button.js" type="text/javascript"></script>
+<script src="/assets/bootstrap/js/modal.js" type="text/javascript"></script>
 
+<%= javascript_include_tag 'jquery' %>
 
+<style type="text/css">
+	.buttom_twitter{
+background: #E3DFDC;
+width: 80%;
+height: 60px;
+padding: 24px;
+color: #01334e;
+position: absolute;
+margin-left: -536px;
+margin-bottom: 20px;
+	}
 
-<style> 
-.TabControl{ width:100%; overflow:hidden; min-height:500px; margin-left: 40px; margin-top: 40px;} 
-.TabControl #header{ width:50%; overflow:hidden; cursor:hand} 
-.TabControl #content{ width:50%; border: solid 1px; height:100%; } 
-.TabControl .abas{display:inline;} 
-.TabControl .abas li{float:left} 
-.aba{width:173px; height:56px; border:1px solid #ccc; text-align:center; padding-top:15px; background:#5e5f5f; margin-left: 10px;} 
-.ativa{width:173px; height:56px;  border:1px solid #ccc;  text-align:center; padding-top:15px; background:white; color:#01334e;} 
-.ativa span, .selected span{color:#01334e; font-weight: bold;} 
-.TabControl #content{background:#fff; border:1px solid #ccc; } 
-.TabControl .conteudo{width:50%; background:#fff; display:none; height:100%;color:#fff; } 
-.selected{width:173px; height:56px; border:1px solid #ccc;  text-align:center; padding-top:15px; background:#fff}} 
+	.buttom_twitter:hover{background: #01334e;}
+	.buttom_twitter a:hover{color:#fff; background: #01334e;}
+	.buttom_twitter:hover{background: #E3DFDC; font-weight: bold;}
+	.select_city{width: 200px; border: none; border-radius: 0px;}
+
 
 </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script src="/javascripts/gmaps_google.js"></script>
+    <script src="/javascripts/underscore.js"></script>
 
-
-<script type="text/javascript">
-	
-            $(function(){
-                //Criamos um evento de click em todas tags img dentro do elemento com class "thumbs"
-                $('.thumbs img').bind('click',trocaImagem);
- 
-            });
- 
-            function trocaImagem(){
-                objClk = $(this); 
-                srcImg = objClk.attr('src'); 
-                $('.imagem img').attr('src',srcImg);
- 
-            }
-      
-</script>
-<script type="text/javascript"> 
-
-$(document).ready(function(){  
-	$("#content div:nth-child(1)").show();  
-	$(".abas li:first div").addClass("selected");	 
-	$(".aba").click(function(){  
-		$(".aba").removeClass("selected");  
-		$(this).addClass("selected");  
-		var indice = $(this).parent().index();  
-		indice++;  
-		$("#content div").hide();  
-		$("#content div:nth-child("+indice+")").show(); 
-		 }); 
-	$(".aba").hover(  
-		function(){
-			$(this).addClass("ativa")}, 
-			function(){
-				$(this).removeClass("ativa")}  
-				);	 
-				 });  
-
-</script>
 </head>
-<body>
-<!-- header -->	
-<header id="mt-header" class="header-bg-style">
-		<div class="container">
-			<div class="logo">
-				<a href="#"><img src="/home/images/logo01.png" alt="logo"/></a>
-			</div>
-			<div class="hgroup">
-				<h1></h1>
-				<h2>Encontre os melhores cupons <br>de sua cidade <span><strong style="color:white;">e obtenha vantagens exclusivas</strong></span>.</h2>
-			</div>
-		</div> 
+<body style="background:#fff;">
+
+<header id="mt-header" class="header-bg-style" >
+
 </header>
-<!-- header end -->
 
-<!-- nav -->
 <nav>
-	<div class="main-nav">
+	<div class="main-nav" >
+	<ul  class="perfil"  style=" width:100%; height:70px;">
+	<!-- ul left -->
+	<ul id="ulleft" style="width:30%;  height:70px; float:left;">
+		<li style=" margin-left:40px; width:90px; height:100%; padding-top:20px; border-bottom:4px solid #E3DFDC;"> 
+		<%= link_to image_tag('/home/images/homebtn.png'), root_path %>
+		</li>
+		<li style="border-bottom:4px solid #e3dfdc; padding-top:30px; width:200px; height:100%; margin-left:150px; margin-top:-70px;" class="categories">
+			<a href="#" style="color:#dfdfdf;">Categorias</a>
+		</li>
+	</ul><!-- end ul left -->
+	<div id="newlogo" style=" width:87px; height:50px; float:left; position:absolute; left:600px; top:10px;">
+		<center>
+			<%= link_to image_tag('/home/images/logo2.png'), root_path, :style => 'float:left;' %>
+		</center>
+	</div>
+	<!-- ul right -->
+	<ul id="ulright" style="width:40%; padding-top:0px; float:right;  height:70px;">
+		<li style="float:left; margin-left:90px;">
 
-            <div class="container">
-	            <button data-target=".nav-collapse" data-toggle="collapse" class="mobilenav" type="button">
-	                  <span class="title">Menu</span><span class="trig icon-align-justify"></span>
-	            </button>
-	            <!-- nav menu -->
-	            <div class="nav-collapse collapse">
-			        <ul class="nav">
-			            <li><%= link_to('Perfil', :controller => 'user', :action => 'profile') %></li>
-						<li><%= link_to('Configurações', :controller => 'user', :action => 'profile') %></li>
-						<li><%= link_to('Meus Cupons', :controller => 'user', :action => 'profile') %></li>
+		</li>
+	</ul>
+	<!-- end ul right -->
+	</ul>
+	</div>
 
-						<li><%= link_to('Voltar ao app', :controller => 'home', :action => 'nearme') %></li>
-						<li><%= link_to('Sair', destroy_user_session_path, :method => :delete) %></li>
 
-						
-					
-			        </ul>
-			        
-	   			</div>
-				<!-- nav menu end-->
-			
-			        
-
-            </div>
-	</div>	
-
-			  
 </nav>
-<!-- nav end -->
+
+
 <%= yield %>
-<!-- Contact end -->
-<footer style="background:black;">
+
+<footer style="background:#E3DFDC; border-top:1px solid #01334e;">
 	<div class="container">
-		<div class="copyright">Traz Cupom <p>&copy;2013 Todos os direitos reservados</p></div>
+		<div class="copyright" style="margin-top:15px;">
+		<br />
+		<ul>
+			<li style="display:inline-block;"><a href="">Como funciona?</a></li>
+			<li style="display:inline-block; margin-left:10px;"><a href="">Termos de uso</a></li>
+			<li style="display:inline-block; margin-left:10px;"><a href="">Politica de privacidade</a></li>
+		</ul>
+		</div>
 		<div class="info">
 			<ul>
-				<li><a href="http://www.ifollowagencia.com.br"><img src="/home/images/logo_primary.png" width="140" height="70" /></a></li>
+
+			
+				<li style="float:right;"><a href="http://www.ifollowagencia.com.br"><img src="/home/images/logo_primary.png" width="80" height="40" /></a></li>
+				<p style="color:#01334e; float:right; margin-right:20px; margin-top:30px;">www.trazcupom.com &copy;2014 Todos os direitos reservados</p>
 			</ul>
 
 		</div>
@@ -162,22 +132,45 @@ $(document).ready(function(){
 <script type="text/javascript" src="/home/js/jquery.scrollTo.js"></script>
 <script type="text/javascript" src="/home/js/jquery.nav.js"></script>
 <script type="text/javascript" src="/home/js/jquery.sticky.js"></script>
-<script type="text/javascript" src="/javascripts/offer.js"></script> 
+<script type="text/javascript" src="/javascripts/endless_page.js"></script>
+
+<script src="/assets/bootstrap/js/button.js" type="text/javascript"></script>
+<script src="/assets/bootstrap/js/modal.js" type="text/javascript"></script>
 <!-- special IE-only canvas fix -->
 <!--[if IE]><script type="text/javascript" src="player/script/excanvas.js"></script><![endif]-->
 
-<!-- Apache-licensed animation library -->
+
 <script type="text/javascript" src="/home/player/script/berniecode-animator.js"></script>
 
-<!-- the core stuff -->
-<script type="text/javascript" src="/home/player/script/soundmanager2.js"></script>
-<script type="text/javascript" src="/home/player/script/360player.js"></script>
-<script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+
+<script type="text/javascript" charset="utf-8">
+
+$('#carregando_cupons').hide();
+
+$(function() {
+
+	$(".pagination a").on("click", function(event) {
+	 $('#carregando_cupons').show();
+	 $.getScript(this.href);
+	 return false;
+	});
+});
+
+
+$('#carregando_cupons_recentes').hide();
+
+$(function() {
+
+	$(".pagination a").on("click", function(event) {
+	 $('#carregando_cupons_recentes').show();
+	 $.getScript(this.href);
+	 return false;
+	});
+});
 
 
 
-
-
+</script>
 
 </body>
 </html>

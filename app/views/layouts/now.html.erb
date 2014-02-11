@@ -40,44 +40,57 @@
 <%= javascript_include_tag 'jquery' %>
 
 <style type="text/css">
-	.buttom_twitter{background: #01334e; width: 250px; height: 40px; padding: 10px; color:white;}
-	.buttom_twitter a:hover{color:#01334e;}
-	.buttom_twitter:hover{background: white;}
+	.buttom_twitter{
+background: #E3DFDC;
+width: 80%;
+height: 60px;
+padding: 24px;
+color: #01334e;
+position: absolute;
+margin-left: -536px;
+margin-bottom: 20px;
+	}
+
+	.buttom_twitter:hover{background: #01334e;}
+	.buttom_twitter a:hover{color:#fff; background: #01334e;}
+	.buttom_twitter:hover{background: #E3DFDC; font-weight: bold;}
+	.select_city{width: 200px; border: none; border-radius: 0px;}
+
+
 </style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script src="/javascripts/gmaps_google.js"></script>
     <script src="/javascripts/underscore.js"></script>
 
 </head>
-<body>
+<body style="background:#fff;">
 
 <header id="mt-header" class="header-bg-style" >
-		<!-- UI modifyed <div class="container">
-			<div class="logo">
-				<a href="#"><img src="/home/images/logo01.png" alt="logo"/></a>
-			</div>
-			<div class="hgroup">
-				<h1></h1>
-				<h2>Encontre os melhores cupons <br>de sua cidade <span><strong style="color:white;">e obtenha vantagens exclusivas</strong></span>.</h2>
-			</div>
-		</div>-->
+
 </header>
 
 <nav>
 	<div class="main-nav" >
-	<ul  class="perfil"  style="border:1px solid red; width:100%; height:90px;">
+	<ul  class="perfil"  style=" width:100%; height:70px;">
 	<!-- ul left -->
-	<ul id="ulleft" style="width:30%; border:1px solid blue; height:90px; float:left;">
-		
+	<ul id="ulleft" style="width:30%;  height:70px; float:left;">
+		<li style=" margin-left:40px; width:90px; height:100%; padding-top:20px; border-bottom:4px solid #E3DFDC;"> 
+		<%= link_to image_tag('/home/images/homebtn.png'), root_path %>
+		</li>
+		<li style="border-bottom:4px solid #e3dfdc; padding-top:30px; width:200px; height:100%; margin-left:150px; margin-top:-70px;" class="categories">
+			<a href="#" style="color:#dfdfdf;">Categorias</a>
+		</li>
 	</ul><!-- end ul left -->
-	<div id="newlogo" style="border:1px solid red; width:87px; height:50px; float:left; position:absolute; left:600px; top:20px;">
+	<div id="newlogo" style=" width:87px; height:50px; float:left; position:absolute; left:600px; top:10px;">
 		<center>
 			<%= link_to image_tag('/home/images/logo2.png'), root_path, :style => 'float:left;' %>
 		</center>
 	</div>
 	<!-- ul right -->
-	<ul id="ulright" style="width:30%; float:right; border:1px solid red; height:90px;">
-		
+	<ul id="ulright" style="width:40%; padding-top:0px; float:right;  height:70px;">
+		<li style="float:left; margin-left:90px;">
+
+		</li>
 	</ul>
 	<!-- end ul right -->
 	</ul>
@@ -86,15 +99,25 @@
 
 </nav>
 
+
 <%= yield %>
 
-<footer style="background:black;">
+<footer style="background:#E3DFDC; border-top:1px solid #01334e;">
 	<div class="container">
-		<div class="copyright">Traz Cupom <p>&copy;2013 Todos os direitos reservados</p></div>
+		<div class="copyright" style="margin-top:15px;">
+		<br />
+		<ul>
+			<li style="display:inline-block;"><a href="">Como funciona?</a></li>
+			<li style="display:inline-block; margin-left:10px;"><a href="">Termos de uso</a></li>
+			<li style="display:inline-block; margin-left:10px;"><a href="">Politica de privacidade</a></li>
+		</ul>
+		</div>
 		<div class="info">
 			<ul>
-				<li><a href="http://www.ifollowagencia.com.br"><img src="/home/images/logo_primary.png" width="140" height="70" /></a></li>
 
+			
+				<li style="float:right;"><a href="http://www.ifollowagencia.com.br"><img src="/home/images/logo_primary.png" width="80" height="40" /></a></li>
+				<p style="color:#01334e; float:right; margin-right:20px; margin-top:30px;">www.trazcupom.com &copy;2014 Todos os direitos reservados</p>
 			</ul>
 
 		</div>
@@ -122,16 +145,30 @@
 
 <script type="text/javascript" charset="utf-8">
 
-$('#carregando').hide();
+$('#carregando_cupons').hide();
 
 $(function() {
 
 	$(".pagination a").on("click", function(event) {
-	 $('#carregando').show();
+	 $('#carregando_cupons').show();
 	 $.getScript(this.href);
 	 return false;
 	});
 });
+
+
+$('#carregando_cupons_recentes').hide();
+
+$(function() {
+
+	$(".pagination a").on("click", function(event) {
+	 $('#carregando_cupons_recentes').show();
+	 $.getScript(this.href);
+	 return false;
+	});
+});
+
+
 
 </script>
 

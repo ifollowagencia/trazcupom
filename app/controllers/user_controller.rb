@@ -44,6 +44,7 @@ class UserController < ApplicationController
       
       if download.save
         UserMailer.download_ticket(params[:idoffer], @offer.establishment.id,current_user.id).deliver
+        PartnerMailer.send_ticket(params[:idoffer], @offer.establishment.id,current_user.id).deliver
         flash[:message] = 'Parabéns, desfrute seu cupom de desconto :)'
         redirect_to :controller => 'user', :action => 'tickets', :notice => 'Parabéns, desfrute seu cupom de desconto :)'
       else

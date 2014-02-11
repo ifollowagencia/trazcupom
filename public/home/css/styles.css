@@ -10,7 +10,7 @@ Author URI: http://themeforest.net/user/metrothemes/profile?ref=metrothemes
 /*BASIC STYLES
 ------------------------------------------------*/
 
-body { font-family: 'Open Sans', Arial, sans-serif; font-size: 14px; color: #FFFFFF;background-color: #ED145B; }
+body { font-family: 'Open Sans', Arial, sans-serif; font-size: 14px; color: #FFFFFF;background-color: #fff; }
 
 a { text-decoration: none; color: #ffa300; }
 a:hover { text-decoration: underline; }
@@ -89,7 +89,7 @@ header{
 nav{
     background-color: #01334e;
     border-bottom: 1px solid #01334e;
-    height: 90px;
+    height: 70px;
     color: white;
 }
 .nav{
@@ -171,10 +171,10 @@ color: #3D5054;
 }
 nav .is-sticky .main-nav{
     width: 100%;
-    background-color: #F1F3F4;
-    border-bottom: 1px solid #D7DBDC;   
+    background-color: #01334e;
+    border-bottom: 1px solid #E3DFDC;   
     z-index: 9999; 
-    height: 90px;
+    height: 70px;
 }
 .mobilenav{
     display: none;
@@ -184,7 +184,7 @@ nav .is-sticky .main-nav{
 ------------------------------------*/
 
 section{
-    padding: 130px 0px 140px;
+    padding: 30px 0px 20px;
 }
 
 section .header{
@@ -268,7 +268,8 @@ section .header h2{
 	float: left;
     overflow: hidden;
     margin-bottom: 20px;
-    color: #3D5054;    
+    color: #3D5054;
+    background: #E3DFDC;    
 }
 
 .sm2-visualization {
@@ -297,9 +298,10 @@ section .header h2{
     margin-bottom: -10px;
     margin-top: -8px;
     text-align: center;
+    background: #E3DFDC;
 }
 .tinfo{
-    background: none repeat scroll 0 0 #FFFFFF;
+    background: none repeat scroll 0 0 #E3DFDC;
     outline: 1px solid #EAEDEE;
     padding: 10px;
 }
@@ -307,7 +309,8 @@ section .header h2{
     border-bottom: 1px solid #EAEDEE;
     text-align: center;
     line-height: 40px;
-    color: #3D5054;    
+    color: #fff; 
+    background: #01334e;   
 }
 
 .tinfo .social{
@@ -501,7 +504,7 @@ article .info {
 }
 
 .contact {
-    background:none repeat scroll 0 0 #000;
+    background:none repeat scroll 0 0 #01334e;
     height: 400px;
     position: absolute;
     z-index: 2;

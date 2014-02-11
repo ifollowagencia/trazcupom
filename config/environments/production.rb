@@ -78,18 +78,15 @@ Trazcupom::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  smtp_client = Net::SMTP.new "smtp.mailgun.org"
-  smtp_client.enable_tls(OpenSSL::SSL::VERIFY_NONE)
-
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :authentication => :plain,
-    :address => "smtp.mailgun.org",
-    :port => 587,
-    :domain => "sandbox32726.mailgun.org",
-    :user_name => "postmaster@sandbox32726.mailgun.org",
-    :password => "rub32912289",
-    :enable_starttls_auto => false
-  }
+  config.action_mailer.delivery_method = :smtp 
+  config.action_mailer.smtp_settings = { 
+    :address              => "smtp.gmail.com", 
+    :port                 => 587, 
+    :domain               => 'gmail.com', 
+    :user_name            => 'antonio.eschola', 
+    :password             => 'rub32912289', 
+    :authentication       => 'plain', 
+    :enable_starttls_auto => true  
+  } 
 
 end

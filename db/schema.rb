@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140206004546) do
+ActiveRecord::Schema.define(version: 20140211030840) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140206004546) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
-  create_table "addressestablishments", force: true do |t|
+  create_table "address_establishments", force: true do |t|
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140206004546) do
     t.datetime "updated_at"
   end
 
-  add_index "addressestablishments", ["establishment_id"], name: "index_addressestablishments_on_establishment_id"
+  add_index "address_establishments", ["establishment_id"], name: "index_address_establishments_on_establishment_id"
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20140206004546) do
     t.datetime "updated_at"
   end
 
-  create_table "categoryestablishments", force: true do |t|
+  create_table "category_establishments", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -125,29 +125,32 @@ ActiveRecord::Schema.define(version: 20140206004546) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
-    t.string   "adress"
+    t.string   "address_establishment_id"
     t.string   "site"
     t.text     "description"
     t.string   "facebook"
     t.string   "twitter"
-    t.integer  "categoryestablishment_id"
+    t.integer  "category_establishment_id"
+    t.string   "facebook_link"
+    t.string   "twitter_link"
+    t.string   "instagram_link"
   end
 
+  add_index "establishments", ["category_establishment_id"], name: "index_establishments_on_category_establishment_id"
   add_index "establishments", ["category_id"], name: "index_establishments_on_category_id"
-  add_index "establishments", ["categoryestablishment_id"], name: "index_establishments_on_categoryestablishment_id"
   add_index "establishments", ["city_id"], name: "index_establishments_on_city_id"
   add_index "establishments", ["plan_id"], name: "index_establishments_on_plan_id"
 
-  create_table "imageestablishments", force: true do |t|
+  create_table "image_establishments", force: true do |t|
     t.string   "image"
     t.integer  "establishment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "imageestablishments", ["establishment_id"], name: "index_imageestablishments_on_establishment_id"
+  add_index "image_establishments", ["establishment_id"], name: "index_image_establishments_on_establishment_id"
 
-  create_table "likeestablishments", force: true do |t|
+  create_table "like_establishments", force: true do |t|
     t.integer  "count"
     t.integer  "establishment_id"
     t.datetime "created_at"
@@ -155,8 +158,8 @@ ActiveRecord::Schema.define(version: 20140206004546) do
     t.integer  "user_id"
   end
 
-  add_index "likeestablishments", ["establishment_id"], name: "index_likeestablishments_on_establishment_id"
-  add_index "likeestablishments", ["user_id"], name: "index_likeestablishments_on_user_id"
+  add_index "like_establishments", ["establishment_id"], name: "index_like_establishments_on_establishment_id"
+  add_index "like_establishments", ["user_id"], name: "index_like_establishments_on_user_id"
 
   create_table "locationestablishments", force: true do |t|
     t.string   "address"

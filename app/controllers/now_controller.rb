@@ -22,9 +22,11 @@ WillPaginateRenderers.pagination_options[:twitter_class] = "buttom_twitter" #ren
 
       sleep 1
 
-      @cupons = offer_suggestions.paginate(page: params[:page], per_page: 6)
+      @cupons = offer_suggestions.paginate(page: params[:page], per_page: 3)
 
-      @pins = Addressestablishment.all
+      @all_cupons = Offer.paginate(page: params[:page], per_page: 6)
+
+      @pins = AddressEstablishment.all
       build_makers_for_map
     else
       # caso não esteja logado redireciona pro login
@@ -53,7 +55,7 @@ WillPaginateRenderers.pagination_options[:twitter_class] = "buttom_twitter" #ren
   end
 
   def build_makers_for_map
-    @pins = Addressestablishment.all
+    @pins = AddressEstablishment.all
     @hash = Gmaps4rails.build_markers(@pins) do |pin, marker|
       marker.lat pin.latitude
       marker.lng pin.longitude

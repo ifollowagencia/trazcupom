@@ -1,0 +1,16 @@
+$('#cupons').append('<%= escape_javascript(render("cupons")) %>');
+
+<% if @cupons.current_page < @cupons.total_pages %>
+	$('.buttom_twitter').attr('href','nearme?page=<%= @cupons.current_page + 1 %>');
+
+<% end %>
+
+<% if @cupons.total_pages == @cupons.current_page %>
+    $('.pagination').remove();
+<% end %>
+
+<% if @cupons.current_page %>
+    $('#carregando_cupons').hide();
+<% end %>
+
+
