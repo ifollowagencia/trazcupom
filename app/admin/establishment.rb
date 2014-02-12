@@ -1,5 +1,6 @@
 ActiveAdmin.register Establishment do
 
+permit_params :name, :surname, :phone, :email, :password, :cnpj, :reason, :city_id, :plan_id, :imageprofile, :categoryestablishment_id, :facebook_link, :twitter_link, :instagram_link, :description
 
 
  index do

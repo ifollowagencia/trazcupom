@@ -1,0 +1,132 @@
+<style type="text/css">
+	.circular img{
+	width: 32px;
+	height: 32px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	background: url('/home/images/logo01.png') no-repeat;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	margin-top: 15px;
+	margin-left: 15px;
+	}
+
+	#describetext{
+font-family: "Brandon",sans-serif;
+letter-spacing: 0.05em;
+font-size: 12px;
+color: #666;
+text-transform: uppercase;
+white-space: nowrap;
+position: relative;
+overflow: hidden;
+display: block;
+width: 80%;
+float: left;
+margin-left: 45px;
+margin-top: -29px;
+font-weight: bold;
+padding-left: 10px;
+	}
+
+	#addresstext{
+font-family: "Brandon",sans-serif;
+letter-spacing: 0.05em;
+font-size: 12px;
+color: #666;
+text-transform: uppercase;
+position: relative;
+overflow: hidden;
+display: block;
+margin-top: -10px;
+width: 90%;
+height: 70px;
+float: left;
+margin-left: 19px;
+
+
+	}
+
+.loopestab a img{
+
+
+}
+h1{color:#01334e;}
+</style>
+
+
+
+<% @cupons.each do |cupom| %>
+
+
+<div class="loopestab" style="width:376px; height:480px;  display:inline-block; margin-bottom:105px; margin-left:15px; background:#E3DFDC; ">
+   	
+<%= link_to image_tag(cupom.image1_url(:giga)), cupom, :ioffer => cupom.id %>
+<div id="btnoffers" style="width:266px; margin-left:50px;  margin-top:40px; height:40px; background:#3F6186; ">
+	<ul style=" width:100%; height:100%;">
+	 
+	    <li style="margin-left:5px; width:30%; height:100%;  display:inline-block; padding:10px;">
+	    [<%= Commentestab.where("establishment_id = ?", cupom.establishment.id).count %>]
+	    	<%= link_to image_tag '/home/images/comment.png' , :style => 'margin-left:10px; width:17px; height:17px' %>
+	    </li>
+	    <li style="margin-left:5px; width:30%; height:100%; display:inline-block;">
+	    [<%= LikeEstablishment.where("establishment_id = ?", cupom.establishment.id).count %>]
+	    	<%= link_to image_tag '/home/images/like.png' , :style => 'margin-left:10px; width:17px; height:17px' %>
+	    	
+	    </li>
+	    <li style="margin-left:5px; width:30%; height:100%; display:inline-block; ">
+	    	<%= number_to_percentage(get_discount(cupom.id), precision: 0) %> OFF
+	    </li>
+	
+	</ul>
+</div>
+<div class="describeestab" style="width:100%; height:100px;">
+	<div class="circular">
+		<%= image_tag(cupom.establishment.imageprofile_url(:thumb)) %>
+	</div>
+	<p id="describetext">
+		<%= cupom.establishment.reason %>
+	</p>
+	<p id="addresstext">
+	    <%= link_to cupom.name.truncate(80), cupom, :idoffer => cupom.id %>
+	</p>
+</div>
+</div>
+	
+
+
+
+
+
+<!--
+			<div class="span4 eblock" id="offerhome">
+				<div class="econtainer">
+					<div class="ehalf" style="">
+					 <div class="markerdeal" style="position:absolute; background: url('/home/images/dealthumb.png') no-repeat; width:77px; height:61px; margin-left:102px; margin-top:-10px; ">
+					 	<p style="color:white; font-weight:bold; margin-left:30px; margin-top:10px;"><%= number_to_percentage(get_discount(cupom.id), precision: 0) %> </p>
+					 	<p style="color:white; font-weight:bold; margin-top:-20px; margin-left:30px;">OFF!</p>
+					 </div>
+						<%= image_tag cupom.image1_url(:banner_thumb) %>
+					</div>
+					<div class="ehalf" style="padding:5px;">
+						<h3 style="font-weight:bold;"><a href="#"><%= cupom.establishment.reason %></a></h3>
+						
+						<i class="icon-home"><span><%= cupom.establishment.city.name %></span></i><br />
+						<i class="icon-time"><span><%= cupom.validity.strftime('%d/%m/%y') %></span></i><br />
+
+						<% @produto = Product.find(cupom.product.id) %>
+						<p style="color:red;"><strike>De: <%= number_to_currency(@produto.price, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "R$") %> </strike></p>
+						<h5 style="color:#01334e; margin-top:-20px; font-weight:bold;">Por: <%= number_to_currency(cupom.priceproduct, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "R$") %></h5>
+						<div class="date" style="background:#01334e; color:white;">
+							
+							<%= link_to 'Pegar', cupom, :idoffer => cupom.id , :style => "color:white;" %>
+						</div>						
+					</div>
+				</div>
+			</div>
+-->
+		<% end %>
+		
+	

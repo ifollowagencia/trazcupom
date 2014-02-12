@@ -1,7 +1,12 @@
+require 'will_paginate/array' #dependencia will_paginate
 class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
 
   helper :home
+
+WillPaginateRenderers.pagination_options[:twitter_label] = "Carregar mais" #render twitter pagination
+
+WillPaginateRenderers.pagination_options[:twitter_class] = "buttom_twitter" #render twitter pagination
 
 
   # GET /offers
@@ -22,19 +27,17 @@ class OffersController < ApplicationController
 
       @youngprice = @offer.priceproduct
 
-      # Algoritmo para calcular a porcentagem de desconto , na verdade calcular uma porcentagem mais veloz
-
-      # finalizado algoritmo para calcular o disconto total no produto
-
-      # printando no mapa o endereço do estabelecimento
-
       @downloads = has_downloaded(@offer.id)
+
+      @rest = rest(@offer.id)
 
       @address = AddressEstablishment.where(establishment_id: @offer.establishment.id).first
 
+      @cupons = offer_suggestions.paginate(page: params[:page], per_page: 3)
+
       #notes
-      @note = Note.where("offer_id = ?", @offer)
-      @rule = Rule.where("offer_id = ?", @offer)
+      @note = Note.where("offer_id = ?", @offer).last
+      @rule = Rule.where("offer_id = ?", @offer).last
 
       @feedimages = ImageEstablishment.where("establishment_id = ?", @offer.establishment_id)
 
@@ -113,6 +116,21 @@ class OffersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_offer
       @offer = Offer.find(params[:id])
+    end
+
+    def offer_suggestions
+    if current_user.visited_offers.empty?
+      Offer.all
+    else
+      Offer.suggestions_by_category_establishments(current_user)
+    end
+    end
+
+    def rest(offer_id)
+      @offer = Offer.find(offer_id)
+      @qtde = Download.where("offer_id = ?", offer_id).count()
+
+      @calc = @offer.amount - @qtde
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,4 +1,88 @@
-<section id="tickets" style="background:white; " class="cupons">
+<section id="tickets" style="background:#f8f8f8; min-height:1100px;" class="cupons">
+
+	<div id="left">
+		<h1><%= @offer.name %></h1>
+		<div id="images">
+			<img id="img_01" class="imgprimary" src="<%= @offer.image1_url(:banner_thumb) %>" data-zoom-image="<%= @offer.image1_url(:giga) %>" style=" margin-left:40px; width:80%; height:350px;" />
+
+					<div id="gal1" style="margin-left:12%; margin-top:20px;">
+					 
+					  <a href="#" data-image="<%= @offer.image1_url(:thumb) %>" data-zoom-image="<%= @offer.image1_url(:giga) %>">
+					    <img id="img_01" src="<%= @offer.image1_url(:thumb) %>" />
+					  </a>
+
+					<a href="#" data-image="<%= @offer.image2_url(:thumb) %>" data-zoom-image="<%= @offer.image2_url(:giga) %>">
+					    <img id="img_02" src="<%= @offer.image2_url(:thumb) %>" />
+					  </a>
+					<a href="#" data-image="<%= @offer.image3_url(:thumb) %>" data-zoom-image="<%= @offer.image3_url(:giga) %>">
+					    <img id="img_03" src="<%= @offer.image3_url(:thumb) %>" />
+					  </a>
+					<a href="#" data-image="<%= @offer.image4_url(:thumb) %>" data-zoom-image="<%= @offer.image4_url(:giga) %>">
+					    <img id="img_04" src="<%= @offer.image4_url(:thumb) %>" />
+					  </a>
+
+					</div>
+		</div>
+		<div id="description_offer">
+		<h5 style="color:#818181;" >O que é?</h5><hr style="border:1px solid #01334e;" />
+			<p><%= @offer.description %></p>
+		<h5 style="color:#818181;" >Onde é?</h5><hr style="border:1px solid #01334e;" />
+
+		<%= image_tag "http://maps.google.com/maps/api/staticmap?size=300x150&sensor=false&zoom=16&markers=#{@address.latitude}%2C#{@address.longitude}", :style => 'width:100%; ' %>
 
 
+		</div>
+
+
+		<div id="details_offer">
+			<div style="white-space: nowrap; position: relative; margin-top:10px; text-align: center;">
+			<span><%= number_to_currency(@offer.priceproduct, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "R$") %></span>
+		    </div>
+		    <div id="qtdoffer">
+		    	<%= @rest.to_s + " Disponivel" %>
+		    </div>
+
+		    <div id="btnquero">
+		    	<%= link_to "Pegar ;)", {:controller => "user", :action => "download", :idoffer => @offer.id}, :style => 'text-align:center; color:white; font-weight:bold; font-size:24px; margin-left:50px; margin-top:10px;'  %>
+		    </div>
+
+		    <hr style="border:1px solid #01334e;" />
+
+		    <div id="qtdoffer" style="border:none; font-weight:bold;">
+		    	Até: <%= @offer.validity.strftime(" %d/%m/%Y ") %>
+		    </div>
+		</div>
+		<div id="details">
+			<h5 style="color:#818181;" >Condições de uso</h5><hr style="border:1px solid #01334e;" />
+			<p style="color:#818181; text-align:justify;"><%= @rule.description %></p>
+		</div>
+		<div id="detailsr">
+			<h5 style="color:#818181;" >Observação</h5><hr style="border:1px solid #01334e;" />
+			<p style="color:#818181; text-align:justify;"><%= @note.description %></p>
+		</div>
+	</div><!-- end div left -->
+
+</section>
+
+<section id="tickets" style="background:#f8f8f8;  margin-bottom:90px;" class="cupons">
+  <div class="container">
+
+    <div class="row">
+
+      <div id="cupons">
+      <h1> Sugerimos para você </h1><hr /><br />
+        <%= render 'cupons' %>
+
+      </div>
+      <div id="carregando_cupons"><center><img src='/home/images/loading.gif' width='20' height='20' /></center></div>
+      <div id="append_and_paginate">
+        <center><%= will_paginate @cupons, :renderer => WillPaginateRenderers::Twitter %></center>
+      </div>
+
+
+
+    </div>
+
+
+  </div>
 </section>
