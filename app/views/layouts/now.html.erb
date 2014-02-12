@@ -55,7 +55,38 @@ margin-bottom: 20px;
 	.buttom_twitter a:hover{color:#fff; background: #01334e;}
 	.buttom_twitter:hover{background: #E3DFDC; font-weight: bold;}
 	.select_city{width: 200px; border: none; border-radius: 0px;}
+	#circle {
+    background:#ccc;
+    margin-left: 35px;
+    height:60px;
+    width:60px;
+    -moz-border-radius:64px;
+    -webkit-border-radius:64px;
+}
+.dropdown-toggle img{
+	margin-top: 15px;
+	margin-left: 0px;
+}
 
+.dropdown-arrow{margin-top: 30px;}
+.dropdown-menu{
+	margin-top: -33px; 
+	margin-left: -40px; 
+	width: 100px; 
+	border-radius: 0px; 
+	background: #E3DFDC; 
+	padding: 0px;
+
+}
+.dropdown-menu li{
+	border: 0px;
+	background: #E3DFDC;
+	height: 50px;
+	padding: 10px;
+}
+.dropdown-menu li a:hover{
+	background: #01334e;
+}
 
 </style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
@@ -87,8 +118,21 @@ margin-bottom: 20px;
 		</center>
 	</div>
 	<!-- ul right -->
-	<ul id="ulright" style="width:40%; padding-top:0px; float:right; border:1px solid red; height:70px;">
-		
+	<ul id="ulright" style="width:40%; padding-top:0px; float:right; height:70px;">
+				<li style="float:left; margin-left:230px; padding:5px; width:150px; height:100%; background:#E3DFDC;">
+		 <div id="circle">
+
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/home/images/user-icon.png"> </b></a>
+                  <span class="dropdown-arrow"></span>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Meu Perfil</a></li>
+                    <li><a href="#">Meus Cupons</a></li>
+                    <li><a href="#">Configurações</a></li>
+                    <li><a href="#">Sair</a></li>
+                  </ul>
+
+		 </div>
+		</li>
 	</ul>
 	<!-- end ul right -->
 	</ul>

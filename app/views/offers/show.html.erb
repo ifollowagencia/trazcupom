@@ -25,21 +25,21 @@
 		</div>
 		<div id="description_offer">
 		<h5 style="color:#818181;" >O que é?</h5><hr style="border:1px solid #01334e;" />
-			<p><%= @offer.description %></p>
+			<p style="height:226px; width:330px;"><%= @offer.description %></p>
 		<h5 style="color:#818181;" >Onde é?</h5><hr style="border:1px solid #01334e;" />
 
-		<%= image_tag "http://maps.google.com/maps/api/staticmap?size=300x150&sensor=false&zoom=16&markers=#{@address.latitude}%2C#{@address.longitude}", :style => 'width:100%; ' %>
+		<%= image_tag "http://maps.google.com/maps/api/staticmap?size=300x150&sensor=false&zoom=16&markers=#{@address.latitude}%2C#{@address.longitude}", :style => 'width:100%;  margin-bottom:20px;' %>
 
 
 		</div>
 
-
+		<div style="clear:both;"></div>
 		<div id="details_offer">
 			<div style="white-space: nowrap; position: relative; margin-top:10px; text-align: center;">
 			<span><%= number_to_currency(@offer.priceproduct, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "R$") %></span>
 		    </div>
 		    <div id="qtdoffer">
-		    	<%= @rest.to_s + " Disponivel" %>
+		    	<%= @rest.to_s + " Disponiveis" %>
 		    </div>
 
 		    <div id="btnquero">
@@ -48,10 +48,25 @@
 
 		    <hr style="border:1px solid #01334e;" />
 
-		    <div id="qtdoffer" style="border:none; font-weight:bold;">
-		    	Até: <%= @offer.validity.strftime(" %d/%m/%Y ") %>
+		    <div id="validity" style="border:none; width:100%; height:150px;">
+		    	<p style="text-align:center; font-size:14px; color:#818181;"><%= @offer.establishment.reason %></p>
+		    	<div style="width:100%; height:120px;" >
+		    		<%= image_tag @offer.establishment.imageprofile_url(:mega_thumb), :style => 'position:relative; top:0%; left:30%;' %>
+		    	</div>
+		    </div>
+		    <hr style="border:1px solid #01334e;" />
+		    <div id="likeoffer" style="width:100%; height:100px; background:#dfdfdf;  padding:10px;">
+		    	<p style="color:#818181; text-align:center;">Gostou deste cupom?</p>
+		    	<div style="width:200px; height:40px; background:#01334e; text-align:center; padding-top:10px; margin-left:5px;">
+		    	<%= link_to "Compartilhe", share_with_facebook_url({ :url   => "http://#{request.host+request.fullpath}",
+                                                           :title => @offer.name,
+                                                           :images => {0 => "http://#{request.host}+#{@offer.image1_url(:banner_thumb)}"},
+                                                           :summary => @offer.description }), :target => "_blank", :style => ' padding:10px; color:white;' %>
+                </div>
 		    </div>
 		</div>
+		<div style="clear:both;"></div>
+		<div style="width:100%; margin-top:30px;">
 		<div id="details">
 			<h5 style="color:#818181;" >Condições de uso</h5><hr style="border:1px solid #01334e;" />
 			<p style="color:#818181; text-align:justify;"><%= @rule.description %></p>
@@ -59,6 +74,7 @@
 		<div id="detailsr">
 			<h5 style="color:#818181;" >Observação</h5><hr style="border:1px solid #01334e;" />
 			<p style="color:#818181; text-align:justify;"><%= @note.description %></p>
+		</div>
 		</div>
 	</div><!-- end div left -->
 
