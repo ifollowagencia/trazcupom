@@ -60,4 +60,12 @@ describe OffersController do
       expect(response).to render_template :show
     end
   end
+
+  describe "like" do
+    it "a offer" do
+      offer = create(:offer)
+      post :like, offer_id: offer.id, format: :js
+      expect(response).to render_template 'offers/like'
+    end
+  end
 end
