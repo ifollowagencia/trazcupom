@@ -1,0 +1,7 @@
+<% if @establishment %>
+  var like_count = $("#like-count-<%= @establishment.id %>")
+  like_count.html('')
+  like_count.append("
+    [<%= @establishment.like_establishments.where(establishment_id: @establishment_id.id).first.count %>]
+  ")
+<% end %>

@@ -8,17 +8,17 @@ class EstablishmentsController < ApplicationController
   end
 
   def countlike(estab)
-    
+
     puts estab
     @likes = Likeestablishment.where(:establishment_id => estab).count
   end
 
   def likeestab
-    
+
     @likeestablishment = Likeestablishment.new(:establishment_id => params[:estab])
-    
+
     @establishment = params[:estab]
-    
+
       if @likeestablishment.save
       redirect_to :back
       end
@@ -37,7 +37,7 @@ class EstablishmentsController < ApplicationController
 
      puts "Cidade: #{@city}"
     @name = current_user.name
-    
+
     resultoffer = Offer.where("establishment_id = ?", params[:id])
     sleep 1
     @cupons = resultoffer.paginate(:page=>params[:page], :per_page => 4)
@@ -47,7 +47,7 @@ class EstablishmentsController < ApplicationController
     @images = Imageestablishment.where("establishment_id = ?", params[:id]).count()
 
     @feedimages = Imageestablishment.where("establishment_id = ?", params[:id]).last(10)
-    
+
     else
       redirect_to new_user_session_path
     end
@@ -103,6 +103,16 @@ class EstablishmentsController < ApplicationController
       format.html { redirect_to establishments_url }
       format.json { head :no_content }
     end
+  end
+
+  def like
+    @establishment = Establishment.find_by_id(params[:establishment_id])
+    if @establishment
+      LikeManager.new(@establishment, current_user).perform_like
+    else
+      flash[:error] = 'Problem to like this establishment'
+    end
+    render layout: nil
   end
 
   private

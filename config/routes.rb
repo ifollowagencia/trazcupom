@@ -37,7 +37,9 @@ Trazcupom::Application.routes.draw do
 
   resources :user
 
-  resources :establishments
+  resources :establishments do
+    post :like
+  end
 
   devise_for :partners
 
