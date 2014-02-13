@@ -1,3 +1,5 @@
+require 'devise'
+
 class API < Grape::API
   prefix 'api'
   logger Rails.logger
@@ -5,5 +7,5 @@ class API < Grape::API
   default_error_formatter :json
 
   mount Resources::Sync
-
+  mount Resources::Users
 end
