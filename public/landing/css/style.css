@@ -142,7 +142,7 @@ p {
 
 a {
 	text-decoration: none;
-	color: #3097be;
+	color: #FFF;
 	-webkit-transition: color linear .2s;
 	-moz-transition: color linear .2s;
 	-o-transition: color linear .2s;
@@ -209,11 +209,11 @@ a:hover {
 }
 
 .white-background {
-	background: white;
+	background: #F8F8F8;
 }
 
 .light-gray-background {
-	background: #f2f2f2;
+	background: #F8F8F8;
 }
 
 .gray-background {
@@ -221,7 +221,7 @@ a:hover {
 }
 
 .dark-gray-background {
-	background: #333333;
+	background: #01334e;
 }
 
 .dark-gray-background h2 {
@@ -229,7 +229,7 @@ a:hover {
 }
 
 .dark-gray-background p {
-	color: #bebebe;
+	color: #fff;
 }
 
 .darker-background {
@@ -293,7 +293,7 @@ label.error {
 ============================================== */
 
 .header {
-	background: #ffffff;
+	background: #01334e;
 	width: 100%;
 	height: 74px;
 	border-bottom: 1px solid #eaeaea;
@@ -311,7 +311,7 @@ body.fixed-nav .header {
 }
 
 .logo {
-	padding-top:8px;
+	padding-top:4px;
 }
 
 ul.nav {
@@ -328,15 +328,15 @@ ul.nav li {
 
 ul.nav li a {
 	padding: 30px 20px;
-	color: #333333;
+	color: #FFF;
 	-webkit-transition: color linear .2s, background linear .2s;
 	-moz-transition: color linear .2s, background linear .2s;
 	-o-transition: color linear .2s, background linear .2s;
 }
 
 ul.nav li a:hover {
-	color: #3097be;
-	background: #f2f2f2;
+	color: #01334e;
+	background: #E3DFDC;
 }
 
 .mobile-nav {

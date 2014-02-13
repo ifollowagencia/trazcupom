@@ -2,7 +2,7 @@
 		<!-- ==============================================
 		Header
 		=============================================== -->
-		<section class="header">
+		<section class="header" style="height:78px;">
 			<div class="container">
 				<div class="row">
 					<div class="span12">
@@ -10,9 +10,9 @@
 						<!-- ==============================================
 						Logo
 						=============================================== -->
-						<div class="logo float-left">
+						<div class="logo float-left" style=" width:106px; height:78px;">
 							<a href="#top">
-								<%= link_to image_tag('/landing/images/logo01.png'), root_path %>
+								<%= link_to image_tag('/landing/images/logo01.png'), root_path, :style => " " %>
 							</a>
 						</div>
 						<!-- End Logo 
@@ -27,7 +27,7 @@
 							<li><a href="#tops">Tops</a></li>
 							<li><a href="#onde">Onde?</a></li>
 							<li><%= link_to "Anúncie", {:controller => 'landing', :action => 'anuncie'} %></li>
-							<li><%= link_to "Entrar", {:controller => "home", :action => "nearme"}, :style => 'background:#3097be; color:white;' %></li>
+							<li><%= link_to "Entrar", {:controller => "home", :action => "nearme"}, :style => 'background:#E3DFDC; color:#01334e;' %></li>
 						</ul>
 						<!-- End Navigation 
 						=============================================== -->
@@ -87,7 +87,7 @@
 		</section>
 		<!-- End Teaser 
 		============================================== -->
- <div style="width:100%; height:6px; background:#01334e;"></div>
+ <div style="width:100%; height:6px; background:#E3DFDC;"></div>
 		<!-- ==============================================
 		Intro
 		=============================================== -->
@@ -97,7 +97,7 @@
 
 
 					<div class="span7 offset1" style="margin-left:-15px; padding-left:13px;">
-						<h2 class="padding-top">Encontre inúmeros cupons de descontos dos melhores estabelecimentos de sua <span>cidade </span> gratuitamente!</h2>
+						<h2 class="padding-top">Encontre inúmeros cupons de descontos dos melhores estabelecimentos de sua <span style="color:#01334e;">cidade </span> gratuitamente!</h2>
 						<p>Agora você pode baixar gratuitamente inúmeros cupons de descontos. Pode navegar pelos estabelecimentos, conferir o que seus amigos estão baixando e consumindo!</p>
 						<p>Não perca mais tempo, comece agora mesmo a economizar e consumir produtos e serviços por toda a cidade.
 						Cadastre-se, rápido e facilmente. Convide seus amigos e inicie esta grande jornada de descontos....</p>
@@ -119,8 +119,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="span12">
-						<h1 class="no-margin-bottom" style="color:#01334e;">Recomendamos</h1>
-						<hr>
+						<h1 class="no-margin-bottom" style="color:#818181;">Recomendamos</h1>
+						<hr style="border:1px solid #01334e;">
 					</div>
 				</div>
 			<div class="row" id="results">

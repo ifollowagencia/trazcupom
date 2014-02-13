@@ -2,12 +2,12 @@
 					<!-- ==============================================
 					First Rec
 					=============================================== -->
-					<div class="span6" style="width:400px; margin-bottom:30px; padding:20px; background:#dfdfdf; height:300px;">
+					<div class="span6" style="width:400px; margin-bottom:30px; padding:20px; background:#E3DFDC; height:300px;">
 						<div class="icon-container float-left" style="with:300px; height:200px; margin-bottom:20px;">
 							<%= image_tag establishment_rec.imageprofile_url(:banner_thumb), :style => "width:200px; margin-bottom:20px;" %>
 						</div>
 						<div style="float:right; width:156px; height:210px; ">
-						<p style="font-weight:bold; font-size:14px;"><strong><%= link_to establishment_rec.reason, establishment_rec, :style => 'font-size:18px;'  %></strong></p>
+						<p style="font-weight:bold; font-size:14px; color:#818181;"><strong><%= link_to establishment_rec.reason, establishment_rec, :style => 'font-size:18px; color:#01334e;'  %></strong></p>
 						<p><i class="icon-map-marker">&nbsp;<%= establishment_rec.city.name %></i></p>
 						<% aux = Offer.where("establishment_id = ?", establishment_rec.id).count %>
 						<% if aux <= 1 %>
@@ -17,7 +17,7 @@
 						<% end %>
 						<p><i class="icon-tag">&nbsp;<%= message_offer %> </i></p>
 
-						<p><i class="icon-heart">&nbsp;<%= Likeestablishment.where("establishment_id = ?", establishment_rec).count %> curtiram </i></p>
+						<p><i class="icon-heart">&nbsp;<%= LikeEstablishment.where("establishment_id = ?", establishment_rec).count %> curtiram </i></p>
 						
 
 					</div><br />
