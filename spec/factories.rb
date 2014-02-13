@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :user do
      sequence(:email) {|n| "user#{n}@email.com" }
      password '12345678'
+     authentication_token '123456ASDZXC'
    end
 
    factory :category_establishment do
