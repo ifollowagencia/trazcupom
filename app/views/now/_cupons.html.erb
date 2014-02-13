@@ -72,10 +72,13 @@ h1{color:#01334e;}
 	    </li>
 
 	    <li id="like-<%= cupom.id %>" style="margin-left:5px; width:30%; height:100%; display:inline-block;">
-	     <span id="like-count-<%= cupom.id %>">[<%= cupom.like_offers.where(offer_id: cupom.id).first.count %>]</span>
-	    	<%= link_to image_tag('/home/images/like.png'), offer_like_path(cupom), data:{ method: :post, remote: true }, remote: true, style: 'margin-left:10px; width:17px; height:17px' %>
-	    </li>
-
+      <% if cupom.like_offers.count > 0 %>
+        <span id="like-count-<%= cupom.id %>">[<%= cupom.like_offers.where(offer_id: cupom.id).first.count %>]</span>
+      <% else %>
+        <span id="like-count-<%= cupom.id %>">[0]</span>
+      <% end %>
+      <%= link_to image_tag('/home/images/like.png'), offer_like_path(cupom), data:{ method: :post, remote: true }, remote: true, style: 'margin-left:10px; width:17px; height:17px' %>
+      </li>
 	    <li style="margin-left:5px; width:30%; height:100%; display:inline-block; ">
 	    	<%= number_to_percentage(get_discount(cupom.id), precision: 0) %> OFF
 	    </li>
