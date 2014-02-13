@@ -189,8 +189,7 @@ text-align: center;
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script src="/javascripts/gmaps_google.js"></script>
     <script src="/javascripts/underscore.js"></script>
-    <script src="http://www.elevateweb.co.uk/wp-content/themes/radial/jquery.elevatezoom.min.js" type="text/javascript"></script>
-<script src="http://www.elevateweb.co.uk/wp-content/themes/radial/jquery.fancybox.pack.js" type="text/javascript"></script>
+
 
 </head>
 <body style="background:#fff;">
@@ -309,15 +308,6 @@ $(function() {
 	});
 });
 
-//initiate the plugin and pass the id of the div containing gallery images
-$("#zoom_03").elevateZoom({gallery:'gallery_01', cursor: 'pointer', galleryActiveClass: 'active', imageCrossfade: true, loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif'}); 
-
-//pass the images to Fancybox
-$("#zoom_03").bind("click", function(e) {  
-  var ez =   $('#zoom_03').data('elevateZoom');	
-	$.fancybox(ez.getGalleryList());
-  return false;
-});
 
 
 </script>
@@ -331,6 +321,7 @@ $("#zoom_03").bind("click", function(e) {
   ga('send', 'pageview');
 
 </script>
+
 
 </body>
 </html>
