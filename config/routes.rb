@@ -33,7 +33,7 @@ Trazcupom::Application.routes.draw do
 
   #resources :likeestablishments
 
-  #resources :address_establishments
+  resources :address_establishments
 
   #resources :locationestablishments
 
