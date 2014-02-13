@@ -5,6 +5,7 @@ class Establishment < ActiveRecord::Base
 
   has_many :offers
   has_many :products
+  has_many :like_establishments
 
   validates :email, uniqueness: true
   mount_uploader :imageprofile, EstablishmentUploader
