@@ -17,6 +17,8 @@ gem 'turbolinks'
 
 gem 'jbuilder', '~> 1.2'
 
+gem 'grape'
+
 group :development do
   gem "quiet_assets"
   gem 'better_errors'

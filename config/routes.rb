@@ -2,17 +2,19 @@ Trazcupom::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  
+
+  mount API => '/'
+
   get "now/index"
-  
+
   #get "admin/dashboard"
-  
+
   get "pdfticket/print"
 
   #resources :image_establishments
 
   get "getcupom/download"
-  
+
   #resources :downloads
 
   get "coming/soon"
@@ -46,17 +48,17 @@ Trazcupom::Application.routes.draw do
   #resources :products
 
   get "user/profile"
-  
+
   #resources :categories
 
   get "partner/login"
-  
+
   get "establishments/likeestab"
-  
+
   get "landing/anuncie"
-  
+
   get 'landing/ticket'
-  
+
   get  'user/download'
 
   get 'user/tickets'
@@ -67,7 +69,7 @@ Trazcupom::Application.routes.draw do
 
 
   devise_for :partners
-  
+
   #resources :plans
 
   #resources :cities
@@ -75,7 +77,7 @@ Trazcupom::Application.routes.draw do
 
 
   get "home/nearme"
-  
+
   get "landing/page"
 
   match 'user/:id/edit' => 'user#edit', :as => :update_profile, via: [:patch]
@@ -83,7 +85,7 @@ Trazcupom::Application.routes.draw do
   match 'partner/partner_auth' => 'partner#partner_auth', :as => :login_partner, via: [:post]
 
   match 'partner/dashboard' => 'partner#dashboard', :as => :dashboard, via: [:get]
-  
+
   match 'partner/destroy_user' => 'partner#destroy_user', :as => :partner_logout, via: [:post]
 
   get 'partner/destroy_user'
