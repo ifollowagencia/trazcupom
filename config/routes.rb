@@ -5,17 +5,12 @@ Trazcupom::Application.routes.draw do
 
   mount API => '/'
 
-  get "now/index"
 
-  #get "admin/dashboard"
+  get "now/index"
 
   get "pdfticket/print"
 
-  #resources :image_establishments
-
   get "getcupom/download"
-
-  #resources :downloads
 
   get "coming/soon"
 
@@ -23,33 +18,13 @@ Trazcupom::Application.routes.draw do
 
   get 'user/update_password'
 
-  #get  'admin/timeline'
-
   get 'now/index'
 
-  #resources :category_establishments
-
-  #resources :commentestabs
-
-  #resources :likeestablishments
-
-  resources :address_establishments
-
-  #resources :locationestablishments
-
-  #resources :catches
-
-  #resources :notes
-
-  #resources :rules
-
-  resources :offers, only: [:show]
-
-  #resources :products
+  resources :offers do
+    post :like
+  end
 
   get "user/profile"
-
-  #resources :categories
 
   get "partner/login"
 
@@ -67,14 +42,7 @@ Trazcupom::Application.routes.draw do
 
   resources :establishments, only: [:show]
 
-
   devise_for :partners
-
-  #resources :plans
-
-  #resources :cities
-
-
 
   get "home/nearme"
 
