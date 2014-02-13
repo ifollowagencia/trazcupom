@@ -8,6 +8,7 @@ class SyncData
   def perform_sync
     fetch_offers
     fetch_establishments
+    fetch_downloads
     response
   end
 
@@ -22,14 +23,14 @@ class SyncData
   private
 
   def fetch_offers
-    @offers = Offer.newest(@last_sync_date)
+    @offers ||= Offer.newest(@last_sync_date)
   end
 
   def fetch_establishments
-    @establishment = Establishment.newest(@last_sync_date)
+    @establishment ||= Establishment.newest(@last_sync_date)
   end
 
   def fetch_downloads
-    @downloads = Download.newest(@last_sync_date)
+    @downloads ||= Download.newest(@last_sync_date)
   end
 end
