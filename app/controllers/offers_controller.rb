@@ -104,6 +104,16 @@ class OffersController < ApplicationController
     end
   end
 
+  def like
+    @offer = Offer.find_by_id(params[:offer_id])
+    if @offer
+      LikeManager.new(@offer, current_user).perform_like
+    else
+      flash[:error] = 'Problem to like this offer'
+    end
+    render layout: nil
+  end
+
   private
 
     def has_downloaded(offer_id)
