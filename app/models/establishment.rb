@@ -10,4 +10,6 @@ class Establishment < ActiveRecord::Base
   validates :email, uniqueness: true
   mount_uploader :imageprofile, EstablishmentUploader
 
+  scope :newest, lambda {|updated_at| where("updated_at > ?", updated_at)}
+
 end
